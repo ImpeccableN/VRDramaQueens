@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="1_qqli4"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="2_r6trg"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="2_s6fbs"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_35ca7"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="3_vjbke"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_hv7is"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_2watw"]
-[ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="6_s2vat"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sics8"]
 size = Vector3(10, 1, 10)
@@ -40,6 +40,8 @@ pose = &"aim"
 [node name="MovementDirect" parent="XROrigin3D/LeftController" instance=ExtResource("2_s6fbs")]
 strafe = true
 
+[node name="FunctionPickup" parent="XROrigin3D/LeftController" instance=ExtResource("3_35ca7")]
+
 [node name="RightController" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0)
 tracker = &"right_hand"
@@ -51,13 +53,9 @@ pose = &"aim"
 
 [node name="MovementTurn" parent="XROrigin3D/RightController" instance=ExtResource("4_hv7is")]
 
-[node name="PlayerBody" type="CharacterBody3D" parent="XROrigin3D" groups=["player_body"] instance=ExtResource("5_2watw")]
-process_priority = -100
-process_physics_priority = -100
-top_level = true
-collision_layer = 524288
-collision_mask = 1023
-script = ExtResource("6_s2vat")
+[node name="FunctionPickup" parent="XROrigin3D/RightController" instance=ExtResource("3_35ca7")]
+
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("5_2watw")]
 
 [node name="Ground" type="StaticBody3D" parent="."]
 
