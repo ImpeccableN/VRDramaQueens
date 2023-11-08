@@ -1,7 +1,6 @@
-@tool
-@icon("res://addons/godot-xr-tools/editor/icons/hand.svg")
-class_name XRToolsHand
-extends Node3D
+tool
+class_name XRToolsHand, "res://addons/godot-xr-tools/editor/icons/hand.svg"
+extends Spatial
 
 
 ## XR Tools Hand Script
@@ -9,7 +8,7 @@ extends Node3D
 ## This script manages a godot-xr-tools hand. It animates the hand blending
 ## grip and trigger animations based on controller input.
 ##
-## Additionally the hand script detects world-scale changes in the XRServer
+## Additionally the hand script detects world-scale changes in the ARVRServer
 ## and re-scales the hand appropriately so the hand stays scaled to the
 ## physical hand of the user.
 
@@ -19,32 +18,24 @@ signal hand_scale_changed(scale)
 
 
 ## Blend tree to use
-@export var hand_blend_tree : AnimationNodeBlendTree: set = set_hand_blend_tree
+export var hand_blend_tree : AnimationNodeBlendTree setget set_hand_blend_tree
 
 ## Override the hand material
-@export var hand_material_override : Material: set = set_hand_material_override
+export var hand_material_override : Material setget set_hand_material_override
 
 ## Default hand pose
-@export var default_pose : XRToolsHandPoseSettings: set = set_default_pose
+export var default_pose : Resource setget set_default_pose
 
-## Name of the Grip action in the OpenXR Action Map.
-@export var grip_action : String = "grip"
-
-## Name of the Trigger action in the OpenXR Action Map.
-@export var trigger_action : String = "trigger"
 
 
 ## Last world scale (for scaling hands)
 var _last_world_scale : float = 1.0
 
-## Controller used for input/tracking
-var _controller : XRController3D
-
 ## Initial hand transform (from controller) - used for scaling hands
-var _transform : Transform3D
+var _transform : Transform
 
 ## Hand mesh
-var _hand_mesh : MeshInstance3D
+var _hand_mesh : MeshInstance
 
 ## Hand animation player
 var _animation_player : AnimationPlayer
@@ -83,9 +74,9 @@ class PoseOverride:
 		settings = s
 
 
-# Add support for is_xr_class on XRTools classes
-func is_xr_class(name : String) -> bool:
-	return name == "XRToolsHand"
+# Add support for is_class on XRTools classes
+func is_class(name : String) -> bool:
+	return name == "XRToolsHand" or .is_class(name)
 
 
 ## Called when the node enters the scene tree for the first time.
@@ -93,11 +84,8 @@ func _ready() -> void:
 	# Save the initial hand transform
 	_transform = transform
 
-	# Find our controller
-	_controller = XRTools.find_xr_ancestor(self, "*", "XRController3D")
-
 	# Find the relevant hand nodes
-	_hand_mesh = _find_child(self, "MeshInstance3D")
+	_hand_mesh = _find_child(self, "MeshInstance")
 	_animation_player = _find_child(self, "AnimationPlayer")
 	_animation_tree = _find_child(self, "AnimationTree")
 
@@ -112,50 +100,61 @@ func _ready() -> void:
 ## It then reads the grip and trigger action values to animate the hand.
 func _process(_delta: float) -> void:
 	# Do not run physics if in the editor
-	if Engine.is_editor_hint():
+	if Engine.editor_hint:
 		return
 
-	# Scale the hand mesh with the world scale.
-	if XRServer.world_scale != _last_world_scale:
-		_last_world_scale = XRServer.world_scale
+	# Scale the hand mesh with the world scale. This is required for OpenXR plugin
+	# 1.3.0 and later where the plugin no-longer scales the controllers with
+	# world_scale
+	if ARVRServer.world_scale != _last_world_scale:
+		_last_world_scale = ARVRServer.world_scale
 		transform = _transform.scaled(Vector3.ONE * _last_world_scale)
 		emit_signal("hand_scale_changed", _last_world_scale)
 
 	# Animate the hand mesh with the controller inputs
-	if _controller:
-		var grip : float = _controller.get_float(grip_action)
-		var trigger : float = _controller.get_float(trigger_action)
+	var controller : ARVRController = get_parent()
+	if controller:
+		var grip : float = controller.get_joystick_axis(JOY_VR_ANALOG_GRIP)
+		var trigger : float = controller.get_joystick_axis(JOY_VR_ANALOG_TRIGGER)
 
 		# Allow overriding of grip and trigger
 		if _force_grip >= 0.0: grip = _force_grip
 		if _force_trigger >= 0.0: trigger = _force_trigger
 
+		# Uncomment for workaround for bug in OpenXR plugin 1.1.1 and earlier
+		# giving values from -1.0 to 1.0. Note that when controllers are not
+		# being tracking yet this will result in a value of 0.5
+		# grip = (grip + 1.0) * 0.5
+		# trigger = (trigger + 1.0) * 0.5
+
 		$AnimationTree.set("parameters/Grip/blend_amount", grip)
 		$AnimationTree.set("parameters/Trigger/blend_amount", trigger)
 
+		# var grip_state = controller.is_button_pressed(JOY_VR_GRIP)
+		# print("Pressed: " + str(grip_state))
 
 
 # This method verifies the hand has a valid configuration.
-func _get_configuration_warnings() -> PackedStringArray:
-	var warnings := PackedStringArray()
-
+func _get_configuration_warning():
 	# Check hand for mesh instance
-	if not _find_child(self, "MeshInstance3D"):
-		warnings.append("Hand does not have a MeshInstance3D")
+	if not _find_child(self, "MeshInstance"):
+		return "Hand does not have a MeshInstance"
 
 	# Check hand for animation player
 	if not _find_child(self, "AnimationPlayer"):
-		warnings.append("Hand does not have a AnimationPlayer")
+		return "Hand does not have a AnimationPlayer"
 
 	# Check hand for animation tree
 	var tree : AnimationTree = _find_child(self, "AnimationTree")
 	if not tree:
-		warnings.append("Hand does not have a AnimationTree")
-	elif not tree.tree_root:
-		warnings.append("Hand AnimationTree has no root")
+		return "Hand does not have a AnimationTree"
 
-	# Return warnings
-	return warnings
+	# Check hand animation tree has a root
+	if not tree.tree_root:
+		return "Hand AnimationTree has no root"
+
+	# Passed basic validation
+	return ""
 
 
 ## Find an [XRToolsHand] node.
@@ -163,8 +162,8 @@ func _get_configuration_warnings() -> PackedStringArray:
 ## This function searches from the specified node for an [XRToolsHand] assuming
 ## the node is a sibling of the hand under an [ARVRController].
 static func find_instance(node : Node) -> XRToolsHand:
-	return XRTools.find_xr_child(
-		XRHelpers.get_xr_controller(node),
+	return XRTools.find_child(
+		ARVRHelpers.get_arvr_controller(node),
 		"*",
 		"XRToolsHand") as XRToolsHand
 
@@ -185,7 +184,7 @@ func set_hand_material_override(material : Material) -> void:
 
 
 ## Set the default open-hand pose
-func set_default_pose(pose : XRToolsHandPoseSettings) -> void:
+func set_default_pose(pose : Resource) -> void:
 	default_pose = pose
 	if is_inside_tree():
 		_update_pose()
@@ -318,7 +317,7 @@ func _remove_pose_override(who : Node) -> bool:
 		# Check for a match
 		if pose.who == who:
 			# Remove the override
-			_pose_overrides.remove_at(pos)
+			_pose_overrides.remove(pos)
 			modified = true
 			length -= 1
 		else:

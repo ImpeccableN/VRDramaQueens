@@ -1,9 +1,6 @@
-@tool
+tool
 extends EditorPlugin
 
-
-## Menu ID for enabling OpenXR
-const MENU_ID_ENABLE_OPENXR := 1001
 
 ## Menu ID for setting the physics layers
 const MENU_ID_SET_PHYSICS_LAYERS := 1002
@@ -32,14 +29,7 @@ func _define_project_setting(
 	}
 
 	ProjectSettings.add_property_info(property_info)
-	if ProjectSettings.has_method("set_as_basic"):
-		ProjectSettings.call("set_as_basic", p_name, true)
 	ProjectSettings.set_initial_value(p_name, p_default_val)
-
-
-func _enable_openxr() -> void:
-	ProjectSettings.set("xr/openxr/enabled", true)
-	ProjectSettings.set("xr/shaders/enabled", true)
 
 
 func _set_physics_layers() -> void:
@@ -54,15 +44,10 @@ func _set_physics_layers() -> void:
 	ProjectSettings.set("layer_names/3d_physics/layer_20", "Player Body")
 	ProjectSettings.set("layer_names/3d_physics/layer_21", "Pointable Objects")
 	ProjectSettings.set("layer_names/3d_physics/layer_22", "Hand Pose Areas")
-	ProjectSettings.set("layer_names/3d_physics/layer_23", "UI Objects")
 
 
 func _on_xr_tools_menu_pressed(id : int) -> void:
 	match id:
-		MENU_ID_ENABLE_OPENXR:
-			_enable_openxr()
-			return
-
 		MENU_ID_SET_PHYSICS_LAYERS:
 			_set_physics_layers()
 			return
@@ -72,41 +57,24 @@ func _enter_tree():
 	# Construct the popup menu
 	_xr_tools_menu = PopupMenu.new()
 	_xr_tools_menu.name = "XR Tools"
-	_xr_tools_menu.id_pressed.connect(_on_xr_tools_menu_pressed)
+	_xr_tools_menu.connect("id_pressed", self, "_on_xr_tools_menu_pressed")
 	add_tool_submenu_item("XR Tools", _xr_tools_menu)
 
 	# Add tool menu items
-	_xr_tools_menu.add_item("Enable OpenXR", MENU_ID_ENABLE_OPENXR)
 	_xr_tools_menu.add_item("Set Physics Layers", MENU_ID_SET_PHYSICS_LAYERS)
 
 	# Add input grip threshold to the project settings
 	_define_project_setting(
 			"godot_xr_tools/input/grip_threshold",
-			TYPE_FLOAT,
+			TYPE_REAL,
 			PROPERTY_HINT_RANGE,
 			"0.2,0.8,0.05",
 			0.7)
 
-	# Add input y_axis_dead_zone to the project settings
-	_define_project_setting(
-			"godot_xr_tools/input/y_axis_dead_zone",
-			TYPE_FLOAT,
-			PROPERTY_HINT_RANGE,
-			"0.0,0.5,0.01",
-			0.1)
-
-	# Add input x_axis_dead_zone to the project settings
-	_define_project_setting(
-			"godot_xr_tools/input/x_axis_dead_zone",
-			TYPE_FLOAT,
-			PROPERTY_HINT_RANGE,
-			"0.0,0.5,0.01",
-			0.2)
-
 	# Add input snap turning dead-zone to the project settings
 	_define_project_setting(
 			"godot_xr_tools/input/snap_turning_deadzone",
-			TYPE_FLOAT,
+			TYPE_REAL,
 			PROPERTY_HINT_RANGE,
 			"0.0,0.5,0.05",
 			0.25)
@@ -122,7 +90,7 @@ func _enter_tree():
 	# Add player standard height to the project settings
 	_define_project_setting(
 			"godot_xr_tools/player/standard_height",
-			TYPE_FLOAT,
+			TYPE_REAL,
 			PROPERTY_HINT_RANGE,
 			"1.0,2.5,0.05",
 			1.85)

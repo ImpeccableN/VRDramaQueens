@@ -1,4 +1,4 @@
-@tool
+tool
 class_name XRToolsMovementDirect
 extends XRToolsMovementProvider
 
@@ -6,32 +6,29 @@ extends XRToolsMovementProvider
 ## XR Tools Movement Provider for Direct Movement
 ##
 ## This script provides direct movement for the player. This script works
-## with the [XRToolsPlayerBody] attached to the players [XROrigin3D].
+## with the [XRToolsPlayerBody] attached to the players [ARVROrigin].
 ##
 ## The player may have multiple [XRToolsMovementDirect] nodes attached to
 ## different controllers to provide different types of direct movement.
 
 
 ## Movement provider order
-@export var order : int = 10
+export var order : int = 10
 
 ## Movement speed
-@export var max_speed : float = 3.0
+export var max_speed : float = 10.0
 
 ## If true, the player can strafe
-@export var strafe : bool = false
-
-## Input action for movement direction
-@export var input_action : String = "primary"
+export var strafe : bool = false
 
 
 # Controller node
-@onready var _controller := XRHelpers.get_xr_controller(self)
+onready var _controller := ARVRHelpers.get_arvr_controller(self)
 
 
-# Add support for is_xr_class on XRTools classes
-func is_xr_class(name : String) -> bool:
-	return name == "XRToolsMovementDirect" or super(name)
+# Add support for is_class on XRTools classes
+func is_class(name : String) -> bool:
+	return name == "XRToolsMovementDirect" or .is_class(name)
 
 
 # Perform jump movement
@@ -40,12 +37,14 @@ func physics_movement(_delta: float, player_body: XRToolsPlayerBody, _disabled: 
 	if !_controller.get_is_active():
 		return
 
-	## get input action with deadzone correction applied
-	var dz_input_action = XRToolsUserSettings.get_adjusted_vector2(_controller, input_action)
+	# Apply forwards/backwards ground control
+	player_body.ground_control_velocity.y += _controller.get_joystick_axis(
+			XRTools.Axis.VR_PRIMARY_Y_AXIS) * max_speed
 
-	player_body.ground_control_velocity.y += dz_input_action.y * max_speed
+	# Apply left/right ground control
 	if strafe:
-		player_body.ground_control_velocity.x += dz_input_action.x * max_speed
+		player_body.ground_control_velocity.x += _controller.get_joystick_axis(
+				XRTools.Axis.VR_PRIMARY_X_AXIS) * max_speed
 
 	# Clamp ground control
 	var length := player_body.ground_control_velocity.length()
@@ -54,24 +53,22 @@ func physics_movement(_delta: float, player_body: XRToolsPlayerBody, _disabled: 
 
 
 # This method verifies the movement provider has a valid configuration.
-func _get_configuration_warnings() -> PackedStringArray:
-	var warnings := super()
-
+func _get_configuration_warning():
 	# Check the controller node
-	if !XRHelpers.get_xr_controller(self):
-		warnings.append("This node must be within a branch of an XRController3D node")
+	if !ARVRHelpers.get_arvr_controller(self):
+		return "This node must be within a branch of an ARVRController node"
 
-	# Return warnings
-	return warnings
+	# Call base class
+	return ._get_configuration_warning()
 
 
 ## Find the left [XRToolsMovementDirect] node.
 ##
 ## This function searches from the specified node for the left controller
-## [XRToolsMovementDirect] assuming the node is a sibling of the [XROrigin3D].
+## [XRToolsMovementDirect] assuming the node is a sibling of the [ARVROrigin].
 static func find_left(node : Node) -> XRToolsMovementDirect:
-	return XRTools.find_xr_child(
-		XRHelpers.get_left_controller(node),
+	return XRTools.find_child(
+		ARVRHelpers.get_left_controller(node),
 		"*",
 		"XRToolsMovementDirect") as XRToolsMovementDirect
 
@@ -79,9 +76,9 @@ static func find_left(node : Node) -> XRToolsMovementDirect:
 ## Find the right [XRToolsMovementDirect] node.
 ##
 ## This function searches from the specified node for the right controller
-## [XRToolsMovementDirect] assuming the node is a sibling of the [XROrigin3D].
+## [XRToolsMovementDirect] assuming the node is a sibling of the [ARVROrigin].
 static func find_right(node : Node) -> XRToolsMovementDirect:
-	return XRTools.find_xr_child(
-		XRHelpers.get_right_controller(node),
+	return XRTools.find_child(
+		ARVRHelpers.get_right_controller(node),
 		"*",
 		"XRToolsMovementDirect") as XRToolsMovementDirect

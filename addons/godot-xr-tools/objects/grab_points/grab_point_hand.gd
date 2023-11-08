@@ -1,4 +1,4 @@
-@tool
+tool
 class_name XRToolsGrabPointHand
 extends XRToolsGrabPoint
 
@@ -31,13 +31,14 @@ const RIGHT_HAND_PATH := "res://addons/godot-xr-tools/hands/scenes/lowpoly/right
 
 
 ## Which hand this grab point is for
-@export var hand : Hand: set = _set_hand
+export (Hand) var hand : int setget _set_hand
 
 ## Hand pose
-@export var hand_pose : XRToolsHandPoseSettings: set = _set_hand_pose
+export var hand_pose : Resource setget _set_hand_pose
 
 ## If true, the hand is shown in the editor
-@export var editor_preview_mode : PreviewMode = PreviewMode.CLOSED: set = _set_editor_preview_mode
+export (PreviewMode) \
+		var editor_preview_mode : int = PreviewMode.CLOSED setget _set_editor_preview_mode
 
 
 ## Hand to use for editor preview
@@ -47,7 +48,7 @@ var _editor_preview_hand : XRToolsHand
 ## Called when the node enters the scene tree for the first time.
 func _ready():
 	# If in the editor then update the preview
-	if Engine.is_editor_hint():
+	if Engine.editor_hint:
 		_update_editor_preview()
 
 
@@ -63,32 +64,32 @@ func can_grab(_grabber : Node) -> bool:
 		return false
 
 	# Only allow left controller to grab left-hand grab points
-	if hand == Hand.LEFT and controller.tracker != "left_hand":
+	if hand == Hand.LEFT and controller.controller_id != 1:
 		return false
 
 	# Only allow right controller to grab right-hand grab points
-	if hand == Hand.RIGHT and controller.tracker != "right_hand":
+	if hand == Hand.RIGHT and controller.controller_id != 2:
 		return false
 
 	# Allow grab
 	return true
 
 
-func _set_hand(new_value : Hand) -> void:
+func _set_hand(new_value : int) -> void:
 	hand = new_value
-	if Engine.is_editor_hint():
+	if Engine.editor_hint:
 		_update_editor_preview()
 
 
-func _set_hand_pose(new_value : XRToolsHandPoseSettings) -> void:
+func _set_hand_pose(new_value : Resource) -> void:
 	hand_pose = new_value
-	if Engine.is_editor_hint():
+	if Engine.editor_hint:
 		_update_editor_preview()
 
 
-func _set_editor_preview_mode(new_value : PreviewMode) -> void:
+func _set_editor_preview_mode(new_value : int) -> void:
 	editor_preview_mode = new_value
-	if Engine.is_editor_hint():
+	if Engine.editor_hint:
 		_update_editor_preview()
 
 
@@ -106,7 +107,7 @@ func _update_editor_preview() -> void:
 		return
 
 	# Construct the model
-	_editor_preview_hand = hand_scene.instantiate()
+	_editor_preview_hand = hand_scene.instance()
 
 	# Set the pose
 	if hand_pose:
@@ -123,7 +124,7 @@ func _update_editor_preview() -> void:
 
 
 # Get the controller associated with a grabber
-static func _get_grabber_controller(_grabber : Node) -> XRController3D:
+static func _get_grabber_controller(_grabber : Node) -> ARVRController:
 	# Ensure the grabber is valid
 	if not is_instance_valid(_grabber):
 		return null
@@ -135,4 +136,3 @@ static func _get_grabber_controller(_grabber : Node) -> XRController3D:
 
 	# Get the controller associated with the pickup
 	return pickup.get_controller()
-

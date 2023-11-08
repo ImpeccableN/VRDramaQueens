@@ -1,21 +1,21 @@
-@tool
+tool
 class_name XRToolsHighlightRing
-extends MeshInstance3D
+extends MeshInstance
 
 
-# Add support for is_xr_class on XRTools classes
-func is_xr_class(name : String) -> bool:
-	return name == "XRToolsHighlightRing"
+# Add support for is_class on XRTools classes
+func is_class(name : String) -> bool:
+	return name == "XRToolsHighlightRing" or .is_class(name)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Turn off until requested
-	if not Engine.is_editor_hint():
+	if not Engine.editor_hint:
 		visible = false
 
 	# Hook the highlight update
-	get_parent().connect("highlight_updated", _on_highlight_updated)
+	get_parent().connect("highlight_updated", self, "_on_highlight_updated")
 
 
 # Called when the pickable highlight changes
@@ -24,12 +24,11 @@ func _on_highlight_updated(_pickable, enable: bool) -> void:
 
 
 # This method verifies the node
-func _get_configuration_warnings() -> PackedStringArray:
-	var warnings := PackedStringArray()
-
+func _get_configuration_warning():
 	# Verify parent supports highlighting
 	var parent := get_parent()
 	if not parent or not parent.has_signal("highlight_updated"):
-		warnings.append("Parent does not support highlighting")
+		return "Parent does not support highlighting"
 
-	return warnings
+	# No issues
+	return ""

@@ -1,4 +1,4 @@
-extends Node3D
+extends Spatial
 
 signal cooldown_finished
 

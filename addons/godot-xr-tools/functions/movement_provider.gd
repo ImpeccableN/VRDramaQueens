@@ -1,6 +1,5 @@
-@tool
-@icon("res://addons/godot-xr-tools/editor/icons/movement_provider.svg")
-class_name XRToolsMovementProvider
+tool
+class_name XRToolsMovementProvider, "res://addons/godot-xr-tools/editor/icons/movement_provider.svg"
 extends Node
 
 
@@ -20,7 +19,7 @@ const PLAYER_BODY := preload("res://addons/godot-xr-tools/player/player_body.tsc
 
 
 ## Enable movement provider
-@export var enabled : bool = true
+export var enabled : bool = true
 
 
 ## If true, the movement provider is actively performing a move
@@ -30,30 +29,30 @@ var is_active := false
 # If missing we need to add our [XRToolsPlayerBody]
 func _create_player_body_node():
 	# get our origin node
-	var xr_origin = XRHelpers.get_xr_origin(self)
-	if !xr_origin:
+	var arvr_origin := ARVRHelpers.get_arvr_origin(self)
+	if !arvr_origin:
 		return
 
 	# Double check if it hasn't already been created by another movement function
 	var player_body := XRToolsPlayerBody.find_instance(self)
 	if !player_body:
 		# create our XRToolsPlayerBody node and add it into our tree
-		player_body = PLAYER_BODY.instantiate()
+		player_body = PLAYER_BODY.instance()
 		player_body.set_name("PlayerBody")
-		xr_origin.add_child(player_body)
+		arvr_origin.add_child(player_body)
 		player_body.set_owner(get_tree().get_edited_scene_root())
 
 
-# Add support for is_xr_class on XRTools classes
-func is_xr_class(name : String) -> bool:
-	return name == "XRToolsMovementProvider"
+# Add support for is_class on XRTools classes
+func is_class(name : String) -> bool:
+	return name == "XRToolsMovementProvider" or .is_class(name)
 
 
 # Function run when node is added to scene
 func _ready():
 	# If we're in the editor, help the user out by creating our XRToolsPlayerBody node
 	# automatically when needed.
-	if Engine.is_editor_hint():
+	if Engine.editor_hint:
 		var player_body = XRToolsPlayerBody.find_instance(self)
 		if !player_body:
 			# This call needs to be deferred, we can't add nodes during scene construction
@@ -71,23 +70,21 @@ func physics_movement(_delta: float, _player_body: XRToolsPlayerBody, _disabled:
 
 
 # This method verifies the movement provider has a valid configuration.
-func _get_configuration_warnings() -> PackedStringArray:
-	var warnings := PackedStringArray()
-
-	# Verify we're within the tree of an XROrigin3D node
-	if !XRHelpers.get_xr_origin(self):
-		warnings.append("This node must be within a branch on an XROrigin3D node")
+func _get_configuration_warning():
+	# Verify we're within the tree of an ARVROrigin node
+	if !ARVRHelpers.get_arvr_origin(self):
+		return "This node must be within a branch on an ARVROrigin node"
 
 	if !XRToolsPlayerBody.find_instance(self):
-		warnings.append("Missing PlayerBody node on the XROrigin3D")
+		return "Missing PlayerBody node on the ARVROrigin"
 
 	# Verify movement provider is in the correct group
 	if !is_in_group("movement_providers"):
-		warnings.append("Movement provider not in 'movement_providers' group")
+		return "Movement provider not in 'movement_providers' group"
 
 	# Verify order property exists
 	if !"order" in self:
-		warnings.append("Movement provider does not expose an order property")
+		return "Movement provider does not expose an order property"
 
-	# Return warnings
-	return warnings
+	# Passed basic validation
+	return ""

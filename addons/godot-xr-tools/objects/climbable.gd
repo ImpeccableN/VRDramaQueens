@@ -1,7 +1,5 @@
-@tool
-@icon("res://addons/godot-xr-tools/editor/icons/hand.svg")
-class_name XRToolsClimbable
-extends Node3D
+class_name XRToolsClimbable, "res://addons/godot-xr-tools/editor/icons/hand.svg"
+extends Spatial
 
 
 ## XR Tools Climbable Object
@@ -15,50 +13,46 @@ extends Node3D
 ## If true, the grip control must be held to keep holding the climbable
 var press_to_hold : bool = true
 
-## Dictionary of temporary grab-handles indexed by the pickup node.
+## Dictionary of grab locations by pickup
 var grab_locations := {}
 
 
-# Add support for is_xr_class on XRTools classes
-func is_xr_class(name : String) -> bool:
-	return name == "XRToolsClimbable"
+# Add support for is_class on XRTools classes
+func is_class(name : String) -> bool:
+	return name == "XRToolsClimbable" or .is_class(name)
 
 
 # Called by XRToolsFunctionPickup
 func is_picked_up() -> bool:
 	return false
 
-func can_pick_up(_by: Node3D) -> bool:
+func can_pick_up(_by: Spatial) -> bool:
 	return true
 
 # Called by XRToolsFunctionPickup when user presses the action button while holding this object
 func action():
 	pass
 
-# Ignore highlighting requests from XRToolsFunctionPickup
-func request_highlight(_from, _on) -> void:
+# Called by XRToolsFunctionPickup when this becomes the closest object to a controller
+func increase_is_closest():
+	pass
+
+# Called by XRToolsFunctionPickup when this stops being the closest object to a controller
+func decrease_is_closest():
 	pass
 
 # Called by XRToolsFunctionPickup when this is picked up by a controller
-func pick_up(by: Node3D, _with_controller: XRController3D) -> void:
-	# Get the ID to save the grab handle under
-	var id = by.get_instance_id()
-
-	# Get or construct the grab handle
-	var handle = grab_locations.get(id)
-	if not handle:
-		handle = Node3D.new()
-		add_child(handle)
-		grab_locations[id] = handle
-
-	# Set the handles global transform. As it's a child of this
-	# climbable it will move as the climbable moves
-	handle.global_transform = by.global_transform
+func pick_up(by: Spatial, _with_controller: ARVRController) -> void:
+	save_grab_location(by)
 
 # Called by XRToolsFunctionPickup when this is let go by a controller
 func let_go(_p_linear_velocity: Vector3, _p_angular_velocity: Vector3) -> void:
 	pass
 
-# Get the grab handle
-func get_grab_handle(p: Node3D) -> Node3D:
-	return grab_locations.get(p.get_instance_id())
+# Save the grab location
+func save_grab_location(p: Spatial):
+	grab_locations[p.get_instance_id()] = to_local(p.global_transform.origin)
+
+# Get the grab location in world-space
+func get_grab_location(p: Spatial) -> Vector3:
+	return to_global(grab_locations[p.get_instance_id()])

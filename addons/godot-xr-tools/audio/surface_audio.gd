@@ -1,6 +1,5 @@
-@tool
-@icon("res://addons/godot-xr-tools/editor/icons/foot.svg")
-class_name XRToolsSurfaceAudio
+tool
+class_name XRToolsSurfaceAudio, "res://addons/godot-xr-tools/editor/icons/foot.svg"
 extends Node
 
 
@@ -12,21 +11,23 @@ extends Node
 
 
 ## XRToolsSurfaceAudioType to associate with this surface
-@export var surface_audio_type : XRToolsSurfaceAudioType
+export var surface_audio_type : Resource
 
 
 # Add support for is_class on XRTools classes
-func is_xr_class(name : String) -> bool:
-	return name == "XRToolsSurfaceAudio"
+func is_class(name : String) -> bool:
+	return name == "XRToolsSurfaceAudio" or .is_class(name)
 
 
 # This method checks for configuration issues.
-func _get_configuration_warnings() -> PackedStringArray:
-	var warnings := PackedStringArray()
-
+func _get_configuration_warning():
 	# Verify the camera
 	if !surface_audio_type:
-		warnings.append("Surface audio type not specified")
+		return "Surface audio type not specified"
 
-	# Return warnings
-	return warnings
+	# Verify hit sound
+	if !surface_audio_type is XRToolsSurfaceAudioType:
+		return "Surface audio type is not an XRToolsSurfaceAudioType"
+
+	# No configuration issues detected
+	return ""
