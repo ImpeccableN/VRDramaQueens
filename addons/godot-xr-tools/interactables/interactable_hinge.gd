@@ -16,7 +16,7 @@ extends XRToolsInteractableHandleDriven
 
 
 ## Signal for hinge moved
-signal hinge_moved(angle)
+signal hinge_moved(angle, hinge_limit_min, hinge_limit_max)
 
 
 ## Hinge minimum limit
@@ -96,7 +96,7 @@ func move_hinge(position: float) -> void:
 	hinge_position = rad2deg(position)
 
 	# Emit the moved signal
-	emit_signal("hinge_moved", hinge_position)
+	emit_signal("hinge_moved", hinge_position, hinge_limit_min, hinge_limit_max)
 
 
 # Handle release of hinge
