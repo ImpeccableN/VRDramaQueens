@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DimmingLight.gd" type="Script" id=2]
@@ -9,6 +9,16 @@
 [ext_resource path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" type="PackedScene" id=7]
 [ext_resource path="res://addons/godot-xr-tools/player/player_body.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/meshes/interactables/lever_smooth.tscn" type="PackedScene" id=9]
+[ext_resource path="res://addons/godot-xr-tools/functions/function_pointer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://TestSpotlight.gd" type="Script" id=11]
+[ext_resource path="res://addons/godot-xr-tools/xr/start_xr.tscn" type="PackedScene" id=12]
+[ext_resource path="res://addons/godot-xr-tools/functions/function_pickup.tscn" type="PackedScene" id=13]
+[ext_resource path="res://addons/godot-xr-tools/objects/interactable_body.gd" type="Script" id=14]
+
+[sub_resource type="CubeMesh" id=3]
+resource_local_to_scene = true
+size = Vector3( 0.002, 0.002, 10 )
+subdivide_depth = 20
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 25, 25, 1 )
@@ -31,10 +41,12 @@ visible = true
 [node name="MovementDirect" parent="FPController/LeftHandController" index="0" instance=ExtResource( 5 )]
 enabled = true
 order = 10
-max_speed = 10.0
+max_speed = 3.0
 strafe = true
 
 [node name="LeftHand" parent="FPController/LeftHandController" index="1" instance=ExtResource( 3 )]
+
+[node name="FunctionPickup" parent="FPController/LeftHandController" index="2" instance=ExtResource( 13 )]
 
 [node name="RightHandController" parent="FPController" index="3"]
 visible = true
@@ -42,12 +54,19 @@ visible = true
 [node name="MovementDirect" parent="FPController/RightHandController" index="0" instance=ExtResource( 5 )]
 enabled = true
 order = 10
-max_speed = 10.0
+max_speed = 3.0
 strafe = false
 
 [node name="RightHand" parent="FPController/RightHandController" index="1" instance=ExtResource( 6 )]
 
 [node name="MovementTurn" parent="FPController/RightHandController" index="2" instance=ExtResource( 4 )]
+
+[node name="FunctionPointer" parent="FPController/RightHandController" index="3" instance=ExtResource( 10 )]
+
+[node name="Laser" parent="FPController/RightHandController/FunctionPointer" index="1"]
+mesh = SubResource( 3 )
+
+[node name="FunctionPickup" parent="FPController/RightHandController" index="4" instance=ExtResource( 13 )]
 
 [node name="PlayerBody" parent="FPController" instance=ExtResource( 8 )]
 eye_forward_offset = 0.4
@@ -64,12 +83,26 @@ mesh = SubResource( 2 )
 
 [node name="DimmingLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.504136, 0.863624, 0, -0.863624, 0.504136, 0, 11, 0 )
+visible = false
+light_energy = 0.0
 script = ExtResource( 2 )
 
 [node name="LeverSmooth" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.211233, 1.08986, -2.26112 )
 
-[connection signal="hinge_moved" from="LeverSmooth/LeverOrigin/InteractableLever" to="DimmingLight" method="_on_InteractableLever_hinge_moved"]
+[node name="Frame" parent="LeverSmooth" index="0"]
+script = ExtResource( 14 )
+
+[node name="TestSpotlight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.0139098, 0.999903, 0, -0.999903, 0.0139098, -2.0784, 2.54268, -1.15379 )
+spot_range = 3.24
+script = ExtResource( 11 )
+
+[node name="StartXR" parent="." instance=ExtResource( 12 )]
+
+[connection signal="pointer_pressed" from="LeverSmooth/Frame" to="TestSpotlight" method="_on_Frame_pointer_pressed"]
+[connection signal="hinge_moved" from="LeverSmooth/LeverOrigin/InteractableLever" to="TestSpotlight" method="_on_InteractableLever_hinge_moved"]
 
 [editable path="FPController"]
+[editable path="FPController/RightHandController/FunctionPointer"]
 [editable path="LeverSmooth"]
