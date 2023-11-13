@@ -8,7 +8,4 @@ func _on_InteractableLever_hinge_moved(angle, hinge_limit_min, hinge_limit_max):
 
 
 func _on_Frame_pointer_pressed(at):
-	if visible == true:
-		visible = false
-	else:
-		visible = true
+	visible = not visible

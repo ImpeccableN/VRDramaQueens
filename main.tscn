@@ -62,6 +62,8 @@ strafe = false
 [node name="MovementTurn" parent="FPController/RightHandController" index="2" instance=ExtResource( 4 )]
 
 [node name="FunctionPointer" parent="FPController/RightHandController" index="3" instance=ExtResource( 10 )]
+laser_length = 1
+collision_mask = 1048832
 
 [node name="Laser" parent="FPController/RightHandController/FunctionPointer" index="1"]
 mesh = SubResource( 3 )
@@ -91,6 +93,7 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.211233, 1.08986, -2.26112 )
 
 [node name="Frame" parent="LeverSmooth" index="0"]
+collision_layer = 257
 script = ExtResource( 14 )
 
 [node name="TestSpotlight" type="SpotLight" parent="."]
