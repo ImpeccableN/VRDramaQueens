@@ -9,3 +9,8 @@ func _on_InteractableLever_hinge_moved(angle, hinge_limit_min, hinge_limit_max):
 
 func _on_Frame_pointer_pressed(at):
 	visible = not visible
+
+
+func _on_InteractableHinge_hinge_moved(angle, hinge_limit_min, hinge_limit_max):
+	angle = -angle
+	light_energy = ((angle + hinge_limit_max) / hinge_limit_max * 2)

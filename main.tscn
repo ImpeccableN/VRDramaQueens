@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DimmingLight.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://addons/godot-xr-tools/functions/function_pickup.tscn" type="PackedScene" id=13]
 [ext_resource path="res://addons/godot-xr-tools/objects/interactable_body.gd" type="Script" id=14]
 [ext_resource path="res://Characters/NoraStandIn.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Lever.tscn" type="PackedScene" id=16]
 
 [sub_resource type="CubeMesh" id=3]
 resource_local_to_scene = true
@@ -129,12 +130,21 @@ transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, 1, 0, 1.2414
 [node name="BoneAttachment7" parent="NoraStandIn/Barbarian/Rig/Skeleton" index="6"]
 transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, 1, 0, 0.972629, 0 )
 
+[node name="Lever" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17225, 2.94447e-05, -1.56224 )
+
+[node name="InteractableHinge" parent="Lever/LeverOrigin" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94461, 0, -0.945064 )
+
 [connection signal="pointer_pressed" from="LeverSmooth/Frame" to="TestSpotlight" method="_on_Frame_pointer_pressed"]
 [connection signal="hinge_moved" from="LeverSmooth/LeverOrigin/InteractableLever" to="TestSpotlight" method="_on_InteractableLever_hinge_moved"]
 [connection signal="pointer_pressed" from="NoraStandIn" to="NoraStandIn" method="_on_NoraStandIn_pointer_pressed"]
+[connection signal="hinge_moved" from="Lever/LeverOrigin/InteractableHinge" to="TestSpotlight" method="_on_InteractableHinge_hinge_moved"]
 
 [editable path="FPController"]
 [editable path="FPController/RightHandController/FunctionPointer"]
 [editable path="LeverSmooth"]
 [editable path="NoraStandIn"]
 [editable path="NoraStandIn/Barbarian"]
+[editable path="Lever"]
+[editable path="Lever/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
