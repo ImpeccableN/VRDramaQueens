@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DimmingLight.gd" type="Script" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://Characters/NoraStandIn.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Lever.tscn" type="PackedScene" id=16]
 [ext_resource path="res://addons/godot-xr-tools/hands/animations/left/Grip 2.anim" type="Animation" id=17]
+[ext_resource path="res://Drehbühne.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Drehbühne.gd" type="Script" id=19]
 
 [sub_resource type="CubeMesh" id=3]
 resource_local_to_scene = true
@@ -137,10 +139,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19877, 2.94447e-05, -2.54988
 [node name="HandPoseArea" parent="Lever/LeverOrigin/InteractableHinge/HandleOrigin/InteractableHandle" index="1"]
 left_pose = ExtResource( 17 )
 
+[node name="Drehbühne" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -2 )
+script = ExtResource( 19 )
+
 [connection signal="pointer_pressed" from="LeverSmooth/Frame" to="TestSpotlight" method="_on_Frame_pointer_pressed"]
 [connection signal="hinge_moved" from="LeverSmooth/LeverOrigin/InteractableLever" to="TestSpotlight" method="_on_InteractableLever_hinge_moved"]
 [connection signal="pointer_pressed" from="NoraStandIn" to="NoraStandIn" method="_on_NoraStandIn_pointer_pressed"]
-[connection signal="hinge_moved" from="Lever/LeverOrigin/InteractableHinge" to="TestSpotlight" method="_on_InteractableHinge_hinge_moved"]
+[connection signal="hinge_moved" from="Lever/LeverOrigin/InteractableHinge" to="Drehbühne" method="_on_InteractableHinge_hinge_moved"]
 
 [editable path="FPController"]
 [editable path="FPController/RightHandController/FunctionPointer"]
