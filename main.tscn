@@ -101,6 +101,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.211233, 1.08986, -2.26112 )
 collision_layer = 257
 script = ExtResource( 14 )
 
+[node name="InteractableLever" parent="LeverSmooth/LeverOrigin" index="0"]
+hinge_steps = 18.0
+
 [node name="TestSpotlight" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.0139098, 0.999903, 0, -0.999903, 0.0139098, -2.0784, 2.54268, -1.15379 )
 spot_range = 3.24
@@ -135,6 +138,9 @@ transform = Transform( 1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, 1, 0, 0.9726
 
 [node name="Lever" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19877, 2.94447e-05, -2.54988 )
+
+[node name="InteractableHinge" parent="Lever/LeverOrigin" index="0"]
+hinge_steps = 30.0
 
 [node name="HandPoseArea" parent="Lever/LeverOrigin/InteractableHinge/HandleOrigin/InteractableHandle" index="1"]
 left_pose = ExtResource( 17 )
