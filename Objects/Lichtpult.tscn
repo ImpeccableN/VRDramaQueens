@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/Lever.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Lichtpult.gd" type="Script" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.5, 0.05, 0.2 )
+
+[node name="Lichtpult" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+
+[node name="OffButton" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.212961, 0.0296709, -0.0668947 )
+
+[node name="Lever1" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.07, 0.03, -0.04 )
+
+[node name="Lever2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.035, 0.03, -0.04 )
+
+[node name="Lever3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.14, 0.03, -0.04 )
+
+[node name="Button1" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.07, 0.025, 0.033 )
+
+[node name="Button2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.035, 0.025, 0.033 )
+
+[node name="Button3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.14, 0.025, 0.033 )
+
+[editable path="OffButton"]
+[editable path="OffButton/RedButton"]

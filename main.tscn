@@ -1,11 +1,11 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DimmingLight.gd" type="Script" id=2]
-[ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://addons/godot-xr-tools/functions/movement_turn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://addons/godot-xr-tools/functions/movement_direct.tscn" type="PackedScene" id=5]
-[ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Lichtpult.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" type="PackedScene" id=7]
 [ext_resource path="res://addons/godot-xr-tools/player/player_body.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/meshes/interactables/lever_smooth.tscn" type="PackedScene" id=9]
@@ -15,10 +15,13 @@
 [ext_resource path="res://addons/godot-xr-tools/functions/function_pickup.tscn" type="PackedScene" id=13]
 [ext_resource path="res://addons/godot-xr-tools/objects/interactable_body.gd" type="Script" id=14]
 [ext_resource path="res://Characters/NoraStandIn.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Lever.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Objects/Lever.tscn" type="PackedScene" id=16]
 [ext_resource path="res://addons/godot-xr-tools/hands/animations/left/Grip 2.anim" type="Animation" id=17]
 [ext_resource path="res://Drehbühne.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Drehbühne.gd" type="Script" id=19]
+[ext_resource path="res://addons/godot-xr-tools/functions/function_pose_detector.tscn" type="PackedScene" id=22]
+[ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_hand_low.tscn" type="PackedScene" id=23]
+[ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_hand_low.tscn" type="PackedScene" id=24]
 
 [sub_resource type="CubeMesh" id=3]
 resource_local_to_scene = true
@@ -31,7 +34,12 @@ extents = Vector3( 25, 25, 1 )
 [sub_resource type="QuadMesh" id=2]
 size = Vector2( 50, 50 )
 
+[sub_resource type="Environment" id=4]
+
 [node name="Main" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00344694, 0.0116308, -0.00980699 )
+
+[node name="StartXR" parent="." instance=ExtResource( 12 )]
 
 [node name="FPController" parent="." instance=ExtResource( 1 )]
 
@@ -49,9 +57,11 @@ order = 10
 max_speed = 3.0
 strafe = true
 
-[node name="LeftHand" parent="FPController/LeftHandController" index="1" instance=ExtResource( 3 )]
+[node name="FunctionPickup" parent="FPController/LeftHandController" index="1" instance=ExtResource( 13 )]
 
-[node name="FunctionPickup" parent="FPController/LeftHandController" index="2" instance=ExtResource( 13 )]
+[node name="FunctionPoseDetector" parent="FPController/LeftHandController" index="2" instance=ExtResource( 22 )]
+
+[node name="LeftPhysicsHand" parent="FPController/LeftHandController" index="3" instance=ExtResource( 23 )]
 
 [node name="RightHandController" parent="FPController" index="3"]
 visible = true
@@ -62,21 +72,38 @@ order = 10
 max_speed = 3.0
 strafe = false
 
-[node name="RightHand" parent="FPController/RightHandController" index="1" instance=ExtResource( 6 )]
+[node name="MovementTurn" parent="FPController/RightHandController" index="1" instance=ExtResource( 4 )]
 
-[node name="MovementTurn" parent="FPController/RightHandController" index="2" instance=ExtResource( 4 )]
-
-[node name="FunctionPointer" parent="FPController/RightHandController" index="3" instance=ExtResource( 10 )]
+[node name="FunctionPointer" parent="FPController/RightHandController" index="2" instance=ExtResource( 10 )]
 laser_length = 1
 collision_mask = 1048832
 
 [node name="Laser" parent="FPController/RightHandController/FunctionPointer" index="1"]
 mesh = SubResource( 3 )
 
-[node name="FunctionPickup" parent="FPController/RightHandController" index="4" instance=ExtResource( 13 )]
+[node name="FunctionPickup" parent="FPController/RightHandController" index="3" instance=ExtResource( 13 )]
+
+[node name="FunctionPoseDetector" parent="FPController/RightHandController" index="4" instance=ExtResource( 22 )]
+
+[node name="RightPhysicsHand" parent="FPController/RightHandController" index="5" instance=ExtResource( 24 )]
 
 [node name="PlayerBody" parent="FPController" instance=ExtResource( 8 )]
 eye_forward_offset = 0.4
+
+[node name="SpotLight" type="SpotLight" parent="FPController"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.24825, -0.752043 )
+spot_range = 1.69
+
+[node name="Lichtpult" parent="FPController" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.782327, -0.680691 )
+connectedLight1 = NodePath("../../TestSpotlight1")
+connectedLight2 = NodePath("../../TestSpotlight2")
+connectedLight3 = NodePath("../../TestSpotlight3")
+onButton = NodePath("../OnButton")
+
+[node name="OnButton" parent="FPController" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.213023, 0.811338, -0.747767 )
+visible = false
 
 [node name="Floor" type="StaticBody" parent="."]
 
@@ -104,12 +131,22 @@ script = ExtResource( 14 )
 [node name="InteractableLever" parent="LeverSmooth/LeverOrigin" index="0"]
 hinge_steps = 18.0
 
-[node name="TestSpotlight" type="SpotLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.0139098, 0.999903, 0, -0.999903, 0.0139098, -2.0784, 2.54268, -1.15379 )
-spot_range = 3.24
+[node name="TestSpotlight1" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.0139098, 0.999903, 0, -0.999903, 0.0139098, 7.99345, 2.54268, -1.88234 )
+visible = false
 script = ExtResource( 11 )
 
-[node name="StartXR" parent="." instance=ExtResource( 12 )]
+[node name="TestSpotlight2" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.477251, 0.878767, 0, -0.878767, 0.477251, 3.55901, 3.24971, -5.15996 )
+visible = false
+spot_range = 4.652
+script = ExtResource( 11 )
+
+[node name="TestSpotlight3" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.0139098, 0.999903, 0, -0.999903, 0.0139098, 0.211486, 2.54268, -2.51917 )
+visible = false
+spot_range = 3.24
+script = ExtResource( 11 )
 
 [node name="NoraStandIn" parent="." instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.73389, 5.126e-05, -6.55249 )
@@ -149,8 +186,12 @@ left_pose = ExtResource( 17 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -2 )
 script = ExtResource( 19 )
 
-[connection signal="pointer_pressed" from="LeverSmooth/Frame" to="TestSpotlight" method="_on_Frame_pointer_pressed"]
-[connection signal="hinge_moved" from="LeverSmooth/LeverOrigin/InteractableLever" to="TestSpotlight" method="_on_InteractableLever_hinge_moved"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 4 )
+
+[connection signal="pointer_pressed" from="LeverSmooth/Frame" to="TestSpotlight1" method="_on_Frame_pointer_pressed"]
+[connection signal="hinge_moved" from="LeverSmooth/LeverOrigin/InteractableLever" to="TestSpotlight1" method="_on_InteractableLever_hinge_moved"]
+[connection signal="spotlight_on" from="TestSpotlight2" to="NoraStandIn" method="_on_TestSpotlight2_spotlight_on"]
 [connection signal="pointer_pressed" from="NoraStandIn" to="NoraStandIn" method="_on_NoraStandIn_pointer_pressed"]
 [connection signal="hinge_moved" from="Lever/LeverOrigin/InteractableHinge" to="Drehbühne" method="_on_InteractableHinge_hinge_moved"]
 
