@@ -14,6 +14,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot-xr-tools/misc/arvr_helpers.gd"
 }, {
+"base": "OculusTracker",
+"class": "OculusHandTracker",
+"language": "GDScript",
+"path": "res://addons/godot_ovrmobile/example_scenes/oculus_hand_tracker.gd"
+}, {
+"base": "OculusTracker",
+"class": "OculusTouchController",
+"language": "GDScript",
+"path": "res://addons/godot_ovrmobile/example_scenes/oculus_touch_controller.gd"
+}, {
+"base": "ARVRController",
+"class": "OculusTracker",
+"language": "GDScript",
+"path": "res://addons/godot_ovrmobile/example_scenes/oculus_tracker.gd"
+}, {
 "base": "Spatial",
 "class": "Teleport",
 "language": "GDScript",
@@ -321,6 +336,9 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "ARVRHelpers": "",
+"OculusHandTracker": "",
+"OculusTouchController": "",
+"OculusTracker": "",
 "Teleport": "",
 "XRTools": "",
 "XRToolsClimbable": "res://addons/godot-xr-tools/editor/icons/hand.svg",
@@ -400,7 +418,7 @@ enabled=PoolStringArray( "res://addons/godot-openxr/plugin.cfg", "res://addons/g
 
 [gdnative]
 
-singletons=[ "res://addons/godot-openxr/config/godot_openxr.gdnlib" ]
+singletons=[ "res://addons/godot-openxr/config/godot_openxr.gdnlib", "res://addons/godot_ovrmobile/godot_ovrmobile.gdnlib" ]
 
 [godot_xr_tools]
 
