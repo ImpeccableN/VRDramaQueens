@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://addons/godot-xr-tools/player/player_body.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Scenes/Spotlight2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/Scenes/Spotlight1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Objects/vorhang.glb" type="PackedScene" id=11]
+[ext_resource path="res://Objects/Material.material" type="Material" id=12]
 [ext_resource path="res://addons/godot-xr-tools/functions/function_pickup.tscn" type="PackedScene" id=13]
 
 [sub_resource type="BoxShape" id=1]
@@ -17,6 +19,114 @@ extents = Vector3( 25, 25, 1 )
 
 [sub_resource type="QuadMesh" id=2]
 size = Vector2( 50, 50 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.729412, 0.109804, 0.109804, 1 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("VorhangVorneLinks:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.5, 1.5, 1.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VorhangVorneLinks:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -1.77867, 2.71461, 2.95904 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("VorhangVorneRechts:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 2.49185, 2.3747, 2.95904 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("VorhangVorneRechts:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.8, 1.8, 2 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Vorhang_links"
+tracks/0/type = "value"
+tracks/0/path = NodePath("VorhangVorneLinks:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.8, 1.8, 2 ), Vector3( 0.3, 1.8, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VorhangVorneLinks:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.4795, 2.3747, 2.95904 ), Vector3( -3.22988, 2.3747, 2.95904 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Vorhang_rechts"
+tracks/0/type = "value"
+tracks/0/path = NodePath("VorhangVorneRechts:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 2.49185, 2.3747, 2.95904 ), Vector3( 3.40293, 2.3747, 2.95904 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VorhangVorneRechts:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.8, 1.8, 2 ), Vector3( 0.3, 1.8, 2 ) ]
+}
 
 [node name="Main" type="Spatial"]
 
@@ -75,10 +185,45 @@ visible = false
 [node name="Stage" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.770077, 5.44786e-05, -11.9887 )
 
+[node name="Stage Fundament" parent="Stage" index="0"]
+material/0 = ExtResource( 12 )
+
 [node name="Spotlight1" parent="Stage" instance=ExtResource( 10 )]
 transform = Transform( 0.471604, -0.589242, 0.656036, 0.762276, 0.646428, 0.0326355, -0.44331, 0.484689, 0.754024, 3.63894, 4.0183, -2.45773 )
 
 [node name="Spotlight2" parent="Stage" instance=ExtResource( 9 )]
 transform = Transform( -0.351587, 0.863263, 0.362164, 0.601308, 0.504754, -0.619397, -0.717507, 0, -0.696552, -3.35145, 3.74216, -2.69702 )
 
+[node name="VorhangVorneLinks" parent="Stage" instance=ExtResource( 11 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.77867, 2.71461, 2.95904 )
+
+[node name="Plane" parent="Stage/VorhangVorneLinks" index="0"]
+transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, -0.211728, 0, -0.297742 )
+material/0 = SubResource( 3 )
+
+[node name="VorhangVorneRechts" parent="Stage" instance=ExtResource( 11 )]
+transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 2, 2.49185, 2.3747, 2.95904 )
+
+[node name="Plane" parent="Stage/VorhangVorneRechts" index="0"]
+transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, -0.402722, 0, -0.297742 )
+material/0 = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Stage"]
+anims/RESET = SubResource( 4 )
+anims/Vorhang_links = SubResource( 5 )
+anims/Vorhang_rechts = SubResource( 6 )
+
+[node name="Spotlight3" parent="Stage" instance=ExtResource( 10 )]
+transform = Transform( -0.0388886, -0.121633, -0.991813, 0.427276, 0.895222, -0.12654, 0.903285, -0.428699, 0.0171568, -0.438117, 4.68128, 7.55997 )
+
+[node name="Spotlight1" parent="Stage/Spotlight3" index="0"]
+transform = Transform( 1, -2.98023e-08, 1.49012e-08, 0, 1, 0, -1.49012e-08, 7.45058e-09, 1, 0.0643198, -4.76837e-07, 1.01556 )
+
+[node name="SpotLight" parent="Stage/Spotlight3" index="1"]
+spot_range = 17.632
+
 [editable path="FPController"]
+[editable path="Stage"]
+[editable path="Stage/VorhangVorneLinks"]
+[editable path="Stage/VorhangVorneRechts"]
+[editable path="Stage/Spotlight3"]
