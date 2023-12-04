@@ -35,7 +35,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 1.5, 1.5, 1.5 ) ]
+"values": [ Vector3( 1.8, 1.8, 2 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("VorhangVorneLinks:translation")
@@ -47,7 +47,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -1.77867, 2.71461, 2.95904 ) ]
+"values": [ Vector3( -1.4795, 2.3747, 2.95904 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("VorhangVorneRechts:translation")
@@ -195,7 +195,7 @@ transform = Transform( 0.471604, -0.589242, 0.656036, 0.762276, 0.646428, 0.0326
 transform = Transform( -0.351587, 0.863263, 0.362164, 0.601308, 0.504754, -0.619397, -0.717507, 0, -0.696552, -3.35145, 3.74216, -2.69702 )
 
 [node name="VorhangVorneLinks" parent="Stage" instance=ExtResource( 11 )]
-transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.77867, 2.71461, 2.95904 )
+transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 2, -1.4795, 2.3747, 2.95904 )
 
 [node name="Plane" parent="Stage/VorhangVorneLinks" index="0"]
 transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, -0.211728, 0, -0.297742 )
@@ -208,7 +208,7 @@ transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 2, 2.49185, 2.3747, 2.95904 )
 transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, -0.402722, 0, -0.297742 )
 material/0 = SubResource( 3 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Stage"]
+[node name="Vorhang_Auf" type="AnimationPlayer" parent="Stage"]
 anims/RESET = SubResource( 4 )
 anims/Vorhang_links = SubResource( 5 )
 anims/Vorhang_rechts = SubResource( 6 )
