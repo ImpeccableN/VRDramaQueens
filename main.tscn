@@ -1,11 +1,10 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
-[ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Interactables/Lever.tscn" type="PackedScene" id=3]
 [ext_resource path="res://addons/godot-xr-tools/functions/movement_turn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://addons/godot-xr-tools/functions/movement_direct.tscn" type="PackedScene" id=5]
-[ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" type="PackedScene" id=7]
 [ext_resource path="res://addons/godot-xr-tools/player/player_body.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Scenes/Spotlight2.tscn" type="PackedScene" id=9]
@@ -14,12 +13,18 @@
 [ext_resource path="res://Objects/StageRound.glb" type="PackedScene" id=12]
 [ext_resource path="res://addons/godot-xr-tools/functions/function_pickup.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/cord.glb" type="PackedScene" id=14]
+[ext_resource path="res://Objects/Interactables/Lichtpult.tscn" type="PackedScene" id=15]
+[ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_hand_low.tscn" type="PackedScene" id=23]
+[ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_hand_low.tscn" type="PackedScene" id=24]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 25, 25, 1 )
 
 [sub_resource type="QuadMesh" id=2]
 size = Vector2( 50, 50 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.4, 0.2, 0, 1 )
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -57,7 +62,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 2.49185, 2.3747, 2.95904 ) ]
+"values": [ Vector3( 2.09506, 2.3747, 2.95904 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("VorhangVorneRechts:scale")
@@ -93,10 +98,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.999998 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( -1.4795, 2.3747, 2.95904 ), Vector3( -3.22988, 2.3747, 2.95904 ) ]
+"values": [ Vector3( -1.4795, 2.3747, 2.95904 ), Vector3( -2.99931, 2.3747, 2.95904 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -111,7 +116,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 2.49185, 2.3747, 2.95904 ), Vector3( 3.40293, 2.3747, 2.95904 ) ]
+"values": [ Vector3( 2.10578, 2.3747, 2.95904 ), Vector3( 3.60133, 2.3747, 2.95904 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("VorhangVorneRechts:scale")
@@ -125,6 +130,9 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector3( 1.8, 1.8, 2 ), Vector3( 0.3, 1.8, 2 ) ]
 }
+
+[sub_resource type="CubeMesh" id=8]
+size = Vector3( 0.02, 0.4, 0.02 )
 
 [node name="Main" type="Spatial"]
 
@@ -144,9 +152,9 @@ order = 10
 max_speed = 10.0
 strafe = true
 
-[node name="LeftHand" parent="FPController/LeftHandController" index="1" instance=ExtResource( 3 )]
+[node name="FunctionPickup" parent="FPController/LeftHandController" index="1" instance=ExtResource( 13 )]
 
-[node name="FunctionPickup" parent="FPController/LeftHandController" index="2" instance=ExtResource( 13 )]
+[node name="LeftPhysicsHand" parent="FPController/LeftHandController" index="2" instance=ExtResource( 23 )]
 
 [node name="RightHandController" parent="FPController" index="3"]
 visible = true
@@ -157,11 +165,11 @@ order = 10
 max_speed = 10.0
 strafe = false
 
-[node name="RightHand" parent="FPController/RightHandController" index="1" instance=ExtResource( 6 )]
+[node name="MovementTurn" parent="FPController/RightHandController" index="1" instance=ExtResource( 4 )]
 
-[node name="MovementTurn" parent="FPController/RightHandController" index="2" instance=ExtResource( 4 )]
+[node name="FunctionPickup" parent="FPController/RightHandController" index="2" instance=ExtResource( 13 )]
 
-[node name="FunctionPickup" parent="FPController/RightHandController" index="3" instance=ExtResource( 13 )]
+[node name="RightPhysicsHand" parent="FPController/RightHandController" index="3" instance=ExtResource( 24 )]
 
 [node name="PlayerBody" parent="FPController" instance=ExtResource( 8 )]
 eye_forward_offset = 0.4
@@ -175,6 +183,7 @@ shape = SubResource( 1 )
 [node name="MeshInstance" type="MeshInstance" parent="Floor"]
 transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, 0 )
 mesh = SubResource( 2 )
+material/0 = SubResource( 7 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.504136, 0.863624, 0, -0.863624, 0.504136, 0, 11, 0 )
@@ -192,19 +201,8 @@ transform = Transform( 0.471604, -0.589242, 0.656036, 0.762276, 0.646428, 0.0326
 [node name="Spotlight2" parent="Stage" instance=ExtResource( 9 )]
 transform = Transform( -0.351587, 0.863263, 0.362164, 0.601308, 0.504754, -0.619397, -0.717507, 0, -0.696552, -3.35145, 3.74216, -2.69702 )
 
-[node name="VorhangVorneLinks" parent="Stage" instance=ExtResource( 11 )]
-transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 2, -1.4795, 2.3747, 2.95904 )
-
-[node name="VorhangVorneRechts" parent="Stage" instance=ExtResource( 11 )]
-transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 2, 2.49185, 2.3747, 2.95904 )
-
-[node name="Vorhang_Auf" type="AnimationPlayer" parent="Stage"]
-anims/RESET = SubResource( 4 )
-anims/Vorhang_links = SubResource( 5 )
-anims/Vorhang_rechts = SubResource( 6 )
-
 [node name="Spotlight3" parent="Stage" instance=ExtResource( 10 )]
-transform = Transform( -0.0388886, -0.121633, -0.991813, 0.427276, 0.895222, -0.12654, 0.903285, -0.428699, 0.0171568, -0.438117, 4.68128, 7.55997 )
+transform = Transform( -0.322022, 0.0199038, -0.946523, 0.480363, 0.864961, -0.145237, 0.815815, -0.501445, -0.288097, -2.14861, 4.68128, 7.55997 )
 
 [node name="Spotlight1" parent="Stage/Spotlight3" index="0"]
 transform = Transform( 1, -2.98023e-08, 1.49012e-08, 0, 1, 0, -1.49012e-08, 7.45058e-09, 1, 0.0643198, -4.76837e-07, 1.01556 )
@@ -212,14 +210,63 @@ transform = Transform( 1, -2.98023e-08, 1.49012e-08, 0, 1, 0, -1.49012e-08, 7.45
 [node name="SpotLight" parent="Stage/Spotlight3" index="1"]
 spot_range = 17.632
 
-[node name="StageRound" parent="." instance=ExtResource( 12 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.565689, 2.86102e-06, -11.8279 )
+[node name="Spotlight4" parent="Stage" instance=ExtResource( 10 )]
+transform = Transform( 0.226081, -0.241305, -0.943748, 0.512108, 0.853587, -0.0955726, 0.828634, -0.461693, 0.316553, 3.37779, 4.68128, 7.55997 )
 
-[node name="cord" parent="." instance=ExtResource( 14 )]
-transform = Transform( 1.2, 0, 0, 0, 2, 0, 0, 0, 1.2, 3.04466, 1.61037, -9.39099 )
+[node name="Spotlight1" parent="Stage/Spotlight4" index="0"]
+transform = Transform( 1, -2.98023e-08, 1.49012e-08, 0, 1, 0, -1.49012e-08, 7.45058e-09, 1, 0.0643198, -4.76837e-07, 1.01556 )
+
+[node name="SpotLight" parent="Stage/Spotlight4" index="1"]
+spot_range = 17.632
+
+[node name="VorhangVorneLinks" parent="Stage" instance=ExtResource( 11 )]
+transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 2, -1.4795, 2.3747, 2.95904 )
+
+[node name="VorhangVorneRechts" parent="Stage" instance=ExtResource( 11 )]
+transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 2, 2.09506, 2.3747, 2.95904 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Stage"]
+anims/RESET = SubResource( 4 )
+anims/Vorhang_links = SubResource( 5 )
+anims/Vorhang_rechts = SubResource( 6 )
+
+[node name="cord" parent="Stage" instance=ExtResource( 14 )]
+transform = Transform( 1.2, 0, 0, 0, 2, 0, 0, 0, 1.2, 3.81474, 1.61032, 2.59771 )
+
+[node name="StageRound" parent="." instance=ExtResource( 12 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.565689, 2.86102e-06, -11.8279 )
+
+[node name="Lichtpult" parent="." instance=ExtResource( 15 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.759178, -0.976337 )
+
+[node name="Tischbein1" type="MeshInstance" parent="Lichtpult"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.224241, -0.191778, -0.0723692 )
+mesh = SubResource( 8 )
+
+[node name="Tischbein2" type="MeshInstance" parent="Lichtpult"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22083, -0.191778, -0.0723692 )
+mesh = SubResource( 8 )
+
+[node name="Tischbein3" type="MeshInstance" parent="Lichtpult"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22083, -0.191778, 0.0687507 )
+mesh = SubResource( 8 )
+
+[node name="Tischbein4" type="MeshInstance" parent="Lichtpult"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.220622, -0.191778, 0.0687507 )
+mesh = SubResource( 8 )
+
+[node name="VorhangHebel" parent="Lichtpult" instance=ExtResource( 3 )]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.430961, -0.343543, 0.0460533 )
+
+[node name="InteractableHinge" parent="Lichtpult/VorhangHebel/LeverOrigin" index="0"]
+transform = Transform( 1, 0, 0, 0, 0.766044, -0.642788, 0, 0.642788, 0.766044, 0, 0, 0 )
+hinge_position = 40.0
 
 [editable path="FPController"]
 [editable path="Stage"]
+[editable path="Stage/Spotlight3"]
+[editable path="Stage/Spotlight4"]
 [editable path="Stage/VorhangVorneLinks"]
 [editable path="Stage/VorhangVorneRechts"]
-[editable path="Stage/Spotlight3"]
+[editable path="Lichtpult/VorhangHebel"]
+[editable path="Lichtpult/VorhangHebel/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
