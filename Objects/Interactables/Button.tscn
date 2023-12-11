@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/Levers/Buttons/Red/RedButton.glb" type="PackedScene" id=1]
+[ext_resource path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/godot-xr-tools/objects/hand_pose_area.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/godot-xr-tools/hands/poses/pose_point_right.tres" type="Resource" id=5]
+[ext_resource path="res://addons/godot-xr-tools/hands/poses/pose_point_left.tres" type="Resource" id=6]
+
+[sub_resource type="CylinderShape" id=2]
+height = 0.296712
+radius = 0.337469
+
+[sub_resource type="CylinderShape" id=1]
+height = 0.335839
+radius = 0.474413
+
+[sub_resource type="SphereShape" id=3]
+radius = 0.382643
+
+[node name="Button" type="Spatial"]
+
+[node name="RedButton" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+
+[node name="InteractableAreaButton" parent="RedButton" instance=ExtResource( 2 )]
+button = NodePath("../Button")
+displacement = Vector3( 0, -0.2, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="RedButton/InteractableAreaButton"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23, 0 )
+shape = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="RedButton"]
+
+[node name="BaseCollision" type="CollisionShape" parent="RedButton/StaticBody"]
+shape = SubResource( 1 )
+
+[node name="ButtonCollision" type="CollisionShape" parent="RedButton/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23, 0 )
+shape = SubResource( 2 )
+
+[node name="HandPoseArea" parent="RedButton" instance=ExtResource( 4 )]
+left_pose = ExtResource( 6 )
+right_pose = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="RedButton/HandPoseArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.229765, 0 )
+shape = SubResource( 3 )
+
+[editable path="RedButton"]
