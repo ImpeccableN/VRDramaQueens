@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Objects/vorhang.glb" type="PackedScene" id=11]
 [ext_resource path="res://Objects/StageRound.glb" type="PackedScene" id=12]
 [ext_resource path="res://addons/godot-xr-tools/functions/function_pickup.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Objects/cord.glb" type="PackedScene" id=14]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 25, 25, 1 )
@@ -213,6 +214,9 @@ spot_range = 17.632
 
 [node name="StageRound" parent="." instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.565689, 2.86102e-06, -11.8279 )
+
+[node name="cord" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1.2, 0, 0, 0, 2, 0, 0, 0, 1.2, 3.04466, 1.61037, -9.39099 )
 
 [editable path="FPController"]
 [editable path="Stage"]
