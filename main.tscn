@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -104,13 +104,118 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.999998 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( -1.4795, 2.3747, 2.95904 ), Vector3( -2.99931, 2.3747, 2.95904 ) ]
 }
 
 [sub_resource type="Animation" id=6]
+resource_name = "Vorhang_rechts"
+tracks/0/type = "value"
+tracks/0/path = NodePath("VorhangVorneRechts:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 2.10578, 2.3747, 2.95904 ), Vector3( 3.60133, 2.3747, 2.95904 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VorhangVorneRechts:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.8, 1.8, 2 ), Vector3( 0.3, 1.8, 2 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("VorhangVorneLinks:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.8, 1.8, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VorhangVorneLinks:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -1.4795, 2.3747, 2.95904 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("VorhangVorneRechts:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 2.09506, 2.3747, 2.95904 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("VorhangVorneRechts:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.8, 1.8, 2 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Vorhang_links"
+tracks/0/type = "value"
+tracks/0/path = NodePath("VorhangVorneLinks:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.8, 1.8, 2 ), Vector3( 0.3, 1.8, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VorhangVorneLinks:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.4795, 2.3747, 2.95904 ), Vector3( -2.99931, 2.3747, 2.95904 ) ]
+}
+
+[sub_resource type="Animation" id=16]
 resource_name = "Vorhang_rechts"
 tracks/0/type = "value"
 tracks/0/path = NodePath("VorhangVorneRechts:translation")
@@ -243,20 +348,28 @@ transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 2, 2.09506, 2.3747, 2.95904 )
 [node name="CollisionShape" type="CollisionShape" parent="Stage/VorhangVorneRechts/StaticBody"]
 shape = SubResource( 9 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Stage"]
+[node name="AnimationPlayerVorhangRechts" type="AnimationPlayer" parent="Stage"]
 anims/RESET = SubResource( 4 )
 anims/Vorhang_links = SubResource( 5 )
 anims/Vorhang_rechts = SubResource( 6 )
+
+[node name="AnimationPlayerVorhangLinks" type="AnimationPlayer" parent="Stage"]
+anims/RESET = SubResource( 14 )
+anims/Vorhang_links = SubResource( 15 )
+anims/Vorhang_rechts = SubResource( 16 )
 
 [node name="cord" parent="Stage" instance=ExtResource( 14 )]
 transform = Transform( 1.2, 0, 0, 0, 2, 0, 0, 0, 1.2, 3.81474, 1.61032, 2.59771 )
 visible = false
 
 [node name="FunctionalCord" parent="Stage" instance=ExtResource( 6 )]
-transform = Transform( 1.2, 0, 0, 0, 2, 0, 0, 0, 1.2, 3.801, 1.11, 3.062 )
+transform = Transform( 1.2, 0, 0, 0, 2, 0, 0, 0, 1.2, 3.801, 1.60861, 3.062 )
 
 [node name="fullCord" parent="Stage/FunctionalCord" index="0"]
 transform = Transform( -0.0277763, 0, 0, 0, -0.0277763, 0, 0, 0, -0.0277763, -0.00039649, 1.09897, -0.00137424 )
+
+[node name="XRToolsInteractableAreaButton" parent="Stage/FunctionalCord" index="1"]
+displacement = Vector3( 0, -0.1, 0 )
 
 [node name="StageRound" parent="." instance=ExtResource( 12 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.565689, 2.86102e-06, -11.8279 )
@@ -288,6 +401,7 @@ mesh = SubResource( 8 )
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.430961, -0.343543, 0.0460533 )
 
 [node name="Button" parent="Lichtpult" instance=ExtResource( 17 )]
+visible = false
 
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
 
