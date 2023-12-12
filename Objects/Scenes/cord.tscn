@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Objects/cord.glb" type="PackedScene" id=1]
+[ext_resource path="res://addons/godot-xr-tools/interactables/interactable_area_button.gd" type="Script" id=2]
+[ext_resource path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/godot-xr-tools/hands/animations/left/Grip 1.anim" type="Animation" id=5]
+[ext_resource path="res://addons/godot-xr-tools/hands/animations/right/Grip 1.anim" type="Animation" id=6]
+
+[sub_resource type="CylinderShape" id=1]
+height = 1.41056
+radius = 0.0367682
+
+[node name="cord" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+
+[node name="fullCord" parent="." index="0"]
+transform = Transform( -0.0277763, 0, 0, 0, -0.0277763, 0, 0, 0, -0.0277763, -0.000396577, 1.09897, -0.00137448 )
+
+[node name="XRToolsInteractableAreaButton" type="Area" parent="." index="1"]
+script = ExtResource( 2 )
+button = NodePath("../fullCord")
+displacement = Vector3( 0, 0.5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="XRToolsInteractableAreaButton" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0161538, 0.566802, -0.0409618 )
+shape = SubResource( 1 )
+
+[node name="GrabPointHandRight" parent="." index="2" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000646734, -0.0251875, -0.134074 )
+hand_pose = ExtResource( 6 )
+
+[node name="GrabPointHandLeft" parent="." index="3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0283449, -0.0321109, -0.132123 )
+hand_pose = ExtResource( 5 )

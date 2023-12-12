@@ -5,8 +5,15 @@
 [node name="Spotlight2" type="Spatial"]
 
 [node name="Spotlight2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.300828 )
+
+[node name="Scheinwerfer rund" parent="Spotlight2" index="0"]
+cast_shadow = 0
 
 [node name="SpotLight" type="SpotLight" parent="."]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.229987, 0, 0 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.167859, 0, 0 )
+shadow_enabled = true
 spot_range = 5.001
 spot_angle = 21.52
+
+[editable path="Spotlight2"]

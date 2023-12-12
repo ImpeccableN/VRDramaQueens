@@ -7,5 +7,12 @@
 [node name="Spotlight1" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0643196, 0, 1.01556 )
 
+[node name="Scheinwerfer eckig" parent="Spotlight1" index="0"]
+transform = Transform( 0.2, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -1.01643 )
+cast_shadow = 0
+
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.159144, 0, 0 )
+shadow_enabled = true
+
+[editable path="Spotlight1"]

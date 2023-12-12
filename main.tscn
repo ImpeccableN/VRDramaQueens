@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
 [ext_resource path="res://Objects/Interactables/Lever.tscn" type="PackedScene" id=3]
 [ext_resource path="res://addons/godot-xr-tools/functions/movement_turn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://addons/godot-xr-tools/functions/movement_direct.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Scenes/cord.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" type="PackedScene" id=7]
 [ext_resource path="res://addons/godot-xr-tools/player/player_body.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/Scenes/Spotlight2.tscn" type="PackedScene" id=9]
@@ -14,6 +15,8 @@
 [ext_resource path="res://addons/godot-xr-tools/functions/function_pickup.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/cord.glb" type="PackedScene" id=14]
 [ext_resource path="res://Objects/Interactables/Lichtpult.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Objects/Stage.gd" type="Script" id=16]
+[ext_resource path="res://Objects/Interactables/Button.tscn" type="PackedScene" id=17]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_hand_low.tscn" type="PackedScene" id=23]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_hand_low.tscn" type="PackedScene" id=24]
 
@@ -25,6 +28,9 @@ size = Vector2( 50, 50 )
 
 [sub_resource type="SpatialMaterial" id=7]
 albedo_color = Color( 0.4, 0.2, 0, 1 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 1, 1, 0.0830914 )
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -191,6 +197,7 @@ visible = false
 
 [node name="Stage" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.770077, 5.44786e-05, -11.9887 )
+script = ExtResource( 16 )
 
 [node name="stage full" parent="Stage" index="0"]
 transform = Transform( 4, 0, 0, 0, 0.5, 0, 0, 0, 3, 0.329205, 0, 0.367085 )
@@ -205,9 +212,10 @@ transform = Transform( -0.351587, 0.863263, 0.362164, 0.601308, 0.504754, -0.619
 transform = Transform( -0.322022, 0.0199038, -0.946523, 0.480363, 0.864961, -0.145237, 0.815815, -0.501445, -0.288097, -2.14861, 4.68128, 7.55997 )
 
 [node name="Spotlight1" parent="Stage/Spotlight3" index="0"]
-transform = Transform( 1, -2.98023e-08, 1.49012e-08, 0, 1, 0, -1.49012e-08, 7.45058e-09, 1, 0.0643198, -4.76837e-07, 1.01556 )
+transform = Transform( 1, 0, 1.49012e-08, -5.96046e-08, 1, 0, 2.98023e-08, 0, 1, 0.0643198, 0, 1.01556 )
 
 [node name="SpotLight" parent="Stage/Spotlight3" index="1"]
+transform = Transform( -2.98023e-08, 0, 1, 0, 1, 4.76837e-07, -1, -1.02818e-06, -9.23872e-07, 0, 0, 0 )
 spot_range = 17.632
 
 [node name="Spotlight4" parent="Stage" instance=ExtResource( 10 )]
@@ -222,8 +230,18 @@ spot_range = 17.632
 [node name="VorhangVorneLinks" parent="Stage" instance=ExtResource( 11 )]
 transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 2, -1.4795, 2.3747, 2.95904 )
 
+[node name="StaticBody" type="StaticBody" parent="Stage/VorhangVorneLinks"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage/VorhangVorneLinks/StaticBody"]
+shape = SubResource( 9 )
+
 [node name="VorhangVorneRechts" parent="Stage" instance=ExtResource( 11 )]
 transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 2, 2.09506, 2.3747, 2.95904 )
+
+[node name="StaticBody" type="StaticBody" parent="Stage/VorhangVorneRechts"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage/VorhangVorneRechts/StaticBody"]
+shape = SubResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Stage"]
 anims/RESET = SubResource( 4 )
@@ -232,12 +250,23 @@ anims/Vorhang_rechts = SubResource( 6 )
 
 [node name="cord" parent="Stage" instance=ExtResource( 14 )]
 transform = Transform( 1.2, 0, 0, 0, 2, 0, 0, 0, 1.2, 3.81474, 1.61032, 2.59771 )
+visible = false
+
+[node name="FunctionalCord" parent="Stage" instance=ExtResource( 6 )]
+transform = Transform( 1.2, 0, 0, 0, 2, 0, 0, 0, 1.2, 3.801, 1.11, 3.062 )
+
+[node name="fullCord" parent="Stage/FunctionalCord" index="0"]
+transform = Transform( -0.0277763, 0, 0, 0, -0.0277763, 0, 0, 0, -0.0277763, -0.00039649, 1.09897, -0.00137424 )
 
 [node name="StageRound" parent="." instance=ExtResource( 12 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.565689, 2.86102e-06, -11.8279 )
 
 [node name="Lichtpult" parent="." instance=ExtResource( 15 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.759178, -0.976337 )
+connectedLight1 = NodePath("../Stage/Spotlight1")
+connectedLight2 = NodePath("../Stage/Spotlight2")
+connectedLight3 = NodePath("../Stage/Spotlight3")
+onButton = NodePath("Button")
 
 [node name="Tischbein1" type="MeshInstance" parent="Lichtpult"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.224241, -0.191778, -0.0723692 )
@@ -255,18 +284,22 @@ mesh = SubResource( 8 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.220622, -0.191778, 0.0687507 )
 mesh = SubResource( 8 )
 
-[node name="VorhangHebel" parent="Lichtpult" instance=ExtResource( 3 )]
+[node name="DrehbühneHebel" parent="Lichtpult" instance=ExtResource( 3 )]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.430961, -0.343543, 0.0460533 )
 
-[node name="InteractableHinge" parent="Lichtpult/VorhangHebel/LeverOrigin" index="0"]
-transform = Transform( 1, 0, 0, 0, 0.766044, -0.642788, 0, 0.642788, 0.766044, 0, 0, 0 )
-hinge_position = 40.0
+[node name="Button" parent="Lichtpult" instance=ExtResource( 17 )]
+
+[connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
 
 [editable path="FPController"]
+[editable path="FPController/PlayerBody"]
 [editable path="Stage"]
 [editable path="Stage/Spotlight3"]
+[editable path="Stage/Spotlight3/Spotlight1"]
 [editable path="Stage/Spotlight4"]
+[editable path="Stage/Spotlight4/Spotlight1"]
 [editable path="Stage/VorhangVorneLinks"]
 [editable path="Stage/VorhangVorneRechts"]
-[editable path="Lichtpult/VorhangHebel"]
-[editable path="Lichtpult/VorhangHebel/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
+[editable path="Stage/FunctionalCord"]
+[editable path="Lichtpult/DrehbühneHebel"]
+[editable path="Lichtpult/DrehbühneHebel/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
