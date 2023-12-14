@@ -2,7 +2,6 @@ tool
 class_name XRToolsPickable
 extends RigidBody
 
-
 ## XR Tools Pickable Object
 ##
 ## This script allows a [RigidBody3D] to be picked up by an

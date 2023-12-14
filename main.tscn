@@ -112,6 +112,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=6]
 resource_name = "Vorhang_rechts"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("VorhangVorneRechts:translation")
 tracks/0/interp = 1
@@ -119,7 +120,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 2.10578, 2.3747, 2.95904 ), Vector3( 3.60133, 2.3747, 2.95904 ) ]
@@ -131,7 +132,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 1.8, 1.8, 2 ), Vector3( 0.3, 1.8, 2 ) ]
@@ -190,6 +191,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=15]
 resource_name = "Vorhang_links"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("VorhangVorneLinks:scale")
 tracks/0/interp = 1
@@ -197,7 +199,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 1.8, 1.8, 2 ), Vector3( 0.3, 1.8, 2 ) ]
@@ -209,7 +211,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( -1.4795, 2.3747, 2.95904 ), Vector3( -2.99931, 2.3747, 2.95904 ) ]
@@ -316,18 +318,12 @@ transform = Transform( -0.351587, 0.863263, 0.362164, 0.601308, 0.504754, -0.619
 [node name="Spotlight3" parent="Stage" instance=ExtResource( 10 )]
 transform = Transform( -0.322022, 0.0199038, -0.946523, 0.480363, 0.864961, -0.145237, 0.815815, -0.501445, -0.288097, -2.14861, 4.68128, 7.55997 )
 
-[node name="Spotlight1" parent="Stage/Spotlight3" index="0"]
-transform = Transform( 1, 0, 1.49012e-08, -5.96046e-08, 1, 0, 2.98023e-08, 0, 1, 0.0643198, 0, 1.01556 )
-
 [node name="SpotLight" parent="Stage/Spotlight3" index="1"]
 transform = Transform( -2.98023e-08, 0, 1, 0, 1, 4.76837e-07, -1, -1.02818e-06, -9.23872e-07, 0, 0, 0 )
 spot_range = 17.632
 
 [node name="Spotlight4" parent="Stage" instance=ExtResource( 10 )]
 transform = Transform( 0.226081, -0.241305, -0.943748, 0.512108, 0.853587, -0.0955726, 0.828634, -0.461693, 0.316553, 3.37779, 4.68128, 7.55997 )
-
-[node name="Spotlight1" parent="Stage/Spotlight4" index="0"]
-transform = Transform( 1, -2.98023e-08, 1.49012e-08, 0, 1, 0, -1.49012e-08, 7.45058e-09, 1, 0.0643198, -4.76837e-07, 1.01556 )
 
 [node name="SpotLight" parent="Stage/Spotlight4" index="1"]
 spot_range = 17.632
@@ -377,7 +373,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.5656
 [node name="Lichtpult" parent="." instance=ExtResource( 15 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.759178, -0.976337 )
 connectedLight1 = NodePath("../Stage/Spotlight1")
-connectedLight2 = NodePath("../Stage/Spotlight2")
+connectedLight2 = NodePath("../Stage/Spotlight4")
 connectedLight3 = NodePath("../Stage/Spotlight3")
 onButton = NodePath("Button")
 
@@ -409,9 +405,9 @@ visible = false
 [editable path="FPController/PlayerBody"]
 [editable path="Stage"]
 [editable path="Stage/Spotlight3"]
-[editable path="Stage/Spotlight3/Spotlight1"]
+[editable path="Stage/Spotlight3/Rahmen"]
 [editable path="Stage/Spotlight4"]
-[editable path="Stage/Spotlight4/Spotlight1"]
+[editable path="Stage/Spotlight4/Rahmen"]
 [editable path="Stage/VorhangVorneLinks"]
 [editable path="Stage/VorhangVorneRechts"]
 [editable path="Stage/FunctionalCord"]

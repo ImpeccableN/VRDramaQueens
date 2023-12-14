@@ -30,10 +30,10 @@ func _OffButton_pressed(button):
 	print("true")
 
 func _OnButton1_pressed(_button):
-	_connectedLight1.visible = not _connectedLight1.visible
+	_connectedLight1.lamp_switch()
 
 func _OnButton2_pressed(_button):
-	_connectedLight2.visible = not _connectedLight2.visible
+	_connectedLight2.lamp_switch()
 
 func _OnButton3_pressed(_button):
-	_connectedLight3.visible = not _connectedLight3.visible
+	_connectedLight3.lamp_switch()
