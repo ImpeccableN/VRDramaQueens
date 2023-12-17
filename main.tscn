@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -18,7 +18,7 @@
 [ext_resource path="res://Objects/Stage.gd" type="Script" id=16]
 [ext_resource path="res://Objects/Interactables/Button.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Objects/Sessel.glb" type="PackedScene" id=18]
-[ext_resource path="res://Objects/figureWithArmature.glb" type="PackedScene" id=20]
+[ext_resource path="res://Objects/animatedFigure.glb" type="PackedScene" id=19]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_hand_low.tscn" type="PackedScene" id=23]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_hand_low.tscn" type="PackedScene" id=24]
 
@@ -142,6 +142,9 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector3( 1.8, 1.8, 2 ), Vector3( 0.3, 1.8, 2 ) ]
 }
+
+[sub_resource type="Animation" id=22]
+resource_name = "walking"
 
 [sub_resource type="Animation" id=14]
 length = 0.001
@@ -394,6 +397,7 @@ shape = SubResource( 9 )
 anims/RESET = SubResource( 4 )
 anims/Vorhang_links = SubResource( 5 )
 anims/Vorhang_rechts = SubResource( 6 )
+anims/walking = SubResource( 22 )
 
 [node name="AnimationPlayerVorhangLinks" type="AnimationPlayer" parent="Stage"]
 anims/RESET = SubResource( 14 )
@@ -464,8 +468,8 @@ script = null
 [node name="Sessel" parent="." instance=ExtResource( 18 )]
 transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0.956511, 6.4373e-06, -4.04772 )
 
-[node name="figureWithArmature" parent="." instance=ExtResource( 20 )]
-transform = Transform( 0.888713, 0, -0.458464, 0, 1, 0, 0.458464, 0, 0.888713, -1.16212, 0.732633, -10.3788 )
+[node name="animatedFigure" parent="." instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66212, 0.701626, -10.2872 )
 
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
 
