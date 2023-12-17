@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/figure.glb-267ba2cccdabecde368b571b6da7b2c5.scn"
+path="res://.import/figureWithArmature.glb-f244696db11efa5dc3d0570642fe69e0.scn"
 
 [deps]
 
-source_file="res://Objects/figure.glb"
-dest_files=[ "res://.import/figure.glb-267ba2cccdabecde368b571b6da7b2c5.scn" ]
+source_file="res://Objects/figureWithArmature.glb"
+dest_files=[ "res://.import/figureWithArmature.glb-f244696db11efa5dc3d0570642fe69e0.scn" ]
 
 [params]
 

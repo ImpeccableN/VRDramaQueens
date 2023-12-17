@@ -18,7 +18,7 @@
 [ext_resource path="res://Objects/Stage.gd" type="Script" id=16]
 [ext_resource path="res://Objects/Interactables/Button.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Objects/Sessel.glb" type="PackedScene" id=18]
-[ext_resource path="res://Objects/figure.glb" type="PackedScene" id=19]
+[ext_resource path="res://Objects/figureWithArmature.glb" type="PackedScene" id=20]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_hand_low.tscn" type="PackedScene" id=23]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_hand_low.tscn" type="PackedScene" id=24]
 
@@ -464,8 +464,8 @@ script = null
 [node name="Sessel" parent="." instance=ExtResource( 18 )]
 transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0.956511, 6.4373e-06, -4.04772 )
 
-[node name="figure" parent="." instance=ExtResource( 19 )]
-transform = Transform( 0.602553, 0, -0.798078, 0, 1, 0, 0.798078, 0, 0.602553, -0.923305, 0.710488, -9.50082 )
+[node name="figureWithArmature" parent="." instance=ExtResource( 20 )]
+transform = Transform( 0.888713, 0, -0.458464, 0, 1, 0, 0.458464, 0, 0.888713, -1.16212, 0.732633, -10.3788 )
 
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
 
