@@ -16,12 +16,19 @@ func _ready():
 	var button1 = $Button1/RedButton/InteractableAreaButton
 	var button2 = $Button2/RedButton/InteractableAreaButton
 	var button3 = $Button3/RedButton/InteractableAreaButton
+	var lever1 = $Lever1/LeverOrigin/InteractableHingevar 
+	var lever2 = $Lever2/LeverOrigin/InteractableHinge
+	var lever3 = $Lever3/LeverOrigin/InteractableHinge
 	
 	
 	off_button.connect("button_pressed", self, "_OffButton_pressed")
 	button1.connect("button_pressed", self, "_OnButton1_pressed")
 	button2.connect("button_pressed", self, "_OnButton2_pressed")
 	button3.connect("button_pressed", self, "_OnButton3_pressed")
+#	lever1.connect("hinge_moved", self, "_Lever1_moved")
+#	lever2.connect("hinge_moved", self, "_Lever2_moved")
+#	lever3.connect("hinge_moved", self, "_Lever3_moved")
+	
 
 
 func _OffButton_pressed(button):
@@ -37,3 +44,7 @@ func _OnButton2_pressed(_button):
 
 func _OnButton3_pressed(_button):
 	_connectedLight3.lamp_switch()
+
+func _Lever1_moved(angle):
+#	add function to spotlights
+	pass
