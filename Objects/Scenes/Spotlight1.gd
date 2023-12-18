@@ -12,4 +12,5 @@ func lamp_switch():
 		lamp.light_energy = temp_light_energy
 
 func dim_light(angle):
-	pass
+	angle = -angle
+	lamp.light_energy = (angle + 45) / 45
