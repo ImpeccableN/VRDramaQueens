@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/wandleuchte.glb-42ae048ad89bdb7f836d195235802b5c.scn"
+path="res://.import/wandleuchteJoined.glb-6c01e54019233fefc4532b9b7cebddc4.scn"
 
 [deps]
 
-source_file="res://Objects/wandleuchte.glb"
-dest_files=[ "res://.import/wandleuchte.glb-42ae048ad89bdb7f836d195235802b5c.scn" ]
+source_file="res://Objects/wandleuchteJoined.glb"
+dest_files=[ "res://.import/wandleuchteJoined.glb-6c01e54019233fefc4532b9b7cebddc4.scn" ]
 
 [params]
 
