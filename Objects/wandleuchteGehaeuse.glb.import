@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/wandleuchteGlasEinzelnNeu.glb-cc20f5536248691b5fa4d454adf157e5.scn"
+path="res://.import/wandleuchteGehaeuse.glb-ba84c635f38d62a475d17ba7e73a693d.scn"
 
 [deps]
 
-source_file="res://Objects/wandleuchteGlasEinzelnNeu.glb"
-dest_files=[ "res://.import/wandleuchteGlasEinzelnNeu.glb-cc20f5536248691b5fa4d454adf157e5.scn" ]
+source_file="res://Objects/wandleuchteGehaeuse.glb"
+dest_files=[ "res://.import/wandleuchteGehaeuse.glb-ba84c635f38d62a475d17ba7e73a693d.scn" ]
 
 [params]
 
