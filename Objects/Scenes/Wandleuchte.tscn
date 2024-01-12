@@ -13,6 +13,7 @@ script = ExtResource( 6 )
 [node name="wandleuchteGlasEinzeln" parent="." instance=ExtResource( 2 )]
 
 [node name="WandleuchteGlasEinzeln" parent="wandleuchteGlasEinzeln" index="0"]
+transform = Transform( 0, 0.141577, 0, -0.023865, 0, 0, 0, 0, 0.023865, -0.269458, 0.742419, 0 )
 material/0 = ExtResource( 3 )
 
 [node name="wandleuchteEinzeln" parent="." instance=ExtResource( 1 )]
@@ -22,7 +23,7 @@ material/0 = ExtResource( 4 )
 material/1 = ExtResource( 5 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0798277, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20345, 0, 0 )
 light_energy = 16.0
 shadow_enabled = true
 
