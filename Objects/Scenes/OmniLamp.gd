@@ -1,6 +1,6 @@
 extends Spatial
 
-onready var lamp := $SpotLight
+onready var lamp := $OmniLight
 
 var temp_light_energy = 0.0
 
