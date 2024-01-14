@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Objects/wandleuchteEinzeln.glb" type="PackedScene" id=1]
-[ext_resource path="res://Objects/wandleuchteGlasEinzeln.glb" type="PackedScene" id=2]
-[ext_resource path="res://Objects/WandleuchteGlass.material" type="Material" id=3]
+[ext_resource path="res://Objects/wandleuchteGehaeuse.glb" type="PackedScene" id=1]
+[ext_resource path="res://Objects/wandleuchteGlassEinzelnNeu2.glb" type="PackedScene" id=2]
+[ext_resource path="res://Objects/WandleuchteGlassNeu.material" type="Material" id=3]
 [ext_resource path="res://Objects/WandleuchteGold.material" type="Material" id=4]
 [ext_resource path="res://Objects/WandleuchteSchwarz.material" type="Material" id=5]
 [ext_resource path="res://Objects/Scenes/OmniLamp.gd" type="Script" id=6]
@@ -12,8 +12,8 @@ script = ExtResource( 6 )
 
 [node name="wandleuchteGlasEinzeln" parent="." instance=ExtResource( 2 )]
 
-[node name="WandleuchteGlasEinzeln" parent="wandleuchteGlasEinzeln" index="0"]
-transform = Transform( 0, 0.141577, 0, -0.023865, 0, 0, 0, 0, 0.023865, -0.269458, 0.742419, 0 )
+[node name="WandleuchteGlasEinzelnNeu" parent="wandleuchteGlasEinzeln" index="0"]
+transform = Transform( 0.216047, 0, 0, 0, 0.937254, 0, 0, 0, 0.653977, 0.615025, 0, 0 )
 material/0 = ExtResource( 3 )
 
 [node name="wandleuchteEinzeln" parent="." instance=ExtResource( 1 )]
