@@ -36,3 +36,5 @@ transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.14, 0.025, 0.033 )
 
 [editable path="OffButton"]
 [editable path="OffButton/RedButton"]
+[editable path="Lever1"]
+[editable path="Lever1/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
