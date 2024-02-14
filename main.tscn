@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Objects/Sessel.glb" type="PackedScene" id=18]
 [ext_resource path="res://Objects/garderobeAnkleidezimmer/dressingRoom.glb" type="PackedScene" id=19]
 [ext_resource path="res://Objects/Scenes/Wandleuchte.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Objects/Scenes/BeltSnapZone.tscn" type="PackedScene" id=21]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_hand_low.tscn" type="PackedScene" id=23]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_hand_low.tscn" type="PackedScene" id=24]
 
@@ -309,6 +310,9 @@ albedo_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="CubeMesh" id=37]
 
+[sub_resource type="SpatialMaterial" id=38]
+albedo_color = Color( 0, 0, 0, 1 )
+
 [node name="Main" type="Spatial"]
 
 [node name="FPController" parent="." instance=ExtResource( 1 )]
@@ -349,6 +353,9 @@ strafe = false
 [node name="PlayerBody" parent="FPController" instance=ExtResource( 8 )]
 eye_forward_offset = 0.4
 
+[node name="BeltSnapZone" parent="FPController/PlayerBody" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.3 )
+
 [node name="Floor" type="StaticBody" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
@@ -362,6 +369,7 @@ material/0 = SubResource( 7 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.504136, 0.863624, 0, -0.863624, 0.504136, 0, 11, 0 )
+visible = false
 
 [node name="Stage" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.770077, 5.44786e-05, -11.9887 )
@@ -563,6 +571,7 @@ shape = SubResource( 30 )
 transform = Transform( 12, 0, 0, 0, 0.2, 0, 0, 0, 12, -0.483, 6, -3.35348 )
 visible = false
 mesh = SubResource( 37 )
+material/0 = SubResource( 38 )
 
 [node name="WandleuchtenLinks" type="Spatial" parent="TheatreRoom"]
 

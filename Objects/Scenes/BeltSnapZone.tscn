@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/godot-xr-tools/objects/snap_zone.tscn" type="PackedScene" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.5, 0.001, 0.2 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+params_cull_mode = 1
+albedo_color = Color( 0.447059, 0.819608, 0.917647, 0.717647 )
+
+[node name="BeltSnapZone" instance=ExtResource( 1 )]
+grab_distance = 0.1
+snap_require = "Lichtpult"
+
+[node name="MeshInstance" type="MeshInstance" parent="." index="1"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
