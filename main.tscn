@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Objects/Interactables/Button.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Objects/Sessel.glb" type="PackedScene" id=18]
 [ext_resource path="res://Objects/garderobeAnkleidezimmer/dressingRoom.glb" type="PackedScene" id=19]
+[ext_resource path="res://Objects/FiguresAnimated/DrRank_animated.glb" type="PackedScene" id=20]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_hand_low.tscn" type="PackedScene" id=23]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_hand_low.tscn" type="PackedScene" id=24]
 
@@ -436,6 +437,15 @@ transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0
 [node name="dressingRoom" parent="." instance=ExtResource( 19 )]
 transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 1.43905, 0.00865102, -19.9557 )
 
+[node name="DrRank_animated" parent="." instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3148, 2.30074e-05, -7.71976 )
+
+[node name="Skeleton" parent="DrRank_animated/Figure Armature Glases" index="0"]
+bones/1/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="BoneAttachment" parent="DrRank_animated/Figure Armature Glases/Skeleton" index="0"]
+transform = Transform( 1, 1.56376e-09, 2.38164e-07, 1.61188e-08, 0.997241, -0.0742274, -2.37623e-07, 0.0742274, 0.997241, -1.30871e-08, 1.24368, 0.282099 )
+
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
 
 [editable path="FPController"]
@@ -450,3 +460,4 @@ transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 1.43905
 [editable path="Stage/FunctionalCord"]
 [editable path="Lichtpult/DrehbühneHebel"]
 [editable path="Lichtpult/DrehbühneHebel/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
+[editable path="DrRank_animated"]
