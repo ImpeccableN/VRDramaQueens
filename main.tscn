@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -18,8 +18,7 @@
 [ext_resource path="res://Objects/Stage.gd" type="Script" id=16]
 [ext_resource path="res://Objects/Interactables/Button.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Objects/Sessel.glb" type="PackedScene" id=18]
-[ext_resource path="res://Objects/figure.glb" type="PackedScene" id=19]
-[ext_resource path="res://addons/godot-xr-tools/functions/function_pose_detector.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Objects/garderobeAnkleidezimmer/dressingRoom.glb" type="PackedScene" id=19]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_hand_low.tscn" type="PackedScene" id=23]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_hand_low.tscn" type="PackedScene" id=24]
 
@@ -282,8 +281,6 @@ strafe = true
 
 [node name="LeftPhysicsHand" parent="FPController/LeftHandController" index="2" instance=ExtResource( 23 )]
 
-[node name="FunctionPoseDetector" parent="FPController/LeftHandController" index="3" instance=ExtResource( 20 )]
-
 [node name="RightHandController" parent="FPController" index="3"]
 visible = true
 
@@ -298,8 +295,6 @@ strafe = false
 [node name="FunctionPickup" parent="FPController/RightHandController" index="2" instance=ExtResource( 13 )]
 
 [node name="RightPhysicsHand" parent="FPController/RightHandController" index="3" instance=ExtResource( 24 )]
-
-[node name="FunctionPoseDetector" parent="FPController/RightHandController" index="4" instance=ExtResource( 20 )]
 
 [node name="PlayerBody" parent="FPController" instance=ExtResource( 8 )]
 eye_forward_offset = 0.4
@@ -432,30 +427,10 @@ transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.430961, -0.343543, 0.0
 visible = false
 
 [node name="Sessel" parent="." instance=ExtResource( 18 )]
-transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, -1.30526, 6.4373e-06, -4.04772 )
-
-[node name="Sessel2" parent="." instance=ExtResource( 18 )]
-transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 1.72899, 6.4373e-06, -4.04772 )
-
-[node name="Sessel3" parent="." instance=ExtResource( 18 )]
 transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0.956511, 6.4373e-06, -4.04772 )
 
-[node name="Sessel4" parent="." instance=ExtResource( 18 )]
-transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, -0.53974, 6.4373e-06, -4.04772 )
-
-[node name="Sessel5" parent="." instance=ExtResource( 18 )]
-transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0.246662, 6.4373e-06, -4.04772 )
-
-[node name="figure" parent="." instance=ExtResource( 19 )]
-transform = Transform( 0.602553, 0, -0.798078, 0, 1, 0, 0.798078, 0, 0.602553, -0.923305, 0.710488, -9.50082 )
-
-[node name="Spotlight1" parent="." instance=ExtResource( 10 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 5.45899, -1.6776 )
-
-[node name="SpotLight" parent="Spotlight1" index="1"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.143972, -6.63178e-10, 0 )
-light_energy = 3.303
-spot_range = 9.389
+[node name="dressingRoom" parent="." instance=ExtResource( 19 )]
+transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 1.43905, 0.00865102, -19.9557 )
 
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
 
@@ -469,14 +444,5 @@ spot_range = 9.389
 [editable path="Stage/VorhangVorneLinks"]
 [editable path="Stage/VorhangVorneRechts"]
 [editable path="Stage/FunctionalCord"]
-[editable path="Lichtpult"]
-[editable path="Lichtpult/OffButton"]
-[editable path="Lichtpult/OffButton/RedButton"]
-[editable path="Lichtpult/Lever1"]
-[editable path="Lichtpult/Lever1/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
-[editable path="Lichtpult/Lever2"]
-[editable path="Lichtpult/Lever2/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
 [editable path="Lichtpult/DrehbühneHebel"]
 [editable path="Lichtpult/DrehbühneHebel/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
-[editable path="Spotlight1"]
-[editable path="Spotlight1/Rahmen"]
