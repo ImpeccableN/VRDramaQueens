@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -20,8 +20,12 @@
 [ext_resource path="res://Objects/Sessel.glb" type="PackedScene" id=18]
 [ext_resource path="res://Objects/garderobeAnkleidezimmer/dressingRoom.glb" type="PackedScene" id=19]
 [ext_resource path="res://Objects/FiguresAnimated/DrRank_animated.glb" type="PackedScene" id=20]
+[ext_resource path="res://Objects/FiguresAnimated/Maid_animated.glb" type="PackedScene" id=21]
+[ext_resource path="res://Objects/FiguresAnimated/Torvald_animated.glb" type="PackedScene" id=22]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_hand_low.tscn" type="PackedScene" id=23]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_hand_low.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Objects/FiguresAnimated/KristineLinde_animated.glb" type="PackedScene" id=25]
+[ext_resource path="res://Objects/FiguresAnimated/Nora_animated.glb" type="PackedScene" id=26]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 25, 25, 1 )
@@ -446,6 +450,42 @@ bones/1/bound_children = [ NodePath("BoneAttachment") ]
 [node name="BoneAttachment" parent="DrRank_animated/Figure Armature Glases/Skeleton" index="0"]
 transform = Transform( 1, 1.56376e-09, 2.38164e-07, 1.61188e-08, 0.997241, -0.0742274, -2.37623e-07, 0.0742274, 0.997241, -1.30871e-08, 1.24368, 0.282099 )
 
+[node name="KristineLinde_animated" parent="." instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.323142, 2.39611e-05, -7.37584 )
+
+[node name="Skeleton" parent="KristineLinde_animated/Figure Armature Blue Hair" index="0"]
+bones/2/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="BoneAttachment" parent="KristineLinde_animated/Figure Armature Blue Hair/Skeleton" index="0"]
+transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 1.39554, 0.293402 )
+
+[node name="Nora_animated" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.29878, 2.34842e-05, -4.50158 )
+
+[node name="Skeleton" parent="Nora_animated/Figure Armature Pink Hair" index="0"]
+bones/2/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="BoneAttachment" parent="Nora_animated/Figure Armature Pink Hair/Skeleton" index="0"]
+transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 1.39554, 0.293402 )
+
+[node name="Torvald_animated" parent="." instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48498, 7.39098e-06, -6.27916 )
+
+[node name="Skeleton" parent="Torvald_animated/Figure Armature Cylinder" index="0"]
+bones/2/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="BoneAttachment" parent="Torvald_animated/Figure Armature Cylinder/Skeleton" index="0"]
+transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 1.39554, 0.293402 )
+
+[node name="Maid_animated" parent="." instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23123, 7.86781e-06, -5.22166 )
+
+[node name="Skeleton" parent="Maid_animated/Figure Armature Bonnet" index="0"]
+bones/1/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="BoneAttachment" parent="Maid_animated/Figure Armature Bonnet/Skeleton" index="0"]
+transform = Transform( 1, 1.56376e-09, 2.38164e-07, 1.61188e-08, 0.997241, -0.0742274, -2.37623e-07, 0.0742274, 0.997241, -1.30871e-08, 1.24368, 0.282099 )
+
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
 
 [editable path="FPController"]
@@ -461,3 +501,7 @@ transform = Transform( 1, 1.56376e-09, 2.38164e-07, 1.61188e-08, 0.997241, -0.07
 [editable path="Lichtpult/DrehbühneHebel"]
 [editable path="Lichtpult/DrehbühneHebel/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
 [editable path="DrRank_animated"]
+[editable path="KristineLinde_animated"]
+[editable path="Nora_animated"]
+[editable path="Torvald_animated"]
+[editable path="Maid_animated"]
