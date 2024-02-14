@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -259,6 +259,28 @@ radius = 2.49458
 [sub_resource type="CubeMesh" id=8]
 size = Vector3( 0.02, 0.4, 0.02 )
 
+[sub_resource type="BoxShape" id=20]
+extents = Vector3( 2.49943, 1.66385, 0.056105 )
+
+[sub_resource type="BoxShape" id=21]
+extents = Vector3( 0.109869, 1.52351, 2.96531 )
+
+[sub_resource type="BoxShape" id=22]
+extents = Vector3( 0.0532076, 1.23975, 2.091 )
+
+[sub_resource type="BoxShape" id=23]
+extents = Vector3( 0.0591905, 1.26032, 0.259607 )
+
+[sub_resource type="CubeMesh" id=24]
+
+[sub_resource type="BoxShape" id=25]
+extents = Vector3( 4.98811, 2.83567, 0.200659 )
+
+[sub_resource type="CubeMesh" id=26]
+
+[sub_resource type="BoxShape" id=27]
+extents = Vector3( 2.00734, 3.03221, 0.203058 )
+
 [node name="Main" type="Spatial"]
 
 [node name="FPController" parent="." instance=ExtResource( 1 )]
@@ -312,7 +334,6 @@ material/0 = SubResource( 7 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.504136, 0.863624, 0, -0.863624, 0.504136, 0, 11, 0 )
-visible = false
 
 [node name="Stage" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.770077, 5.44786e-05, -11.9887 )
@@ -421,7 +442,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.220622, -0.191778, 0.068750
 mesh = SubResource( 8 )
 
 [node name="DrehbühneHebel" parent="Lichtpult" instance=ExtResource( 3 )]
-transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.430961, -0.343543, 0.0460533 )
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.581735, -0.344198, -0.133379 )
+
+[node name="Handle" parent="Lichtpult/DrehbühneHebel/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB" index="1"]
+transform = Transform( 0.0435386, 0, 0, 0, 0.525504, 0, 0, 0, 0.0665965, 0, 0.480557, 0 )
 
 [node name="Button" parent="Lichtpult" instance=ExtResource( 17 )]
 visible = false
@@ -431,6 +455,46 @@ transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0
 
 [node name="dressingRoom" parent="." instance=ExtResource( 19 )]
 transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 1.43905, 0.00865102, -19.9557 )
+
+[node name="StaticBody" type="StaticBody" parent="dressingRoom"]
+
+[node name="CollisionShape" type="CollisionShape" parent="dressingRoom/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62794, -2.97875 )
+shape = SubResource( 20 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="dressingRoom/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62794, 2.96491 )
+shape = SubResource( 20 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="dressingRoom/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45422, 1.49178, 1.19209e-07 )
+shape = SubResource( 21 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="dressingRoom/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48043, 1.20871, 0.888655 )
+shape = SubResource( 22 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="dressingRoom/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49272, 1.18183, -2.70499 )
+shape = SubResource( 23 )
+
+[node name="TheatreRoom" type="StaticBody" parent="."]
+
+[node name="WandVorneLinks" type="MeshInstance" parent="TheatreRoom"]
+transform = Transform( 5, 0, 0, 0, 3.2, 0, 0, 0, 0.2, -9.53818, 2.93462, -15.1633 )
+mesh = SubResource( 24 )
+
+[node name="WandVorneLinksCollisionShape" type="CollisionShape" parent="TheatreRoom"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.532, 2.935, -15.163 )
+shape = SubResource( 25 )
+
+[node name="WandVorneRechts" type="MeshInstance" parent="TheatreRoom"]
+transform = Transform( 2, 0, 0, 0, 3.2, 0, 0, 0, 0.2, 9.439, 2.935, -15.163 )
+mesh = SubResource( 26 )
+
+[node name="WandVorneRechtsCollisionShape" type="CollisionShape" parent="TheatreRoom"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.439, 2.935, -15.163 )
+shape = SubResource( 27 )
 
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
 
@@ -446,3 +510,4 @@ transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 1.43905
 [editable path="Stage/FunctionalCord"]
 [editable path="Lichtpult/DrehbühneHebel"]
 [editable path="Lichtpult/DrehbühneHebel/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
+[editable path="dressingRoom"]
