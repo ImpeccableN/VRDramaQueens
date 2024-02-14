@@ -478,13 +478,13 @@ bones/2/bound_children = [ NodePath("BoneAttachment") ]
 transform = Transform( 0.824466, 0.020509, -0.56554, -1.08071e-10, 0.999343, 0.0362407, 0.565912, -0.0298792, 0.823924, -0.00639693, 1.39554, 0.291418 )
 
 [node name="Nora_animated" parent="." instance=ExtResource( 26 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.760813, 4.25577e-05, -5.1697 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.310315, 4.23193e-05, -4.97155 )
 
 [node name="Skeleton" parent="Nora_animated/Figure Armature Pink Hair" index="0"]
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="Nora_animated/Figure Armature Pink Hair/Skeleton" index="0"]
-transform = Transform( 1, -8.93622e-09, 2.39232e-07, 5.76456e-08, 0.978888, -0.204396, -2.32355e-07, 0.204396, 0.978888, -5.47229e-08, 1.37667, 1.85181 )
+transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 1.39554, 0.293402 )
 
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
 
