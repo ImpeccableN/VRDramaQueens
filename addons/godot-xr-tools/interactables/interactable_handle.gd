@@ -81,3 +81,6 @@ func _get_configuration_warning() -> String:
 		return "Interactable handle must have no transform from its parent handle origin"
 
 	return ""
+	
+
+	

@@ -1,0 +1,471 @@
+[gd_scene load_steps=39 format=2]
+
+[ext_resource path="res://addons/godot-xr-tools/player/player_body.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Interactables/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Interactables/Lever.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Stage.gd" type="Script" id=4]
+[ext_resource path="res://Objects/StageRound.gd" type="Script" id=5]
+[ext_resource path="res://Objects/garderobeAnkleidezimmer/dressingRoom.glb" type="PackedScene" id=6]
+[ext_resource path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/godot-xr-tools/functions/movement_direct.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=9]
+[ext_resource path="res://Objects/Scenes/cord.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Objects/Scenes/Spotlight2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Objects/StageRound.glb" type="PackedScene" id=12]
+[ext_resource path="res://Objects/Interactables/Lichtpult.tscn" type="PackedScene" id=13]
+[ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Objects/Sessel.glb" type="PackedScene" id=15]
+[ext_resource path="res://Objects/Scenes/Spotlight1.tscn" type="PackedScene" id=16]
+[ext_resource path="res://addons/godot-xr-tools/functions/movement_turn.tscn" type="PackedScene" id=17]
+[ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_hand_low.tscn" type="PackedScene" id=18]
+[ext_resource path="res://addons/godot-xr-tools/functions/function_pickup.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Objects/vorhang.glb" type="PackedScene" id=20]
+[ext_resource path="res://Objects/cord.glb" type="PackedScene" id=21]
+[ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_hand_low.tscn" type="PackedScene" id=22]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 25, 25, 1 )
+
+[sub_resource type="QuadMesh" id=2]
+size = Vector2( 50, 50 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.4, 0.2, 0, 1 )
+
+[sub_resource type="BoxShape" id=17]
+extents = Vector3( 3.9826, 0.492297, 2.97464 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 1, 1, 0.0830914 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("VorhangVorneLinks:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.8, 1.8, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VorhangVorneLinks:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -1.4795, 2.3747, 2.95904 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("VorhangVorneRechts:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 2.09506, 2.3747, 2.95904 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("VorhangVorneRechts:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.8, 1.8, 2 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Vorhang_links"
+tracks/0/type = "value"
+tracks/0/path = NodePath("VorhangVorneLinks:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.8, 1.8, 2 ), Vector3( 0.3, 1.8, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VorhangVorneLinks:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.4795, 2.3747, 2.95904 ), Vector3( -2.99931, 2.3747, 2.95904 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Vorhang_rechts"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("VorhangVorneRechts:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 2.10578, 2.3747, 2.95904 ), Vector3( 3.60133, 2.3747, 2.95904 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VorhangVorneRechts:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.8, 1.8, 2 ), Vector3( 0.3, 1.8, 2 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("VorhangVorneLinks:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.8, 1.8, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VorhangVorneLinks:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -1.4795, 2.3747, 2.95904 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("VorhangVorneRechts:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 2.09506, 2.3747, 2.95904 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("VorhangVorneRechts:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.8, 1.8, 2 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Vorhang_links"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("VorhangVorneLinks:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.8, 1.8, 2 ), Vector3( 0.3, 1.8, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VorhangVorneLinks:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.4795, 2.3747, 2.95904 ), Vector3( -2.99931, 2.3747, 2.95904 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "Vorhang_rechts"
+tracks/0/type = "value"
+tracks/0/path = NodePath("VorhangVorneRechts:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 2.10578, 2.3747, 2.95904 ), Vector3( 3.60133, 2.3747, 2.95904 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VorhangVorneRechts:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.8, 1.8, 2 ), Vector3( 0.3, 1.8, 2 ) ]
+}
+
+[sub_resource type="BoxShape" id=18]
+extents = Vector3( 0.106689, 1.64672, 2.49961 )
+
+[sub_resource type="CylinderShape" id=19]
+height = 1.41465
+radius = 2.49458
+
+[sub_resource type="CubeMesh" id=8]
+size = Vector3( 0.02, 0.4, 0.02 )
+
+[sub_resource type="Animation" id=20]
+resource_name = "Drehbühne-drehen"
+
+[sub_resource type="Animation" id=21]
+resource_name = "drehen"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../StageRound:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 270, 0 ) ]
+}
+
+[node name="Main" type="Spatial"]
+
+[node name="FPController" parent="." instance=ExtResource( 14 )]
+
+[node name="ARVRCamera" parent="FPController" index="1"]
+far = 1000.0
+
+[node name="VRCommonShaderCache" parent="FPController/ARVRCamera" index="0" instance=ExtResource( 7 )]
+
+[node name="LeftHandController" parent="FPController" index="2"]
+visible = true
+
+[node name="MovementDirect" parent="FPController/LeftHandController" index="0" instance=ExtResource( 8 )]
+enabled = true
+order = 10
+max_speed = 3.0
+strafe = true
+
+[node name="FunctionPickup" parent="FPController/LeftHandController" index="1" instance=ExtResource( 19 )]
+
+[node name="LeftPhysicsHand" parent="FPController/LeftHandController" index="2" instance=ExtResource( 22 )]
+
+[node name="RightHandController" parent="FPController" index="3"]
+visible = true
+
+[node name="MovementDirect" parent="FPController/RightHandController" index="0" instance=ExtResource( 8 )]
+enabled = true
+order = 10
+max_speed = 3.0
+strafe = false
+
+[node name="MovementTurn" parent="FPController/RightHandController" index="1" instance=ExtResource( 17 )]
+
+[node name="FunctionPickup" parent="FPController/RightHandController" index="2" instance=ExtResource( 19 )]
+
+[node name="RightPhysicsHand" parent="FPController/RightHandController" index="3" instance=ExtResource( 18 )]
+
+[node name="PlayerBody" parent="FPController" instance=ExtResource( 1 )]
+eye_forward_offset = 0.4
+
+[node name="Floor" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor"]
+transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, -1, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Floor"]
+transform = Transform( 1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 7 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.504136, 0.863624, 0, -0.863624, 0.504136, 0, 11, 0 )
+visible = false
+
+[node name="Stage" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.770077, 5.44786e-05, -11.9887 )
+script = ExtResource( 4 )
+
+[node name="stage full" parent="Stage" index="0"]
+transform = Transform( 4, 0, 0, 0, 0.5, 0, 0, 0, 3, 0.329205, 0, 0.367085 )
+
+[node name="StaticBody" type="StaticBody" parent="Stage"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347792, 0, 0.360674 )
+shape = SubResource( 17 )
+
+[node name="Spotlight1" parent="Stage" instance=ExtResource( 16 )]
+transform = Transform( 0.471604, -0.589242, 0.656036, 0.762276, 0.646428, 0.0326355, -0.44331, 0.484689, 0.754024, 3.63894, 4.0183, -2.45773 )
+
+[node name="Spotlight2" parent="Stage" instance=ExtResource( 11 )]
+transform = Transform( -0.351587, 0.863263, 0.362164, 0.601308, 0.504754, -0.619397, -0.717507, 0, -0.696552, -3.35145, 3.74216, -2.69702 )
+
+[node name="Spotlight3" parent="Stage" instance=ExtResource( 16 )]
+transform = Transform( -0.322022, 0.0199038, -0.946523, 0.480363, 0.864961, -0.145237, 0.815815, -0.501445, -0.288097, -2.14861, 4.68128, 7.55997 )
+
+[node name="SpotLight" parent="Stage/Spotlight3" index="1"]
+transform = Transform( -2.98023e-08, 0, 1, 0, 1, 4.76837e-07, -1, -1.02818e-06, -9.23872e-07, 0, 0, 0 )
+spot_range = 17.632
+
+[node name="Spotlight4" parent="Stage" instance=ExtResource( 16 )]
+transform = Transform( 0.226081, -0.241305, -0.943748, 0.512108, 0.853587, -0.0955726, 0.828634, -0.461693, 0.316553, 3.37779, 4.68128, 7.55997 )
+
+[node name="SpotLight" parent="Stage/Spotlight4" index="1"]
+spot_range = 17.632
+
+[node name="VorhangVorneLinks" parent="Stage" instance=ExtResource( 20 )]
+transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 2, -1.4795, 2.3747, 2.95904 )
+
+[node name="StaticBody" type="StaticBody" parent="Stage/VorhangVorneLinks"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage/VorhangVorneLinks/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="VorhangVorneRechts" parent="Stage" instance=ExtResource( 20 )]
+transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 2, 2.09506, 2.3747, 2.95904 )
+
+[node name="StaticBody" type="StaticBody" parent="Stage/VorhangVorneRechts"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Stage/VorhangVorneRechts/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="AnimationPlayerVorhangRechts" type="AnimationPlayer" parent="Stage"]
+anims/RESET = SubResource( 4 )
+anims/Vorhang_links = SubResource( 5 )
+anims/Vorhang_rechts = SubResource( 6 )
+
+[node name="AnimationPlayerVorhangLinks" type="AnimationPlayer" parent="Stage"]
+anims/RESET = SubResource( 14 )
+anims/Vorhang_links = SubResource( 15 )
+anims/Vorhang_rechts = SubResource( 16 )
+
+[node name="cord" parent="Stage" instance=ExtResource( 21 )]
+transform = Transform( 1.2, 0, 0, 0, 2, 0, 0, 0, 1.2, 3.81474, 1.61032, 2.59771 )
+visible = false
+
+[node name="FunctionalCord" parent="Stage" instance=ExtResource( 10 )]
+transform = Transform( 1.2, 0, 0, 0, 2, 0, 0, 0, 1.2, 3.801, 1.60861, 3.062 )
+
+[node name="fullCord" parent="Stage/FunctionalCord" index="0"]
+transform = Transform( -0.0277763, 0, 0, 0, -0.0277763, 0, 0, 0, -0.0277763, -0.00039649, 1.09897, -0.00137424 )
+
+[node name="XRToolsInteractableAreaButton" parent="Stage/FunctionalCord" index="1"]
+displacement = Vector3( 0, -0.1, 0 )
+
+[node name="StageRound" parent="." instance=ExtResource( 12 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.565689, 2.86102e-06, -11.8279 )
+script = ExtResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="StageRound"]
+
+[node name="CollissionshapeWall" type="CollisionShape" parent="StageRound/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35366, 0 )
+shape = SubResource( 18 )
+
+[node name="CollisionShapeGround" type="CollisionShape" parent="StageRound/StaticBody"]
+shape = SubResource( 19 )
+
+[node name="Lichtpult" parent="." instance=ExtResource( 13 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.759178, -0.976337 )
+
+[node name="Tischbein1" type="MeshInstance" parent="Lichtpult"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.224241, -0.191778, -0.0723692 )
+mesh = SubResource( 8 )
+
+[node name="Tischbein2" type="MeshInstance" parent="Lichtpult"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22083, -0.191778, -0.0723692 )
+mesh = SubResource( 8 )
+
+[node name="Tischbein3" type="MeshInstance" parent="Lichtpult"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22083, -0.191778, 0.0687507 )
+mesh = SubResource( 8 )
+
+[node name="Tischbein4" type="MeshInstance" parent="Lichtpult"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.220622, -0.191778, 0.0687507 )
+mesh = SubResource( 8 )
+
+[node name="DrehbuehneHebel" parent="Lichtpult" instance=ExtResource( 3 )]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.430961, -0.343543, 0.0460533 )
+
+[node name="AnimationPlayerDrehbuehne" type="AnimationPlayer" parent="Lichtpult/DrehbuehneHebel"]
+root_node = NodePath("../../../Stage")
+playback_speed = 0.1
+"anims/Drehbühne-drehen" = SubResource( 20 )
+anims/drehen = SubResource( 21 )
+
+[node name="Button" parent="Lichtpult" instance=ExtResource( 2 )]
+visible = false
+
+[node name="Sessel" parent="." instance=ExtResource( 15 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0.956511, 6.4373e-06, -4.04772 )
+
+[node name="dressingRoom" parent="." instance=ExtResource( 6 )]
+transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 1.43905, 0.00865102, -19.9557 )
+
+[connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
+[connection signal="hinge_moved" from="Lichtpult/DrehbuehneHebel/LeverOrigin/InteractableHinge" to="StageRound" method="_on_InteractableHinge_hinge_moved"]
+
+[editable path="FPController"]
+[editable path="FPController/PlayerBody"]
+[editable path="Stage"]
+[editable path="Stage/Spotlight3"]
+[editable path="Stage/Spotlight3/Rahmen"]
+[editable path="Stage/Spotlight4"]
+[editable path="Stage/Spotlight4/Rahmen"]
+[editable path="Stage/VorhangVorneLinks"]
+[editable path="Stage/VorhangVorneRechts"]
+[editable path="Stage/FunctionalCord"]
+[editable path="Lichtpult/DrehbuehneHebel"]
+[editable path="Lichtpult/DrehbuehneHebel/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]

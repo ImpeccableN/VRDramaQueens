@@ -152,3 +152,4 @@ func _do_move_hinge(position: float) -> float:
 
 	# Return the updated position
 	return position
+	
