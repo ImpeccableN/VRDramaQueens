@@ -400,7 +400,7 @@ enabled=PoolStringArray( "res://addons/godot-openxr/plugin.cfg", "res://addons/g
 
 [gdnative]
 
-singletons=[ "res://addons/godot-oculus/godot_oculus.gdnlib", "res://addons/godot-openvr/godot_openvr.gdnlib", "res://addons/godot-openxr/config/godot_openxr.gdnlib" ]
+singletons=[ "res://addons/godot-openxr/config/godot_openxr.gdnlib" ]
 
 [godot_xr_tools]
 
