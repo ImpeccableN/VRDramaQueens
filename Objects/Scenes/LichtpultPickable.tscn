@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Interactables/Lichtpult.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/godot-xr-tools/objects/pickable.tscn" type="PackedScene" id=2]
+
+[sub_resource type="BoxShape" id=1]
+margin = 0.01
+extents = Vector3( 0.25, 0.025, 0.1 )
+
+[node name="LichtpultPickable" instance=ExtResource( 2 )]
+
+[node name="CollisionShape" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="Lichtpult" parent="." index="1" instance=ExtResource( 1 )]
+
+[editable path="Lichtpult"]
+[editable path="Lichtpult/OffButton"]
+[editable path="Lichtpult/OffButton/RedButton"]
+[editable path="Lichtpult/Lever1"]
+[editable path="Lichtpult/Lever1/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]

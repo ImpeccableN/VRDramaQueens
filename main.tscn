@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -21,8 +21,10 @@
 [ext_resource path="res://Objects/garderobeAnkleidezimmer/dressingRoom.glb" type="PackedScene" id=19]
 [ext_resource path="res://Objects/Scenes/Wandleuchte.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Objects/Scenes/BeltSnapZone.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Objects/Scenes/LichtpultPickable.tscn" type="PackedScene" id=22]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_hand_low.tscn" type="PackedScene" id=23]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_hand_low.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Objects/Scenes/Tisch.tscn" type="PackedScene" id=25]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 25, 25, 1 )
@@ -454,8 +456,15 @@ shape = SubResource( 18 )
 [node name="CollisionShapeGround" type="CollisionShape" parent="StageRound/StaticBody"]
 shape = SubResource( 19 )
 
+[node name="Tisch" parent="." instance=ExtResource( 25 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.706041, -1.02472 )
+
+[node name="LichtpultPickable" parent="." instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.799538, -0.976337 )
+
 [node name="Lichtpult" parent="." instance=ExtResource( 15 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.759178, -0.976337 )
+visible = false
 connectedLight1 = NodePath("../Stage/Spotlight1")
 connectedLight2 = NodePath("../Stage/Spotlight4")
 connectedLight3 = NodePath("../Stage/Spotlight3")
@@ -520,6 +529,7 @@ light_energy = 8.102
 omni_range = 8.32
 
 [node name="TheatreRoom" type="StaticBody" parent="."]
+visible = false
 
 [node name="WandVorneLinks" type="MeshInstance" parent="TheatreRoom"]
 transform = Transform( 4, 0, 0, 0, 3.2, 0, 0, 0, 0.2, -8.5, 2.9, -15.163 )
