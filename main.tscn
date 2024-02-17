@@ -353,6 +353,7 @@ strafe = false
 [node name="RightPhysicsHand" parent="FPController/RightHandController" index="3" instance=ExtResource( 24 )]
 
 [node name="PlayerBody" parent="FPController" instance=ExtResource( 8 )]
+collision_mask = 1019
 eye_forward_offset = 0.4
 
 [node name="BeltSnapZone" parent="FPController/PlayerBody" instance=ExtResource( 21 )]

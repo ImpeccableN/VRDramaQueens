@@ -12,6 +12,7 @@ albedo_color = Color( 0.447059, 0.819608, 0.917647, 0.717647 )
 
 [node name="BeltSnapZone" instance=ExtResource( 1 )]
 grab_distance = 0.1
+snap_mode = 1
 snap_require = "Lichtpult"
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="1"]
