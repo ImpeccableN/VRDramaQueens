@@ -13,8 +13,8 @@ func _ready():
 
 # Handler für das hinge_moved-Signal des Scharniers
 func _on_InteractableHinge_hinge_moved(angle):
-	# Prüfen, ob der Winkel innerhalb der Grenzen liegt
-	if angle >= MIN_ANGLE and angle <= MAX_ANGLE:
+# Prüfen, ob der Winkel innerhalb der Grenzen liegt
+	if angle == MIN_ANGLE or angle == MAX_ANGLE:
 		# Wenn ja, führe die Animation aus
 		animation_player.play("drehen")
 	else:
