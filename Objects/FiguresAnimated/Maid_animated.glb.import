@@ -2,21 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-<<<<<<<< HEAD:Objects/animatedFigure.glb.import
-path="res://.import/animatedFigure.glb-5ae0847ec8db29590482c7038f403244.scn"
+path="res://.import/Maid_animated.glb-8abe0c244c908a24f0091139dd70dbf2.scn"
 
 [deps]
 
-source_file="res://Objects/animatedFigure.glb"
-dest_files=[ "res://.import/animatedFigure.glb-5ae0847ec8db29590482c7038f403244.scn" ]
-========
-path="res://.import/pig.glb-4c0ceb7838241cd74d086a43a417f76d.scn"
-
-[deps]
-
-source_file="res://Objects/kinderzimmer/pig.glb"
-dest_files=[ "res://.import/pig.glb-4c0ceb7838241cd74d086a43a417f76d.scn" ]
->>>>>>>> main:Objects/kinderzimmer/pig.glb.import
+source_file="res://Objects/FiguresAnimated/Maid_animated.glb"
+dest_files=[ "res://.import/Maid_animated.glb-8abe0c244c908a24f0091139dd70dbf2.scn" ]
 
 [params]
 

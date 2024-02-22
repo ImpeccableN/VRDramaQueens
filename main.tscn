@@ -1,4 +1,6 @@
-[gd_scene load_steps=38 format=2]
+
+[gd_scene load_steps=42 format=2]
+
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -19,9 +21,15 @@
 [ext_resource path="res://Objects/Interactables/Button.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Objects/Sessel.glb" type="PackedScene" id=18]
 [ext_resource path="res://Objects/garderobeAnkleidezimmer/dressingRoom.glb" type="PackedScene" id=19]
-[ext_resource path="res://Objects/StageRound.gd" type="Script" id=20]
+
+[ext_resource path="res://Objects/FiguresAnimated/DrRank_animated.glb" type="PackedScene" id=20]
+[ext_resource path="res://Objects/FiguresAnimated/Maid_animated.glb" type="PackedScene" id=21]
+[ext_resource path="res://Objects/FiguresAnimated/Torvald_animated.glb" type="PackedScene" id=22]
+
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_hand_low.tscn" type="PackedScene" id=23]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_hand_low.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Objects/FiguresAnimated/KristineLinde_animated.glb" type="PackedScene" id=25]
+[ext_resource path="res://Objects/FiguresAnimated/Nora_animated.glb" type="PackedScene" id=26]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 25, 25, 1 )
@@ -143,6 +151,9 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector3( 1.8, 1.8, 2 ), Vector3( 0.3, 1.8, 2 ) ]
 }
+
+[sub_resource type="Animation" id=22]
+resource_name = "walking"
 
 [sub_resource type="Animation" id=14]
 length = 0.001
@@ -382,6 +393,7 @@ shape = SubResource( 9 )
 anims/RESET = SubResource( 4 )
 anims/Vorhang_links = SubResource( 5 )
 anims/Vorhang_rechts = SubResource( 6 )
+anims/walking = SubResource( 22 )
 
 [node name="AnimationPlayerVorhangLinks" type="AnimationPlayer" parent="Stage"]
 anims/RESET = SubResource( 14 )
@@ -452,6 +464,51 @@ transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0
 [node name="dressingRoom" parent="." instance=ExtResource( 19 )]
 transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 1.43905, 0.00865102, -19.9557 )
 
+[node name="DrRank_animated" parent="." instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3148, 2.30074e-05, -7.71976 )
+
+[node name="Skeleton" parent="DrRank_animated/Figure Armature Glases" index="0"]
+bones/1/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="BoneAttachment" parent="DrRank_animated/Figure Armature Glases/Skeleton" index="0"]
+transform = Transform( 1, 7.10543e-15, 2.38419e-07, 2.63021e-08, 0.993896, -0.110319, -2.36963e-07, 0.110319, 0.993896, -1.36464e-08, 1.24238, 0.286719 )
+
+[node name="Torvald_animated" parent="." instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48498, 7.39098e-06, -6.27916 )
+
+[node name="Skeleton" parent="Torvald_animated/Figure Armature Cylinder" index="0"]
+bones/2/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="BoneAttachment" parent="Torvald_animated/Figure Armature Cylinder/Skeleton" index="0"]
+transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08, -2.38418e-07, -6.70552e-08, 1, -1.37395e-08, 1.39374, 0.303519 )
+
+[node name="Maid_animated" parent="." instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23123, 7.86781e-06, -5.22166 )
+
+[node name="Skeleton" parent="Maid_animated/Figure Armature Bonnet" index="0"]
+bones/1/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="BoneAttachment" parent="Maid_animated/Figure Armature Bonnet/Skeleton" index="0"]
+transform = Transform( 1, 7.10543e-15, 2.38419e-07, 2.63021e-08, 0.993896, -0.110319, -2.36963e-07, 0.110319, 0.993896, -1.36464e-08, 1.24238, 0.286719 )
+
+[node name="KristineLinde_animated" parent="." instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41376, 4.42266e-05, -6.42329 )
+
+[node name="Skeleton" parent="KristineLinde_animated/Figure Armature Blue Hair" index="0"]
+bones/2/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="BoneAttachment" parent="KristineLinde_animated/Figure Armature Blue Hair/Skeleton" index="0"]
+transform = Transform( 0.824466, 0.020509, -0.56554, -1.08071e-10, 0.999343, 0.0362407, 0.565912, -0.0298792, 0.823924, -0.00639693, 1.39554, 0.291418 )
+
+[node name="Nora_animated" parent="." instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.310315, 4.23193e-05, -4.97155 )
+
+[node name="Skeleton" parent="Nora_animated/Figure Armature Pink Hair" index="0"]
+bones/2/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="BoneAttachment" parent="Nora_animated/Figure Armature Pink Hair/Skeleton" index="0"]
+transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 1.39554, 0.293402 )
+
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
 [connection signal="hinge_moved" from="Lichtpult/DrehbühneHebel/LeverOrigin/InteractableHinge" to="StageRound" method="_on_InteractableHinge_hinge_moved"]
 
@@ -467,3 +524,8 @@ transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 1.43905
 [editable path="Stage/FunctionalCord"]
 [editable path="Lichtpult/DrehbühneHebel"]
 [editable path="Lichtpult/DrehbühneHebel/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
+[editable path="DrRank_animated"]
+[editable path="Torvald_animated"]
+[editable path="Maid_animated"]
+[editable path="KristineLinde_animated"]
+[editable path="Nora_animated"]
