@@ -358,6 +358,7 @@ eye_forward_offset = 0.4
 
 [node name="BeltSnapZone" parent="FPController/PlayerBody" instance=ExtResource( 21 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.3 )
+visible = false
 
 [node name="Floor" type="StaticBody" parent="."]
 
@@ -459,6 +460,10 @@ shape = SubResource( 19 )
 
 [node name="Tisch" parent="." instance=ExtResource( 25 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.706041, -1.02472 )
+
+[node name="BeltSnapZone2" parent="Tisch" instance=ExtResource( 21 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0451013, 0.0602967, -1.97144e-09 )
+visible = false
 
 [node name="LichtpultPickable" parent="." instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.799538, -0.976337 )
@@ -613,6 +618,8 @@ transform = Transform( -0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 1
 transform = Transform( -0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 10.894, 2.9, -9 )
 
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
+[connection signal="dropped" from="LichtpultPickable" to="FPController/PlayerBody/BeltSnapZone" method="_on_LichtpultPickable_dropped"]
+[connection signal="picked_up" from="LichtpultPickable" to="FPController/PlayerBody/BeltSnapZone" method="_on_LichtpultPickable_picked_up"]
 
 [editable path="FPController"]
 [editable path="FPController/PlayerBody"]

@@ -8,7 +8,7 @@ size = Vector3( 0.5, 0.001, 0.2 )
 [sub_resource type="SpatialMaterial" id=2]
 flags_transparent = true
 params_cull_mode = 1
-albedo_color = Color( 0.447059, 0.819608, 0.917647, 0.717647 )
+albedo_color = Color( 1, 1, 1, 0.552941 )
 
 [node name="BeltSnapZone" instance=ExtResource( 1 )]
 grab_distance = 0.1

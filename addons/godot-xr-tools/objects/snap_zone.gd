@@ -303,3 +303,12 @@ func _on_target_dropped(target: Spatial) -> void:
 	# Pick up the target if we can
 	if target.can_pick_up(self):
 		pick_up_object(target)
+
+
+func _on_LichtpultPickable_picked_up(pickable):
+	visible = not visible
+	
+
+
+func _on_LichtpultPickable_dropped(pickable):
+	visible = not visible
