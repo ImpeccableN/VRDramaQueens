@@ -1,22 +1,19 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
-[ext_resource path="res://Objects/Interactables/Lever.tscn" type="PackedScene" id=3]
+[ext_resource path="res://WandleuchtenRechts.gd" type="Script" id=3]
 [ext_resource path="res://addons/godot-xr-tools/functions/movement_turn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://addons/godot-xr-tools/functions/movement_direct.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Scenes/cord.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" type="PackedScene" id=7]
 [ext_resource path="res://addons/godot-xr-tools/player/player_body.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Objects/Scenes/Spotlight2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/Scenes/Spotlight1.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/vorhang.glb" type="PackedScene" id=11]
 [ext_resource path="res://Objects/StageRound.glb" type="PackedScene" id=12]
 [ext_resource path="res://addons/godot-xr-tools/functions/function_pickup.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/cord.glb" type="PackedScene" id=14]
-[ext_resource path="res://Objects/Interactables/Lichtpult.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Objects/Stage.gd" type="Script" id=16]
-[ext_resource path="res://Objects/Interactables/Button.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Objects/Scenes/SesselMitCollision.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Objects/garderobeAnkleidezimmer/dressingRoom.glb" type="PackedScene" id=19]
 [ext_resource path="res://Objects/Scenes/Wandleuchte.tscn" type="PackedScene" id=20]
@@ -262,9 +259,6 @@ extents = Vector3( 0.106689, 1.64672, 2.49961 )
 height = 1.41465
 radius = 2.49458
 
-[sub_resource type="CubeMesh" id=8]
-size = Vector3( 0.02, 0.4, 0.02 )
-
 [sub_resource type="BoxShape" id=20]
 extents = Vector3( 2.49943, 1.66385, 0.056105 )
 
@@ -395,22 +389,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347792, 0, 0.360674 )
 shape = SubResource( 17 )
 
 [node name="Spotlight1" parent="Stage" instance=ExtResource( 10 )]
-transform = Transform( 0.471604, -0.589242, 0.656036, 0.762276, 0.646428, 0.0326355, -0.44331, 0.484689, 0.754024, 3.63894, 4.0183, -2.45773 )
-
-[node name="Spotlight2" parent="Stage" instance=ExtResource( 9 )]
-transform = Transform( -0.351587, 0.863263, 0.362164, 0.601308, 0.504754, -0.619397, -0.717507, 0, -0.696552, -3.35145, 3.74216, -2.69702 )
-
-[node name="Spotlight3" parent="Stage" instance=ExtResource( 10 )]
 transform = Transform( -0.322022, 0.0199038, -0.946523, 0.480363, 0.864961, -0.145237, 0.815815, -0.501445, -0.288097, -2.14861, 4.68128, 7.55997 )
 
-[node name="SpotLight" parent="Stage/Spotlight3" index="1"]
+[node name="SpotLight" parent="Stage/Spotlight1" index="1"]
 transform = Transform( -2.98023e-08, 0, 1, 0, 1, 4.76837e-07, -1, -1.02818e-06, -9.23872e-07, 0, 0, 0 )
 spot_range = 17.632
 
-[node name="Spotlight4" parent="Stage" instance=ExtResource( 10 )]
+[node name="Spotlight2" parent="Stage" instance=ExtResource( 10 )]
 transform = Transform( 0.226081, -0.241305, -0.943748, 0.512108, 0.853587, -0.0955726, 0.828634, -0.461693, 0.316553, 3.37779, 4.68128, 7.55997 )
 
-[node name="SpotLight" parent="Stage/Spotlight4" index="1"]
+[node name="SpotLight" parent="Stage/Spotlight2" index="1"]
 spot_range = 17.632
 
 [node name="VorhangVorneLinks" parent="Stage" instance=ExtResource( 11 )]
@@ -474,38 +462,11 @@ visible = false
 [node name="LichtpultPickable" parent="." instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.799538, -0.976337 )
 
-[node name="Lichtpult" parent="." instance=ExtResource( 15 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.759178, -0.976337 )
-visible = false
-connectedLight1 = NodePath("../Stage/Spotlight1")
-connectedLight2 = NodePath("../Stage/Spotlight4")
-connectedLight3 = NodePath("../Stage/Spotlight3")
-onButton = NodePath("Button")
-
-[node name="Tischbein1" type="MeshInstance" parent="Lichtpult"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.224241, -0.191778, -0.0723692 )
-mesh = SubResource( 8 )
-
-[node name="Tischbein2" type="MeshInstance" parent="Lichtpult"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22083, -0.191778, -0.0723692 )
-mesh = SubResource( 8 )
-
-[node name="Tischbein3" type="MeshInstance" parent="Lichtpult"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22083, -0.191778, 0.0687507 )
-mesh = SubResource( 8 )
-
-[node name="Tischbein4" type="MeshInstance" parent="Lichtpult"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.220622, -0.191778, 0.0687507 )
-mesh = SubResource( 8 )
-
-[node name="DrehbühneHebel" parent="Lichtpult" instance=ExtResource( 3 )]
-transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.581735, -0.344198, -0.133379 )
-
-[node name="Handle" parent="Lichtpult/DrehbühneHebel/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB" index="1"]
-transform = Transform( 0.0435386, 0, 0, 0, 0.525504, 0, 0, 0, 0.0665965, 0, 0.480557, 0 )
-
-[node name="Button" parent="Lichtpult" instance=ExtResource( 17 )]
-visible = false
+[node name="Lichtpult" parent="LichtpultPickable" index="1"]
+connectedLight1 = NodePath("../../Stage/Spotlight1")
+connectedLight2 = NodePath("../../Stage/Spotlight2")
+connectedLightGroupLeft = NodePath("../../TheatreRoom/WandleuchtenLinks")
+connectedLightGroupRight = NodePath("../../TheatreRoom/WandleuchtenRechts")
 
 [node name="dressingRoom" parent="." instance=ExtResource( 19 )]
 transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 1.43905, 0.00865102, -19.9557 )
@@ -607,6 +568,7 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -11.933, 2.9, -4.5 )
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -11.933, 2.9, -9 )
 
 [node name="WandleuchtenRechts" type="Spatial" parent="TheatreRoom"]
+script = ExtResource( 3 )
 
 [node name="Wandleuchte" parent="TheatreRoom/WandleuchtenRechts" instance=ExtResource( 20 )]
 transform = Transform( -0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 10.8942, 2.9, 0 )
@@ -692,13 +654,17 @@ transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0
 [editable path="FPController"]
 [editable path="FPController/PlayerBody"]
 [editable path="Stage"]
-[editable path="Stage/Spotlight3"]
-[editable path="Stage/Spotlight3/Rahmen"]
-[editable path="Stage/Spotlight4"]
-[editable path="Stage/Spotlight4/Rahmen"]
+[editable path="Stage/Spotlight1"]
+[editable path="Stage/Spotlight1/Rahmen"]
+[editable path="Stage/Spotlight2"]
+[editable path="Stage/Spotlight2/Rahmen"]
 [editable path="Stage/VorhangVorneLinks"]
 [editable path="Stage/VorhangVorneRechts"]
 [editable path="Stage/FunctionalCord"]
-[editable path="Lichtpult/DrehbühneHebel"]
-[editable path="Lichtpult/DrehbühneHebel/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
+[editable path="LichtpultPickable"]
+[editable path="LichtpultPickable/Lichtpult"]
+[editable path="LichtpultPickable/Lichtpult/OffButton"]
+[editable path="LichtpultPickable/Lichtpult/OffButton/RedButton"]
+[editable path="LichtpultPickable/Lichtpult/Lever1"]
+[editable path="LichtpultPickable/Lichtpult/Lever1/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
 [editable path="dressingRoom"]
