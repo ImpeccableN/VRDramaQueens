@@ -22,6 +22,8 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.05659, 0, 0 )
 [node name="Button" parent="OffButton/RedButton" index="1"]
 transform = Transform( 0.331052, 0, 0, 0, 0.147678, 0, 0, 0, 0.331052, 0, 0.23001, 0 )
 
+[node name="Timer" type="Timer" parent="OffButton/RedButton/InteractableAreaButton" index="1"]
+
 [node name="Lever1" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.27, 0.03, -0.06 )
 

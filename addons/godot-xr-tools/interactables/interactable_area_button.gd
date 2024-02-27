@@ -39,6 +39,7 @@ var _tween: Tween
 
 # Node references
 onready var _button: Spatial = get_node(button)
+onready var _timer := $Timer
 
 # Button positions
 onready var _button_up := _button.transform.origin
@@ -90,7 +91,9 @@ func _on_button_entered(item: Spatial) -> void:
 		_tween.start()
 
 		# Emit the pressed signal
-		emit_signal("button_pressed",self)
+		if _timer.is_stopped():
+			emit_signal("button_pressed",self)
+			_timer.start()
 
 
 # Called when an area or body exits the button area

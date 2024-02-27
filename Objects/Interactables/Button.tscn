@@ -30,6 +30,8 @@ displacement = Vector3( 0, -0.2, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23, 0 )
 shape = SubResource( 2 )
 
+[node name="Timer" type="Timer" parent="RedButton/InteractableAreaButton"]
+
 [node name="StaticBody" type="StaticBody" parent="RedButton"]
 
 [node name="BaseCollision" type="CollisionShape" parent="RedButton/StaticBody"]

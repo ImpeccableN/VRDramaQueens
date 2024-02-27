@@ -14,7 +14,7 @@ onready var _connectedLightGroupRight = get_node(connectedLightGroupRight)
 
 
 func _ready():
-	var off_button = $OffButton/RedButton/InteractableAreaButton
+#	var off_button = $OffButton/RedButton/InteractableAreaButton
 	var button1 = $Button1/RedButton/InteractableAreaButton
 	var button2 = $Button2/RedButton/InteractableAreaButton
 	var button3 = $Button3/RedButton/InteractableAreaButton
