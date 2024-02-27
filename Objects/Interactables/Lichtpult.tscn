@@ -5,7 +5,7 @@
 [ext_resource path="res://Objects/Interactables/Lichtpult.gd" type="Script" id=3]
 
 [sub_resource type="CubeMesh" id=1]
-size = Vector3( 0.5, 0.05, 0.2 )
+size = Vector3( 0.7, 0.05, 0.2 )
 
 [node name="Lichtpult" type="Spatial"]
 script = ExtResource( 3 )
@@ -16,23 +16,38 @@ mesh = SubResource( 1 )
 [node name="OffButton" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.212961, 0.0296709, -0.0668947 )
 
+[node name="RedButton" parent="OffButton" index="0"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.05659, 0, 0 )
+
+[node name="Button" parent="OffButton/RedButton" index="1"]
+transform = Transform( 0.331052, 0, 0, 0, 0.147678, 0, 0, 0, 0.331052, 0, 0.23001, 0 )
+
 [node name="Lever1" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.07, 0.03, -0.04 )
+transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.27, 0.03, -0.06 )
+
+[node name="Top" parent="Lever1/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB" index="2"]
+transform = Transform( -0.0455501, 0, 0, 0, -0.128658, 0, 0, 0, -0.064661, 0, 0.864604, 0 )
 
 [node name="Lever2" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.035, 0.03, -0.04 )
+transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.135, 0.03, -0.06 )
 
 [node name="Lever3" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.14, 0.03, -0.04 )
+transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.03, -0.06 )
+
+[node name="Lever4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.135, 0.03, -0.06 )
 
 [node name="Button1" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.07, 0.025, 0.033 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.27, 0.025, 0.05 )
 
 [node name="Button2" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.035, 0.025, 0.033 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.135, 0.025, 0.05 )
 
 [node name="Button3" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.14, 0.025, 0.033 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.025, 0.05 )
+
+[node name="Button4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.135, 0.025, 0.05 )
 
 [editable path="OffButton"]
 [editable path="OffButton/RedButton"]

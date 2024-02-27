@@ -2,12 +2,14 @@ extends Spatial
 
 export var connectedLight1 := NodePath()
 export var connectedLight2 := NodePath()
-export var connectedLight3 := NodePath()
+export var connectedLightGroup1 := NodePath()
+export var connectedLightGroup2 := NodePath()
 export var onButton := NodePath()
 #
 #onready var _connectedLight1 = get_node(connectedLight1)
 #onready var _connectedLight2 = get_node(connectedLight2)
 #onready var _connectedLight3 = get_node(connectedLight3)
+#onready var _connectedLight4 = get_node(connectedLight4)
 #onready var _onButton = get_node(onButton)
 #
 #
