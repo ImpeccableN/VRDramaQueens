@@ -669,3 +669,26 @@ static func find_instance(node: Node) -> XRToolsPlayerBody:
 		ARVRHelpers.get_arvr_origin(node),
 		"*",
 		"XRToolsPlayerBody") as XRToolsPlayerBody
+
+
+## DIALOG:
+
+func _on_Area_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	if area_rid.get_type() == XRToolsPlayerBody:  # Stelle sicher, dass es sich um den Spieler handelt
+		var player_body = area_rid.get_obj()  # Hole den Spieler-Kinematic-Body
+		player_body.start_dialog()
+		
+func update_interaction():
+	if $interact_area/CollisionShape.disabled == false:
+		$interact_area/CollisionShape.disabled == true
+	   
+	if Input.is_action_just_pressed("interact"):
+		 $interact_area/CollisionShape.disabled = false
+	  
+		
+		
+		
+		
+		
+		
+		
