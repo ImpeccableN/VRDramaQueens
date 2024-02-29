@@ -49,4 +49,6 @@ right_pose = ExtResource( 5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.229765, 0 )
 shape = SubResource( 3 )
 
+[connection signal="timeout" from="RedButton/InteractableAreaButton/Timer" to="RedButton/InteractableAreaButton" method="_on_Timer_timeout"]
+
 [editable path="RedButton"]
