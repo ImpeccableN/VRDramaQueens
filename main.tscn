@@ -1,26 +1,29 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
-[ext_resource path="res://Objects/Interactables/Lever.tscn" type="PackedScene" id=3]
+[ext_resource path="res://WandleuchtenRechts.gd" type="Script" id=3]
 [ext_resource path="res://addons/godot-xr-tools/functions/movement_turn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://addons/godot-xr-tools/functions/movement_direct.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Scenes/cord.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" type="PackedScene" id=7]
 [ext_resource path="res://addons/godot-xr-tools/player/player_body.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Objects/Scenes/Spotlight2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/Scenes/Spotlight1.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/vorhang.glb" type="PackedScene" id=11]
 [ext_resource path="res://Objects/StageRound.glb" type="PackedScene" id=12]
 [ext_resource path="res://addons/godot-xr-tools/functions/function_pickup.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/cord.glb" type="PackedScene" id=14]
-[ext_resource path="res://Objects/Interactables/Lichtpult.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Objects/Stage.gd" type="Script" id=16]
-[ext_resource path="res://Objects/Interactables/Button.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Objects/Sessel.glb" type="PackedScene" id=18]
+[ext_resource path="res://Objects/Scenes/SesselMitCollision.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Objects/garderobeAnkleidezimmer/dressingRoom.glb" type="PackedScene" id=19]
+[ext_resource path="res://Objects/Scenes/Wandleuchte.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Objects/Scenes/BeltSnapZone.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Objects/Scenes/LichtpultPickable.tscn" type="PackedScene" id=22]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_hand_low.tscn" type="PackedScene" id=23]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_hand_low.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Objects/Scenes/Tisch.tscn" type="PackedScene" id=25]
+[ext_resource path="res://addons/godot-xr-tools/functions/function_pose_detector.tscn" type="PackedScene" id=26]
+[ext_resource path="res://WandleuchtenLinks.gd" type="Script" id=27]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 25, 25, 1 )
@@ -256,8 +259,57 @@ extents = Vector3( 0.106689, 1.64672, 2.49961 )
 height = 1.41465
 radius = 2.49458
 
-[sub_resource type="CubeMesh" id=8]
-size = Vector3( 0.02, 0.4, 0.02 )
+[sub_resource type="BoxShape" id=20]
+extents = Vector3( 2.49943, 1.66385, 0.056105 )
+
+[sub_resource type="BoxShape" id=21]
+extents = Vector3( 0.109869, 1.52351, 2.96531 )
+
+[sub_resource type="BoxShape" id=22]
+extents = Vector3( 0.0532076, 1.23975, 2.091 )
+
+[sub_resource type="BoxShape" id=23]
+extents = Vector3( 0.0591905, 1.26032, 0.259607 )
+
+[sub_resource type="CubeMesh" id=24]
+
+[sub_resource type="SpatialMaterial" id=32]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="BoxShape" id=25]
+extents = Vector3( 3.9947, 2.83567, 0.200659 )
+
+[sub_resource type="CubeMesh" id=26]
+
+[sub_resource type="SpatialMaterial" id=33]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="BoxShape" id=27]
+extents = Vector3( 2.00734, 3.03221, 0.203058 )
+
+[sub_resource type="CubeMesh" id=28]
+
+[sub_resource type="SpatialMaterial" id=34]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="BoxShape" id=30]
+extents = Vector3( 0.1747, 3.25127, 11.9947 )
+
+[sub_resource type="CubeMesh" id=29]
+
+[sub_resource type="SpatialMaterial" id=35]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="BoxShape" id=31]
+extents = Vector3( 11.9531, 3.30719, 0.197204 )
+
+[sub_resource type="SpatialMaterial" id=36]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CubeMesh" id=37]
+
+[sub_resource type="SpatialMaterial" id=38]
+albedo_color = Color( 0, 0, 0, 1 )
 
 [node name="Main" type="Spatial"]
 
@@ -281,6 +333,8 @@ strafe = true
 
 [node name="LeftPhysicsHand" parent="FPController/LeftHandController" index="2" instance=ExtResource( 23 )]
 
+[node name="FunctionPoseDetector" parent="FPController/LeftHandController" index="3" instance=ExtResource( 26 )]
+
 [node name="RightHandController" parent="FPController" index="3"]
 visible = true
 
@@ -296,8 +350,15 @@ strafe = false
 
 [node name="RightPhysicsHand" parent="FPController/RightHandController" index="3" instance=ExtResource( 24 )]
 
+[node name="FunctionPoseDetector" parent="FPController/RightHandController" index="4" instance=ExtResource( 26 )]
+
 [node name="PlayerBody" parent="FPController" instance=ExtResource( 8 )]
+collision_mask = 1019
 eye_forward_offset = 0.4
+
+[node name="BeltSnapZone" parent="FPController/PlayerBody" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.3 )
+visible = false
 
 [node name="Floor" type="StaticBody" parent="."]
 
@@ -328,22 +389,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347792, 0, 0.360674 )
 shape = SubResource( 17 )
 
 [node name="Spotlight1" parent="Stage" instance=ExtResource( 10 )]
-transform = Transform( 0.471604, -0.589242, 0.656036, 0.762276, 0.646428, 0.0326355, -0.44331, 0.484689, 0.754024, 3.63894, 4.0183, -2.45773 )
-
-[node name="Spotlight2" parent="Stage" instance=ExtResource( 9 )]
-transform = Transform( -0.351587, 0.863263, 0.362164, 0.601308, 0.504754, -0.619397, -0.717507, 0, -0.696552, -3.35145, 3.74216, -2.69702 )
-
-[node name="Spotlight3" parent="Stage" instance=ExtResource( 10 )]
 transform = Transform( -0.322022, 0.0199038, -0.946523, 0.480363, 0.864961, -0.145237, 0.815815, -0.501445, -0.288097, -2.14861, 4.68128, 7.55997 )
 
-[node name="SpotLight" parent="Stage/Spotlight3" index="1"]
+[node name="SpotLight" parent="Stage/Spotlight1" index="1"]
 transform = Transform( -2.98023e-08, 0, 1, 0, 1, 4.76837e-07, -1, -1.02818e-06, -9.23872e-07, 0, 0, 0 )
 spot_range = 17.632
 
-[node name="Spotlight4" parent="Stage" instance=ExtResource( 10 )]
+[node name="Spotlight2" parent="Stage" instance=ExtResource( 10 )]
 transform = Transform( 0.226081, -0.241305, -0.943748, 0.512108, 0.853587, -0.0955726, 0.828634, -0.461693, 0.316553, 3.37779, 4.68128, 7.55997 )
 
-[node name="SpotLight" parent="Stage/Spotlight4" index="1"]
+[node name="SpotLight" parent="Stage/Spotlight2" index="1"]
 spot_range = 17.632
 
 [node name="VorhangVorneLinks" parent="Stage" instance=ExtResource( 11 )]
@@ -397,52 +452,219 @@ shape = SubResource( 18 )
 [node name="CollisionShapeGround" type="CollisionShape" parent="StageRound/StaticBody"]
 shape = SubResource( 19 )
 
-[node name="Lichtpult" parent="." instance=ExtResource( 15 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.759178, -0.976337 )
-connectedLight1 = NodePath("../Stage/Spotlight1")
-connectedLight2 = NodePath("../Stage/Spotlight4")
-connectedLight3 = NodePath("../Stage/Spotlight3")
-onButton = NodePath("Button")
+[node name="Tisch" parent="." instance=ExtResource( 25 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.706041, -1.02472 )
 
-[node name="Tischbein1" type="MeshInstance" parent="Lichtpult"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.224241, -0.191778, -0.0723692 )
-mesh = SubResource( 8 )
-
-[node name="Tischbein2" type="MeshInstance" parent="Lichtpult"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22083, -0.191778, -0.0723692 )
-mesh = SubResource( 8 )
-
-[node name="Tischbein3" type="MeshInstance" parent="Lichtpult"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22083, -0.191778, 0.0687507 )
-mesh = SubResource( 8 )
-
-[node name="Tischbein4" type="MeshInstance" parent="Lichtpult"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.220622, -0.191778, 0.0687507 )
-mesh = SubResource( 8 )
-
-[node name="DrehbühneHebel" parent="Lichtpult" instance=ExtResource( 3 )]
-transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.430961, -0.343543, 0.0460533 )
-
-[node name="Button" parent="Lichtpult" instance=ExtResource( 17 )]
+[node name="BeltSnapZone2" parent="Tisch" instance=ExtResource( 21 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0451013, 0.0602967, -1.97144e-09 )
 visible = false
 
-[node name="Sessel" parent="." instance=ExtResource( 18 )]
-transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0.956511, 6.4373e-06, -4.04772 )
+[node name="LichtpultPickable" parent="." instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.799538, -0.976337 )
+
+[node name="Lichtpult" parent="LichtpultPickable" index="1"]
+connectedLight1 = NodePath("../../Stage/Spotlight1")
+connectedLight2 = NodePath("../../Stage/Spotlight2")
+connectedLightGroupLeft = NodePath("../../TheatreRoom/WandleuchtenLinks")
+connectedLightGroupRight = NodePath("../../TheatreRoom/WandleuchtenRechts")
 
 [node name="dressingRoom" parent="." instance=ExtResource( 19 )]
 transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 1.43905, 0.00865102, -19.9557 )
 
+[node name="WallCollision" type="StaticBody" parent="dressingRoom"]
+
+[node name="CollisionShape" type="CollisionShape" parent="dressingRoom/WallCollision"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62794, -2.97875 )
+shape = SubResource( 20 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="dressingRoom/WallCollision"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62794, 2.96491 )
+shape = SubResource( 20 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="dressingRoom/WallCollision"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45422, 1.49178, 1.19209e-07 )
+shape = SubResource( 21 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="dressingRoom/WallCollision"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48043, 1.20871, 0.888655 )
+shape = SubResource( 22 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="dressingRoom/WallCollision"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49272, 1.18183, -2.70499 )
+shape = SubResource( 23 )
+
+[node name="OmniLight" type="OmniLight" parent="dressingRoom"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.39719, 0 )
+light_energy = 8.102
+omni_range = 8.32
+
+[node name="TheatreRoom" type="StaticBody" parent="."]
+
+[node name="WandVorneLinks" type="MeshInstance" parent="TheatreRoom"]
+transform = Transform( 4, 0, 0, 0, 3.2, 0, 0, 0, 0.2, -8.5, 2.9, -15.163 )
+mesh = SubResource( 24 )
+material/0 = SubResource( 32 )
+
+[node name="WandVorneLinksCollisionShape" type="CollisionShape" parent="TheatreRoom"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 2.9, -15.163 )
+shape = SubResource( 25 )
+
+[node name="WandVorneRechts" type="MeshInstance" parent="TheatreRoom"]
+transform = Transform( 2, 0, 0, 0, 3.2, 0, 0, 0, 0.2, 9.439, 2.9, -15.163 )
+mesh = SubResource( 26 )
+material/0 = SubResource( 33 )
+
+[node name="WandVorneRechtsCollisionShape" type="CollisionShape" parent="TheatreRoom"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.439, 2.9, -15.163 )
+shape = SubResource( 27 )
+
+[node name="WandRechts" type="MeshInstance" parent="TheatreRoom"]
+transform = Transform( -5.24537e-07, 0, 0.2, 0, 3.2, 0, -12, 0, -8.74228e-09, 11.2614, 2.9, -3.39141 )
+mesh = SubResource( 28 )
+material/0 = SubResource( 34 )
+
+[node name="WandRechtsCollisionShape" type="CollisionShape" parent="TheatreRoom"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2614, 2.9, -3.39141 )
+shape = SubResource( 30 )
+
+[node name="WandHinten" type="MeshInstance" parent="TheatreRoom"]
+transform = Transform( 12, 0, 0, 0, 3.2, 0, 0, 0, 0.2, -0.559164, 2.9, 8.42 )
+mesh = SubResource( 29 )
+skeleton = NodePath("../WandRechts")
+material/0 = SubResource( 35 )
+
+[node name="WandHintenCollisionShape" type="CollisionShape" parent="TheatreRoom"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.559164, 2.9, 8.42 )
+shape = SubResource( 31 )
+
+[node name="WandLinks" type="MeshInstance" parent="TheatreRoom"]
+transform = Transform( -5.24537e-07, 0, 0.2, 0, 3.2, 0, -12, 0, -8.74228e-09, -12.3165, 2.9, -3.39141 )
+mesh = SubResource( 28 )
+material/0 = SubResource( 36 )
+
+[node name="WandLinksCollisionShape" type="CollisionShape" parent="TheatreRoom"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3291, 2.9, -3.39141 )
+shape = SubResource( 30 )
+
+[node name="Decke" type="MeshInstance" parent="TheatreRoom"]
+transform = Transform( 12, 0, 0, 0, 0.2, 0, 0, 0, 12, -0.483, 6, -3.35348 )
+visible = false
+mesh = SubResource( 37 )
+material/0 = SubResource( 38 )
+
+[node name="WandleuchtenLinks" type="Spatial" parent="TheatreRoom"]
+script = ExtResource( 27 )
+
+[node name="Wandleuchte" parent="TheatreRoom/WandleuchtenLinks" instance=ExtResource( 20 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -11.933, 2.9, 0 )
+
+[node name="Wandleuchte4" parent="TheatreRoom/WandleuchtenLinks" instance=ExtResource( 20 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -11.933, 2.9, 4.5 )
+
+[node name="Wandleuchte2" parent="TheatreRoom/WandleuchtenLinks" instance=ExtResource( 20 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -11.933, 2.9, -4.5 )
+
+[node name="Wandleuchte3" parent="TheatreRoom/WandleuchtenLinks" instance=ExtResource( 20 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -11.933, 2.9, -9 )
+
+[node name="WandleuchtenRechts" type="Spatial" parent="TheatreRoom"]
+script = ExtResource( 3 )
+
+[node name="Wandleuchte" parent="TheatreRoom/WandleuchtenRechts" instance=ExtResource( 20 )]
+transform = Transform( -0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 10.8942, 2.9, 0 )
+
+[node name="Wandleuchte4" parent="TheatreRoom/WandleuchtenRechts" instance=ExtResource( 20 )]
+transform = Transform( -0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 10.894, 2.9, 4.5 )
+
+[node name="Wandleuchte2" parent="TheatreRoom/WandleuchtenRechts" instance=ExtResource( 20 )]
+transform = Transform( -0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 10.894, 2.9, -4.5 )
+
+[node name="Wandleuchte3" parent="TheatreRoom/WandleuchtenRechts" instance=ExtResource( 20 )]
+transform = Transform( -0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, 10.894, 2.9, -9 )
+
+[node name="Bestuhlung" type="Spatial" parent="TheatreRoom"]
+
+[node name="SesselMitCollision" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0.7, 0, -3 )
+
+[node name="SesselMitCollision2" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, -0.7, 0, -4 )
+
+[node name="SesselMitCollision11" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, -1.4, 0, -4 )
+
+[node name="SesselMitCollision13" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, -2.1, 0, -4 )
+
+[node name="SesselMitCollision3" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0, 0, -4 )
+
+[node name="SesselMitCollision4" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 2.1, 0, -4 )
+
+[node name="SesselMitCollision15" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 2.1, 0, -5 )
+
+[node name="SesselMitCollision16" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 1.4, 0, -5 )
+
+[node name="SesselMitCollision17" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0.7, 0, -5 )
+
+[node name="SesselMitCollision18" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0, 0, -5 )
+
+[node name="SesselMitCollision19" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, -0.7, 0, -5 )
+
+[node name="SesselMitCollision20" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, -1.4, 0, -5 )
+
+[node name="SesselMitCollision21" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, -2.1, 0, -5 )
+
+[node name="SesselMitCollision5" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 1.4, 0, -3 )
+
+[node name="SesselMitCollision6" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 2.1, 0, -3 )
+
+[node name="SesselMitCollision7" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0, 0, -3 )
+
+[node name="SesselMitCollision8" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, -0.7, 0, -3 )
+
+[node name="SesselMitCollision12" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, -1.4, 0, -3 )
+
+[node name="SesselMitCollision14" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, -2.1, 0, -3 )
+
+[node name="SesselMitCollision9" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 1.4, 0, -4 )
+
+[node name="SesselMitCollision10" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
+transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0.7, 0, -4 )
+
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
+[connection signal="dropped" from="LichtpultPickable" to="FPController/PlayerBody/BeltSnapZone" method="_on_LichtpultPickable_dropped"]
+[connection signal="picked_up" from="LichtpultPickable" to="FPController/PlayerBody/BeltSnapZone" method="_on_LichtpultPickable_picked_up"]
 
 [editable path="FPController"]
 [editable path="FPController/PlayerBody"]
 [editable path="Stage"]
-[editable path="Stage/Spotlight3"]
-[editable path="Stage/Spotlight3/Rahmen"]
-[editable path="Stage/Spotlight4"]
-[editable path="Stage/Spotlight4/Rahmen"]
+[editable path="Stage/Spotlight1"]
+[editable path="Stage/Spotlight1/Rahmen"]
+[editable path="Stage/Spotlight2"]
+[editable path="Stage/Spotlight2/Rahmen"]
 [editable path="Stage/VorhangVorneLinks"]
 [editable path="Stage/VorhangVorneRechts"]
 [editable path="Stage/FunctionalCord"]
-[editable path="Lichtpult/DrehbühneHebel"]
-[editable path="Lichtpult/DrehbühneHebel/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
+[editable path="LichtpultPickable"]
+[editable path="LichtpultPickable/Lichtpult"]
+[editable path="LichtpultPickable/Lichtpult/OffButton"]
+[editable path="LichtpultPickable/Lichtpult/OffButton/RedButton"]
+[editable path="LichtpultPickable/Lichtpult/Lever1"]
+[editable path="LichtpultPickable/Lichtpult/Lever1/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
+[editable path="dressingRoom"]

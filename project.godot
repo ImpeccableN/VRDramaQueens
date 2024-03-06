@@ -417,6 +417,21 @@ pointer_pressed={
 "events": [  ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="static world"
+3d_physics/layer_2="dynamic world"
+3d_physics/layer_3="pickable objects"
+3d_physics/layer_4="wall walking"
+3d_physics/layer_5="grappling target"
+3d_physics/layer_17="held object"
+3d_physics/layer_18="player hands"
+3d_physics/layer_19="grab handles"
+3d_physics/layer_20="player body"
+3d_physics/layer_21="pointable objects"
+3d_physics/layer_22="hand pose areas"
+3d_physics/layer_23="ui objects"
+
 [physics]
 
 common/enable_pause_aware_picking=true
