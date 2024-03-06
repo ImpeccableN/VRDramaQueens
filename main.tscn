@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -311,6 +311,12 @@ albedo_color = Color( 0, 0, 0, 1 )
 [sub_resource type="SpatialMaterial" id=38]
 albedo_color = Color( 0, 0, 0, 1 )
 
+[sub_resource type="Animation" id=39]
+resource_name = "Szene1"
+
+[sub_resource type="Animation" id=40]
+resource_name = "Szene2"
+
 [node name="Main" type="Spatial"]
 
 [node name="FPController" parent="." instance=ExtResource( 1 )]
@@ -461,12 +467,6 @@ visible = false
 
 [node name="LichtpultPickable" parent="." instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.799538, -0.976337 )
-
-[node name="Lichtpult" parent="LichtpultPickable" index="1"]
-connectedLight1 = NodePath("../../Stage/Spotlight1")
-connectedLight2 = NodePath("../../Stage/Spotlight2")
-connectedLightGroupLeft = NodePath("../../TheatreRoom/WandleuchtenLinks")
-connectedLightGroupRight = NodePath("../../TheatreRoom/WandleuchtenRechts")
 
 [node name="dressingRoom" parent="." instance=ExtResource( 19 )]
 transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 1.43905, 0.00865102, -19.9557 )
@@ -647,6 +647,10 @@ transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 1
 [node name="SesselMitCollision10" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
 transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0.7, 0, -4 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Szene1 = SubResource( 39 )
+anims/Szene2 = SubResource( 40 )
+
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
 [connection signal="dropped" from="LichtpultPickable" to="FPController/PlayerBody/BeltSnapZone" method="_on_LichtpultPickable_dropped"]
 [connection signal="picked_up" from="LichtpultPickable" to="FPController/PlayerBody/BeltSnapZone" method="_on_LichtpultPickable_picked_up"]
@@ -662,9 +666,11 @@ transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0
 [editable path="Stage/VorhangVorneRechts"]
 [editable path="Stage/FunctionalCord"]
 [editable path="LichtpultPickable"]
-[editable path="LichtpultPickable/Lichtpult"]
-[editable path="LichtpultPickable/Lichtpult/OffButton"]
-[editable path="LichtpultPickable/Lichtpult/OffButton/RedButton"]
-[editable path="LichtpultPickable/Lichtpult/Lever1"]
-[editable path="LichtpultPickable/Lichtpult/Lever1/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
+[editable path="LichtpultPickable/LichtpultSpawnPoint/Lichtpult"]
+[editable path="LichtpultPickable/LichtpultSpawnPoint/Lichtpult/OffButton"]
+[editable path="LichtpultPickable/LichtpultSpawnPoint/Lichtpult/OffButton/RedButton"]
+[editable path="LichtpultPickable/LichtpultSpawnPoint/Lichtpult/Lever1"]
+[editable path="LichtpultPickable/LichtpultSpawnPoint/Lichtpult/Lever1/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
+[editable path="LichtpultPickable/OnButton"]
+[editable path="LichtpultPickable/OnButton/RedButton"]
 [editable path="dressingRoom"]
