@@ -5,7 +5,7 @@
 			"animation_length": 0,
 			"change_mirror_portrait": false,
 			"change_z_index": false,
-			"character": "character-1709039531.json",
+			"character": "character-1709219938.json",
 			"event_id": "dialogic_002",
 			"mirror_portrait": false,
 			"portrait": "Default",
@@ -21,7 +21,7 @@
 			"z_index": 0
 		},
 		{
-			"character": "character-1709039531.json",
+			"character": "character-1709219938.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Sei nicht so gezeigt. Ach, das Leben ist so schön. Wenn du bald als Direktor der Aktienbank anfängst brauchen wir uns nieee wieder sorgen um Geld machen. Die Tage können wir endlich hinter uns lassen.\nIch möchte den Kindern eine große Freude bereiten. (grinst breit)\n"
