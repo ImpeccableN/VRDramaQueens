@@ -462,12 +462,6 @@ visible = false
 [node name="LichtpultPickable" parent="." instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.799538, -0.976337 )
 
-[node name="Lichtpult" parent="LichtpultPickable" index="1"]
-connectedLight1 = NodePath("../../Stage/Spotlight1")
-connectedLight2 = NodePath("../../Stage/Spotlight2")
-connectedLightGroupLeft = NodePath("../../TheatreRoom/WandleuchtenLinks")
-connectedLightGroupRight = NodePath("../../TheatreRoom/WandleuchtenRechts")
-
 [node name="dressingRoom" parent="." instance=ExtResource( 19 )]
 transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 1.43905, 0.00865102, -19.9557 )
 
@@ -662,9 +656,11 @@ transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0
 [editable path="Stage/VorhangVorneRechts"]
 [editable path="Stage/FunctionalCord"]
 [editable path="LichtpultPickable"]
-[editable path="LichtpultPickable/Lichtpult"]
-[editable path="LichtpultPickable/Lichtpult/OffButton"]
-[editable path="LichtpultPickable/Lichtpult/OffButton/RedButton"]
-[editable path="LichtpultPickable/Lichtpult/Lever1"]
-[editable path="LichtpultPickable/Lichtpult/Lever1/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
+[editable path="LichtpultPickable/LichtpultSpawnPoint/Lichtpult"]
+[editable path="LichtpultPickable/LichtpultSpawnPoint/Lichtpult/OffButton"]
+[editable path="LichtpultPickable/LichtpultSpawnPoint/Lichtpult/OffButton/RedButton"]
+[editable path="LichtpultPickable/LichtpultSpawnPoint/Lichtpult/Lever1"]
+[editable path="LichtpultPickable/LichtpultSpawnPoint/Lichtpult/Lever1/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
+[editable path="LichtpultPickable/OnButton"]
+[editable path="LichtpultPickable/OnButton/RedButton"]
 [editable path="dressingRoom"]
