@@ -1052,8 +1052,8 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"clips": PoolStringArray( "walking" ),
-"times": PoolRealArray( 46 )
+"clips": PoolStringArray( "walking", "walking" ),
+"times": PoolRealArray( 46, 49.7 )
 }
 
 [sub_resource type="Animation" id=45]
@@ -1269,6 +1269,7 @@ light_energy = 8.102
 omni_range = 8.32
 
 [node name="TheatreRoom" type="StaticBody" parent="."]
+visible = false
 
 [node name="WandVorneLinks" type="MeshInstance" parent="TheatreRoom"]
 transform = Transform( 4, 0, 0, 0, 3.2, 0, 0, 0, 0.2, -8.5, 2.9, -15.163 )
@@ -1439,7 +1440,7 @@ visible = false
 transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 1.49012e-08, 5.96046e-08, -9.53674e-07 )
 
 [node name="Maid_animated" parent="MainAnimationPlayer" instance=ExtResource( 29 )]
-transform = Transform( 0.991158, 0, -0.132689, 0, 1, 0, 0.132689, 0, 0.991158, 0.506124, 0.694135, -13.1626 )
+transform = Transform( 0.232529, 0, -0.972589, 0, 1, 0, 0.972589, 0, 0.232529, 0.506124, 0.694135, -13.1626 )
 visible = false
 
 [node name="Skeleton" parent="MainAnimationPlayer/Maid_animated/Figure Armature Bonnet" index="0"]
