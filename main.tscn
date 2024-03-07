@@ -336,6 +336,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector3( 0, 90, 0 ), Vector3( 0, 270, 0 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("MainAnimationPlayer/StageRound/Nora_klein_animated:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.20172, 0.70506, -0.731369 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MainAnimationPlayer/StageRound/NorasVater_animated:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.18384, 0.70307, 0.565689 ) ]
+}
 
 [sub_resource type="Animation" id=42]
 length = 0.001
@@ -399,13 +423,37 @@ tracks/4/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("MainAnimationPlayer/StageRound/Nora_klein_animated:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.20172, 0.70506, -0.731369 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("MainAnimationPlayer/StageRound/NorasVater_animated:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1.18384, 0.70307, 0.565689 ) ]
+}
 
 [sub_resource type="Animation" id=39]
 resource_name = "Szene1"
 
 [sub_resource type="Animation" id=40]
 resource_name = "Szene2"
-length = 10.0
+length = 9.0
 tracks/0/type = "audio"
 tracks/0/path = NodePath("MainAnimationPlayer/StageRound/Nora_klein_animated/AudioStreamPlayer3DNoraKlein")
 tracks/0/interp = 1
@@ -836,7 +884,7 @@ shape = SubResource( 19 )
 transform = Transform( -2.62268e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.62268e-08, 1.20172, 0.70506, -0.731369 )
 
 [node name="AudioStreamPlayer3DNoraKlein" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/Nora_klein_animated"]
-transform = Transform( -1.66667, 0, -5.29775e-08, 0, 1.66667, 0, 5.29775e-08, 0, -1.66667, 0.276132, -1.17511, -17.7103 )
+transform = Transform( -1.66667, 0, -5.29774e-08, 0, 1.66667, 0, 5.29774e-08, 0, -1.66667, 0.130001, 1.28971, -0.00767708 )
 stream = ExtResource( 33 )
 stream_paused = true
 
@@ -844,7 +892,7 @@ stream_paused = true
 transform = Transform( 0.0524928, 0, 0.998621, 0, 1, 0, -0.998621, 0, 0.0524928, 1.18384, 0.70307, 0.565689 )
 
 [node name="AudioStreamPlayer3DVater" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/NorasVater_animated"]
-transform = Transform( 0.998621, 0, 0.0524928, 0, 1, 0, -0.0524928, 0, 0.998621, 1.68855, -0.703073, 10.57 )
+transform = Transform( 0.998622, 0, 0.0524928, 0, 1, 0, -0.0524928, 0, 0.998622, 0.141232, 1.2643, 0.0419054 )
 stream = ExtResource( 34 )
 
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
