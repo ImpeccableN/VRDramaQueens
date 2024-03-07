@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -40,6 +40,13 @@
 [ext_resource path="res://Objects/kinderzimmer/rabbit.glb" type="PackedScene" id=38]
 [ext_resource path="res://Objects/kinderzimmer/pig.glb" type="PackedScene" id=39]
 [ext_resource path="res://Objects/kinderzimmer/radio.glb" type="PackedScene" id=40]
+[ext_resource path="res://Objects/director/director.glb" type="PackedScene" id=41]
+[ext_resource path="res://assets/Dialog/Nora/Nora_4.mp3" type="AudioStream" id=42]
+[ext_resource path="res://assets/Dialog/Direktor/Direktor_1.mp3" type="AudioStream" id=43]
+[ext_resource path="res://assets/Dialog/Nora/Nora_5.mp3" type="AudioStream" id=44]
+[ext_resource path="res://Objects/SceneAssets/Helmers Wohnzimmer/pinetree.glb" type="PackedScene" id=45]
+[ext_resource path="res://Objects/SceneAssets/Helmers Wohnzimmer/papiertüte.glb" type="PackedScene" id=46]
+[ext_resource path="res://Objects/SceneAssets/Helmers Wohnzimmer/Sofa.glb" type="PackedScene" id=47]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 25, 25, 1 )
@@ -343,7 +350,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 90, 0 ), Vector3( 0, 270, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("MainAnimationPlayer/StageRound/Nora_klein_animated:translation")
+tracks/2/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/Nora_klein_animated:translation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -355,7 +362,7 @@ tracks/2/keys = {
 "values": [ Vector3( 1.20172, 0.70506, -0.731369 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("MainAnimationPlayer/StageRound/NorasVater_animated:translation")
+tracks/3/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/NorasVater_animated:translation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -367,7 +374,7 @@ tracks/3/keys = {
 "values": [ Vector3( 1.18384, 0.70307, 0.565689 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("MainAnimationPlayer/StageRound/AchterbahnWagen:translation")
+tracks/4/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/AchterbahnWagen:translation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -379,7 +386,7 @@ tracks/4/keys = {
 "values": [ Vector3( 1.01154, 0.714464, -1.20207 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("MainAnimationPlayer/StageRound/pig:translation")
+tracks/5/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/pig:translation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -391,7 +398,7 @@ tracks/5/keys = {
 "values": [ Vector3( 1.31413, 0.901831, -0.253686 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("MainAnimationPlayer/StageRound/puppenhaus:translation")
+tracks/6/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/puppenhaus:translation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -403,7 +410,7 @@ tracks/6/keys = {
 "values": [ Vector3( 0.549933, 0.690776, 1.08406 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("MainAnimationPlayer/StageRound/rabbit:translation")
+tracks/7/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/rabbit:translation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -415,7 +422,7 @@ tracks/7/keys = {
 "values": [ Vector3( 1.17538, 0.937226, 0.484178 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("MainAnimationPlayer/StageRound/radio:translation")
+tracks/8/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/radio:translation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -427,7 +434,7 @@ tracks/8/keys = {
 "values": [ Vector3( 0.254979, 1.3014, -0.474467 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("MainAnimationPlayer/StageRound/turm:translation")
+tracks/9/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/turm:translation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -437,6 +444,18 @@ tracks/9/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 1.50512, 0.719969, -1.78814e-07 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer:translation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.0470953, 0.00105172, -2.38419e-07 ) ]
 }
 
 [sub_resource type="Animation" id=43]
@@ -454,6 +473,116 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0, 270, 0 ), Vector3( 0, 90, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.724476, 0.695126, 1.90358 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MainAnimationPlayer/StageRound/Wohnzimmer/pinetree:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated/papiertuete:translation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.47335, 0.847367, 0.0110242 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated/papiertuete:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("MainAnimationPlayer/Maid_animated:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("MainAnimationPlayer/StageRound/Sofa:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("MainAnimationPlayer/StageRound/Sofa:translation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.76179, 1.04447, -0.248269 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("MainAnimationPlayer/StageRound/Wohnzimmer/pinetree:translation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 3, 3.3, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.68617, 0.676263, 0.160998 ), Vector3( -1.68617, 0.676263, 0.160998 ), Vector3( -1.68617, 0.676263, -2.71561 ), Vector3( -1.68617, 0.476553, -2.71561 ) ]
+}
 
 [sub_resource type="Animation" id=42]
 length = 0.001
@@ -470,11 +599,11 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 90, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("MainAnimationPlayer/StageRound/Nora_klein_animated/AudioStreamPlayer3DNoraKlein:stream")
+tracks/1/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/Nora_klein_animated/AudioStreamPlayer3DNoraKlein:stream")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -482,11 +611,11 @@ tracks/1/keys = {
 "values": [ ExtResource( 33 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("MainAnimationPlayer/StageRound/Nora_klein_animated/AudioStreamPlayer3DNoraKlein:playing")
+tracks/2/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/Nora_klein_animated/AudioStreamPlayer3DNoraKlein:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -494,7 +623,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("MainAnimationPlayer/StageRound/Nora_klein_animated/AudioStreamPlayer3DNoraKlein:stream_paused")
+tracks/3/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/Nora_klein_animated/AudioStreamPlayer3DNoraKlein:stream_paused")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -506,19 +635,19 @@ tracks/3/keys = {
 "values": [ true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("MainAnimationPlayer/StageRound/NorasVater_animated/AudioStreamPlayer3DVater:playing")
+tracks/4/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/NorasVater_animated/AudioStreamPlayer3DVater:playing")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("MainAnimationPlayer/StageRound/Nora_klein_animated:translation")
+tracks/5/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/Nora_klein_animated:translation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -530,7 +659,7 @@ tracks/5/keys = {
 "values": [ Vector3( 1.20172, 0.70506, -0.731369 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("MainAnimationPlayer/StageRound/NorasVater_animated:translation")
+tracks/6/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/NorasVater_animated:translation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -542,7 +671,7 @@ tracks/6/keys = {
 "values": [ Vector3( 1.18384, 0.70307, 0.565689 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("MainAnimationPlayer/StageRound/AchterbahnWagen:translation")
+tracks/7/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/AchterbahnWagen:translation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -554,7 +683,7 @@ tracks/7/keys = {
 "values": [ Vector3( 1.01154, 0.714464, -1.20207 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("MainAnimationPlayer/StageRound/pig:translation")
+tracks/8/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/pig:translation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -566,7 +695,7 @@ tracks/8/keys = {
 "values": [ Vector3( 1.31413, 0.901831, -0.253686 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("MainAnimationPlayer/StageRound/puppenhaus:translation")
+tracks/9/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/puppenhaus:translation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -578,7 +707,7 @@ tracks/9/keys = {
 "values": [ Vector3( 0.549933, 0.690776, 1.08406 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("MainAnimationPlayer/StageRound/rabbit:translation")
+tracks/10/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/rabbit:translation")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -590,7 +719,7 @@ tracks/10/keys = {
 "values": [ Vector3( 1.17538, 0.937226, 0.484178 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("MainAnimationPlayer/StageRound/radio:translation")
+tracks/11/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/radio:translation")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -602,7 +731,7 @@ tracks/11/keys = {
 "values": [ Vector3( 0.254979, 1.3014, -0.474467 ) ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("MainAnimationPlayer/StageRound/turm:translation")
+tracks/12/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/turm:translation")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -613,6 +742,124 @@ tracks/12/keys = {
 "update": 0,
 "values": [ Vector3( 1.50512, 0.719969, -1.78814e-07 ) ]
 }
+tracks/13/type = "animation"
+tracks/13/path = NodePath("MainAnimationPlayer/director/AnimationPlayer")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"clips": PoolStringArray( "directorHandMegaphoneDown" ),
+"times": PoolRealArray( 0 )
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("MainAnimationPlayer/StageRound/Wohnzimmer/pinetree:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated/papiertuete:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated:translation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.724476, 0.695126, 1.90358 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("MainAnimationPlayer/DrRank_animated:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("MainAnimationPlayer/KristineLinde_animated:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("MainAnimationPlayer/Maid_animated:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated/papiertuete:translation")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.47335, 0.847367, 0.0110242 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("MainAnimationPlayer/Maid_animated:translation")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.506124, 0.694135, -13.1626 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("MainAnimationPlayer/StageRound/Wohnzimmer/pinetree:translation")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -1.68617, 0.676263, 0.160998 ) ]
+}
 
 [sub_resource type="Animation" id=39]
 resource_name = "Szene1"
@@ -621,7 +868,7 @@ resource_name = "Szene1"
 resource_name = "Szene2"
 length = 9.0
 tracks/0/type = "audio"
-tracks/0/path = NodePath("MainAnimationPlayer/StageRound/Nora_klein_animated/AudioStreamPlayer3DNoraKlein")
+tracks/0/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/Nora_klein_animated/AudioStreamPlayer3DNoraKlein")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -635,7 +882,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.6 )
 }
 tracks/1/type = "audio"
-tracks/1/path = NodePath("MainAnimationPlayer/StageRound/NorasVater_animated/AudioStreamPlayer3DVater")
+tracks/1/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/NorasVater_animated/AudioStreamPlayer3DVater")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -649,7 +896,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 6.5 )
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("MainAnimationPlayer/StageRound/Nora_klein_animated/AudioStreamPlayer3DNoraKlein:playing")
+tracks/2/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/Nora_klein_animated/AudioStreamPlayer3DNoraKlein:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -661,7 +908,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("MainAnimationPlayer/StageRound/NorasVater_animated/AudioStreamPlayer3DVater:playing")
+tracks/3/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/NorasVater_animated/AudioStreamPlayer3DVater:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -673,13 +920,167 @@ tracks/3/keys = {
 "values": [ false ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("MainAnimationPlayer/StageRound/Nora_klein_animated/AudioStreamPlayer3DNoraKlein:stream_paused")
+tracks/4/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/Nora_klein_animated/AudioStreamPlayer3DNoraKlein:stream_paused")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = false
 tracks/4/keys = {
 "times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=44]
+resource_name = "Szene3_Rest"
+length = 180.0
+tracks/0/type = "audio"
+tracks/0/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated/AudioStreamPlayer3DNora")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 44 )
+} ],
+"times": PoolRealArray( 0.9 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated/AudioStreamPlayer3DNora:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 22.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("MainAnimationPlayer/director/AudioStreamPlayer3DDirector")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 43 )
+} ],
+"times": PoolRealArray( 22.4 )
+}
+tracks/3/type = "animation"
+tracks/3/path = NodePath("MainAnimationPlayer/director/AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": PoolStringArray( "directorHandMegaphoneUp", "directorHandMegaphoneDown" ),
+"times": PoolRealArray( 22.1, 46.1 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MainAnimationPlayer/director/AudioStreamPlayer3DDirector:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 46.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated/papiertuete:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.47335, 0.847367, 0.0110242 ), Vector3( 1.67913, 0.00154757, 2.35416 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("MainAnimationPlayer/Torvald_animated:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("MainAnimationPlayer/Maid_animated:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 44 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("MainAnimationPlayer/Maid_animated:translation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 44, 46, 48.9, 49.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.506124, 0.694135, -13.1626 ), Vector3( 0.506124, 0.694135, -13.1626 ), Vector3( 1.99308, 0.550438, -13.298 ), Vector3( 2.09968, 0.510798, -13.3353 ) ]
+}
+tracks/9/type = "animation"
+tracks/9/path = NodePath("MainAnimationPlayer/Maid_animated/AnimationPlayer")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"clips": PoolStringArray( "walking" ),
+"times": PoolRealArray( 46 )
+}
+
+[sub_resource type="Animation" id=45]
+resource_name = "Szene3_tuete"
+length = 9.0
+tracks/0/type = "audio"
+tracks/0/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated/AudioStreamPlayer3DNora")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 42 )
+} ],
+"times": PoolRealArray( 1.5 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated/AudioStreamPlayer3DNora:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 8.07789 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
@@ -1022,28 +1423,36 @@ anims/Drehbuehne2Auf3 = SubResource( 43 )
 anims/RESET = SubResource( 42 )
 anims/Szene1 = SubResource( 39 )
 anims/Szene2 = SubResource( 40 )
+anims/Szene3_Rest = SubResource( 44 )
+anims/Szene3_tuete = SubResource( 45 )
 
 [node name="DrRank_animated" parent="MainAnimationPlayer" instance=ExtResource( 28 )]
+visible = false
 
 [node name="AudioStreamPlayer3DRank" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/DrRank_animated"]
 transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 1.49012e-08, 5.96046e-08, -9.53674e-07 )
 
 [node name="KristineLinde_animated" parent="MainAnimationPlayer" instance=ExtResource( 30 )]
+visible = false
 
 [node name="AudioStreamPlayer3DLinde" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/KristineLinde_animated"]
 transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 1.49012e-08, 5.96046e-08, -9.53674e-07 )
 
 [node name="Maid_animated" parent="MainAnimationPlayer" instance=ExtResource( 29 )]
+transform = Transform( 0.991158, 0, -0.132689, 0, 1, 0, 0.132689, 0, 0.991158, 0.506124, 0.694135, -13.1626 )
+visible = false
+
+[node name="Skeleton" parent="MainAnimationPlayer/Maid_animated/Figure Armature Bonnet" index="0"]
+bones/1/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="BoneAttachment" parent="MainAnimationPlayer/Maid_animated/Figure Armature Bonnet/Skeleton" index="0"]
+transform = Transform( 1, 1.56376e-09, 2.38164e-07, 1.61188e-08, 0.997241, -0.0742274, -2.37623e-07, 0.0742274, 0.997241, -8.13716e-08, 1.24368, 1.84426 )
 
 [node name="AudioStreamPlayer3DMaid" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Maid_animated"]
-transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 1.49012e-08, 5.96046e-08, -9.53674e-07 )
-
-[node name="Nora_animated" parent="MainAnimationPlayer" instance=ExtResource( 32 )]
-
-[node name="AudioStreamPlayer3DNora" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Nora_animated"]
-transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 1.49012e-08, 5.96046e-08, -9.53674e-07 )
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0.181506, 1.29402, -9.53674e-07 )
 
 [node name="Torvald_animated" parent="MainAnimationPlayer" instance=ExtResource( 31 )]
+visible = false
 
 [node name="AudioStreamPlayer3DTorvald" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Torvald_animated"]
 transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 1.49012e-08, 5.96046e-08, -9.53674e-07 )
@@ -1060,38 +1469,76 @@ shape = SubResource( 18 )
 [node name="CollisionShapeGround" type="CollisionShape" parent="MainAnimationPlayer/StageRound/StaticBody"]
 shape = SubResource( 19 )
 
-[node name="Nora_klein_animated" parent="MainAnimationPlayer/StageRound" instance=ExtResource( 9 )]
+[node name="Nora_animated" parent="MainAnimationPlayer/StageRound" instance=ExtResource( 32 )]
+transform = Transform( -0.910041, 0, 0.414519, 0, 1, 0, -0.414519, 0, -0.910041, -0.724476, 0.695126, 1.90358 )
+
+[node name="AudioStreamPlayer3DNora" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/Nora_animated"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148294, 1.21808, -0.0675476 )
+stream = ExtResource( 44 )
+unit_db = 80.0
+
+[node name="papiertuete" parent="MainAnimationPlayer/StageRound/Nora_animated" instance=ExtResource( 46 )]
+transform = Transform( -7.45058e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -7.45058e-09, 0.47335, 0.847367, 0.0110242 )
+visible = false
+
+[node name="Kinderzimmer" type="Spatial" parent="MainAnimationPlayer/StageRound"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0470953, 0.00105172, -2.38419e-07 )
+
+[node name="Nora_klein_animated" parent="MainAnimationPlayer/StageRound/Kinderzimmer" instance=ExtResource( 9 )]
 transform = Transform( -2.62268e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.62268e-08, 1.20172, 0.70506, -0.731369 )
 
-[node name="AudioStreamPlayer3DNoraKlein" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/Nora_klein_animated"]
+[node name="AudioStreamPlayer3DNoraKlein" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/Kinderzimmer/Nora_klein_animated"]
 transform = Transform( -1.66667, 0, -5.29774e-08, 0, 1.66667, 0, 5.29774e-08, 0, -1.66667, 0.130001, 1.28971, -0.00767708 )
 stream = ExtResource( 33 )
 stream_paused = true
 
-[node name="NorasVater_animated" parent="MainAnimationPlayer/StageRound" instance=ExtResource( 15 )]
+[node name="NorasVater_animated" parent="MainAnimationPlayer/StageRound/Kinderzimmer" instance=ExtResource( 15 )]
 transform = Transform( 0.0524928, 0, 0.998621, 0, 1, 0, -0.998621, 0, 0.0524928, 1.18384, 0.70307, 0.565689 )
 
-[node name="AudioStreamPlayer3DVater" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/NorasVater_animated"]
+[node name="AudioStreamPlayer3DVater" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/Kinderzimmer/NorasVater_animated"]
 transform = Transform( 0.998622, 0, 0.0524928, 0, 1, 0, -0.0524928, 0, 0.998622, 0.141232, 1.2643, 0.0419054 )
 stream = ExtResource( 34 )
 
-[node name="AchterbahnWagen" parent="MainAnimationPlayer/StageRound" instance=ExtResource( 37 )]
+[node name="AchterbahnWagen" parent="MainAnimationPlayer/StageRound/Kinderzimmer" instance=ExtResource( 37 )]
 transform = Transform( -8.74228e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.74228e-10, 1.01154, 0.714464, -1.20207 )
 
-[node name="pig" parent="MainAnimationPlayer/StageRound" instance=ExtResource( 39 )]
+[node name="pig" parent="MainAnimationPlayer/StageRound/Kinderzimmer" instance=ExtResource( 39 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.31413, 0.901831, -0.253686 )
 
-[node name="puppenhaus" parent="MainAnimationPlayer/StageRound" instance=ExtResource( 35 )]
+[node name="puppenhaus" parent="MainAnimationPlayer/StageRound/Kinderzimmer" instance=ExtResource( 35 )]
 transform = Transform( -2.18557e-09, 0, 0.05, 0, 0.05, 0, -0.05, 0, -2.18557e-09, 0.549933, 0.690776, 1.08406 )
 
-[node name="rabbit" parent="MainAnimationPlayer/StageRound" instance=ExtResource( 38 )]
+[node name="rabbit" parent="MainAnimationPlayer/StageRound/Kinderzimmer" instance=ExtResource( 38 )]
 transform = Transform( 0.0873321, 0, -0.179925, 0, 0.2, 0, 0.179925, 0, 0.0873321, 1.17538, 0.937226, 0.484178 )
 
-[node name="radio" parent="MainAnimationPlayer/StageRound" instance=ExtResource( 40 )]
+[node name="radio" parent="MainAnimationPlayer/StageRound/Kinderzimmer" instance=ExtResource( 40 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.254979, 1.3014, -0.474467 )
 
-[node name="turm" parent="MainAnimationPlayer/StageRound" instance=ExtResource( 36 )]
+[node name="turm" parent="MainAnimationPlayer/StageRound/Kinderzimmer" instance=ExtResource( 36 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.50512, 0.719969, -1.78814e-07 )
+
+[node name="Wohnzimmer" type="Spatial" parent="MainAnimationPlayer/StageRound"]
+
+[node name="pinetree" parent="MainAnimationPlayer/StageRound/Wohnzimmer" instance=ExtResource( 45 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.68617, 0.676263, 0.160998 )
+visible = false
+
+[node name="Sofa" parent="MainAnimationPlayer/StageRound" instance=ExtResource( 47 )]
+transform = Transform( 0.01048, 0, -0.49989, 0, 0.5, 0, 0.49989, 0, 0.01048, -0.76179, 1.04447, -0.248269 )
+
+[node name="director" parent="MainAnimationPlayer" instance=ExtResource( 41 )]
+transform = Transform( -0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 0.519824, 0.0154364, -4.89898 )
+
+[node name="Skeleton" parent="MainAnimationPlayer/director/VRDramaQueens_director" index="0"]
+bones/152/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="BoneAttachment" parent="MainAnimationPlayer/director/VRDramaQueens_director/Skeleton" index="0"]
+transform = Transform( -0.185342, -0.764979, 0.616811, 0.0427595, 0.620808, 0.782786, -0.981743, 0.17146, -0.0823505, 0.0303158, 0.696638, 0.263175 )
+
+[node name="AudioStreamPlayer3DDirector" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/director"]
+transform = Transform( 1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 1.17169, 0 )
+stream = ExtResource( 43 )
+unit_db = 25.397
 
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
 [connection signal="dropped" from="LichtpultPickable" to="FPController/PlayerBody/BeltSnapZone" method="_on_LichtpultPickable_dropped"]
@@ -1116,3 +1563,5 @@ transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.50512, 0.719969, -1.78
 [editable path="LichtpultPickable/OnButton"]
 [editable path="LichtpultPickable/OnButton/RedButton"]
 [editable path="dressingRoom"]
+[editable path="MainAnimationPlayer/Maid_animated"]
+[editable path="MainAnimationPlayer/director"]
