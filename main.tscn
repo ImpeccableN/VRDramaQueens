@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -8,12 +8,15 @@
 [ext_resource path="res://Objects/Scenes/cord.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" type="PackedScene" id=7]
 [ext_resource path="res://addons/godot-xr-tools/player/player_body.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/FiguresAnimated/Nora_klein_animated.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/Scenes/Spotlight1.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/vorhang.glb" type="PackedScene" id=11]
 [ext_resource path="res://Objects/StageRound.glb" type="PackedScene" id=12]
 [ext_resource path="res://addons/godot-xr-tools/functions/function_pickup.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Objects/cord.glb" type="PackedScene" id=14]
+[ext_resource path="res://Objects/FiguresAnimated/NorasVater_animated.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Objects/Stage.gd" type="Script" id=16]
+[ext_resource path="res://Global Variables.gd" type="Script" id=17]
 [ext_resource path="res://Objects/Scenes/SesselMitCollision.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Objects/garderobeAnkleidezimmer/dressingRoom.glb" type="PackedScene" id=19]
 [ext_resource path="res://Objects/Scenes/Wandleuchte.tscn" type="PackedScene" id=20]
@@ -24,6 +27,11 @@
 [ext_resource path="res://Objects/Scenes/Tisch.tscn" type="PackedScene" id=25]
 [ext_resource path="res://addons/godot-xr-tools/functions/function_pose_detector.tscn" type="PackedScene" id=26]
 [ext_resource path="res://WandleuchtenLinks.gd" type="Script" id=27]
+[ext_resource path="res://Objects/FiguresAnimated/DrRank_animated.glb" type="PackedScene" id=28]
+[ext_resource path="res://Objects/FiguresAnimated/Maid_animated.glb" type="PackedScene" id=29]
+[ext_resource path="res://Objects/FiguresAnimated/KristineLinde_animated.glb" type="PackedScene" id=30]
+[ext_resource path="res://Objects/FiguresAnimated/Torvald_animated.glb" type="PackedScene" id=31]
+[ext_resource path="res://Objects/FiguresAnimated/Nora_animated.glb" type="PackedScene" id=32]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 25, 25, 1 )
@@ -311,6 +319,9 @@ albedo_color = Color( 0, 0, 0, 1 )
 [sub_resource type="SpatialMaterial" id=38]
 albedo_color = Color( 0, 0, 0, 1 )
 
+[sub_resource type="Animation" id=41]
+resource_name = "Drehbühne1Auf2"
+
 [sub_resource type="Animation" id=39]
 resource_name = "Szene1"
 
@@ -318,6 +329,9 @@ resource_name = "Szene1"
 resource_name = "Szene2"
 
 [node name="Main" type="Spatial"]
+
+[node name="Global Variables" type="Node" parent="."]
+script = ExtResource( 17 )
 
 [node name="FPController" parent="." instance=ExtResource( 1 )]
 
@@ -409,6 +423,7 @@ spot_range = 17.632
 
 [node name="VorhangVorneLinks" parent="Stage" instance=ExtResource( 11 )]
 transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 2, -1.4795, 2.3747, 2.95904 )
+visible = false
 
 [node name="StaticBody" type="StaticBody" parent="Stage/VorhangVorneLinks"]
 
@@ -417,6 +432,7 @@ shape = SubResource( 9 )
 
 [node name="VorhangVorneRechts" parent="Stage" instance=ExtResource( 11 )]
 transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 2, 2.09506, 2.3747, 2.95904 )
+visible = false
 
 [node name="StaticBody" type="StaticBody" parent="Stage/VorhangVorneRechts"]
 
@@ -647,9 +663,25 @@ transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 1
 [node name="SesselMitCollision10" parent="TheatreRoom/Bestuhlung" instance=ExtResource( 18 )]
 transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0.7, 0, -4 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="MainAnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Drehbühne1Auf2" = SubResource( 41 )
 anims/Szene1 = SubResource( 39 )
 anims/Szene2 = SubResource( 40 )
+
+[node name="DrRank_animated" parent="MainAnimationPlayer" instance=ExtResource( 28 )]
+
+[node name="KristineLinde_animated" parent="MainAnimationPlayer" instance=ExtResource( 30 )]
+
+[node name="Maid_animated" parent="MainAnimationPlayer" instance=ExtResource( 29 )]
+
+[node name="Nora_animated" parent="MainAnimationPlayer" instance=ExtResource( 32 )]
+
+[node name="Torvald_animated" parent="MainAnimationPlayer" instance=ExtResource( 31 )]
+
+[node name="NorasVater_animated" parent="MainAnimationPlayer" instance=ExtResource( 15 )]
+
+[node name="Nora_klein_animated" parent="MainAnimationPlayer" instance=ExtResource( 9 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.29706, 0.735108, -13.0296 )
 
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
 [connection signal="dropped" from="LichtpultPickable" to="FPController/PlayerBody/BeltSnapZone" method="_on_LichtpultPickable_dropped"]
