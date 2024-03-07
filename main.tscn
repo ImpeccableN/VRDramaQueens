@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -32,6 +32,8 @@
 [ext_resource path="res://Objects/FiguresAnimated/KristineLinde_animated.glb" type="PackedScene" id=30]
 [ext_resource path="res://Objects/FiguresAnimated/Torvald_animated.glb" type="PackedScene" id=31]
 [ext_resource path="res://Objects/FiguresAnimated/Nora_animated.glb" type="PackedScene" id=32]
+[ext_resource path="res://assets/Dialog/Nora/NoraKind_1.mp3" type="AudioStream" id=33]
+[ext_resource path="res://assets/Dialog/Noras Vater/NoraVater_1.mp3" type="AudioStream" id=34]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 25, 25, 1 )
@@ -260,13 +262,6 @@ tracks/1/keys = {
 "values": [ Vector3( 1.8, 1.8, 2 ), Vector3( 0.3, 1.8, 2 ) ]
 }
 
-[sub_resource type="BoxShape" id=18]
-extents = Vector3( 0.106689, 1.64672, 2.49961 )
-
-[sub_resource type="CylinderShape" id=19]
-height = 1.41465
-radius = 2.49458
-
 [sub_resource type="BoxShape" id=20]
 extents = Vector3( 2.49943, 1.66385, 0.056105 )
 
@@ -321,12 +316,155 @@ albedo_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="Animation" id=41]
 resource_name = "Drehbühne1Auf2"
+length = 3.0
+tracks/0/type = "transform"
+tracks/0/path = NodePath("MainAnimationPlayer/StageRound")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray(  )
+tracks/1/type = "value"
+tracks/1/path = NodePath("MainAnimationPlayer/StageRound:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 0, 270, 0 ) ]
+}
+
+[sub_resource type="Animation" id=42]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("MainAnimationPlayer/StageRound:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MainAnimationPlayer/StageRound/Nora_klein_animated/AudioStreamPlayer3DNoraKlein:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 33 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MainAnimationPlayer/StageRound/Nora_klein_animated/AudioStreamPlayer3DNoraKlein:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MainAnimationPlayer/StageRound/Nora_klein_animated/AudioStreamPlayer3DNoraKlein:stream_paused")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MainAnimationPlayer/StageRound/NorasVater_animated/AudioStreamPlayer3DVater:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=39]
 resource_name = "Szene1"
 
 [sub_resource type="Animation" id=40]
 resource_name = "Szene2"
+length = 10.0
+tracks/0/type = "audio"
+tracks/0/path = NodePath("MainAnimationPlayer/StageRound/Nora_klein_animated/AudioStreamPlayer3DNoraKlein")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 33 )
+} ],
+"times": PoolRealArray( 0.6 )
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("MainAnimationPlayer/StageRound/NorasVater_animated/AudioStreamPlayer3DVater")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 34 )
+} ],
+"times": PoolRealArray( 6.5 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MainAnimationPlayer/StageRound/Nora_klein_animated/AudioStreamPlayer3DNoraKlein:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 6.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MainAnimationPlayer/StageRound/NorasVater_animated/AudioStreamPlayer3DVater:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 8.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="BoxShape" id=18]
+extents = Vector3( 0.106689, 1.64672, 2.49961 )
+
+[sub_resource type="CylinderShape" id=19]
+height = 1.41465
+radius = 2.49458
 
 [node name="Main" type="Spatial"]
 
@@ -461,18 +599,6 @@ transform = Transform( -0.0277763, 0, 0, 0, -0.0277763, 0, 0, 0, -0.0277763, -0.
 
 [node name="XRToolsInteractableAreaButton" parent="Stage/FunctionalCord" index="1"]
 displacement = Vector3( 0, -0.1, 0 )
-
-[node name="StageRound" parent="." instance=ExtResource( 12 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.565689, 2.86102e-06, -11.8279 )
-
-[node name="StaticBody" type="StaticBody" parent="StageRound"]
-
-[node name="CollissionshapeWall" type="CollisionShape" parent="StageRound/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35366, 0 )
-shape = SubResource( 18 )
-
-[node name="CollisionShapeGround" type="CollisionShape" parent="StageRound/StaticBody"]
-shape = SubResource( 19 )
 
 [node name="Tisch" parent="." instance=ExtResource( 25 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.706041, -1.02472 )
@@ -665,23 +791,61 @@ transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0
 
 [node name="MainAnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/Drehbühne1Auf2" = SubResource( 41 )
+anims/RESET = SubResource( 42 )
 anims/Szene1 = SubResource( 39 )
 anims/Szene2 = SubResource( 40 )
 
 [node name="DrRank_animated" parent="MainAnimationPlayer" instance=ExtResource( 28 )]
 
+[node name="AudioStreamPlayer3DRank" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/DrRank_animated"]
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 1.49012e-08, 5.96046e-08, -9.53674e-07 )
+
 [node name="KristineLinde_animated" parent="MainAnimationPlayer" instance=ExtResource( 30 )]
+
+[node name="AudioStreamPlayer3DLinde" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/KristineLinde_animated"]
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 1.49012e-08, 5.96046e-08, -9.53674e-07 )
 
 [node name="Maid_animated" parent="MainAnimationPlayer" instance=ExtResource( 29 )]
 
+[node name="AudioStreamPlayer3DMaid" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Maid_animated"]
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 1.49012e-08, 5.96046e-08, -9.53674e-07 )
+
 [node name="Nora_animated" parent="MainAnimationPlayer" instance=ExtResource( 32 )]
+
+[node name="AudioStreamPlayer3DNora" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Nora_animated"]
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 1.49012e-08, 5.96046e-08, -9.53674e-07 )
 
 [node name="Torvald_animated" parent="MainAnimationPlayer" instance=ExtResource( 31 )]
 
-[node name="NorasVater_animated" parent="MainAnimationPlayer" instance=ExtResource( 15 )]
+[node name="AudioStreamPlayer3DTorvald" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Torvald_animated"]
+transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 1.49012e-08, 5.96046e-08, -9.53674e-07 )
 
-[node name="Nora_klein_animated" parent="MainAnimationPlayer" instance=ExtResource( 9 )]
-transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.29706, 0.735108, -13.0296 )
+[node name="StageRound" parent="MainAnimationPlayer" instance=ExtResource( 12 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.565689, 2.86102e-06, -11.8279 )
+
+[node name="StaticBody" type="StaticBody" parent="MainAnimationPlayer/StageRound"]
+
+[node name="CollissionshapeWall" type="CollisionShape" parent="MainAnimationPlayer/StageRound/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35366, 0 )
+shape = SubResource( 18 )
+
+[node name="CollisionShapeGround" type="CollisionShape" parent="MainAnimationPlayer/StageRound/StaticBody"]
+shape = SubResource( 19 )
+
+[node name="Nora_klein_animated" parent="MainAnimationPlayer/StageRound" instance=ExtResource( 9 )]
+transform = Transform( -2.62268e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.62268e-08, 1.20172, 0.70506, -0.731369 )
+
+[node name="AudioStreamPlayer3DNoraKlein" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/Nora_klein_animated"]
+transform = Transform( -1.66667, 0, -5.29775e-08, 0, 1.66667, 0, 5.29775e-08, 0, -1.66667, 0.276132, -1.17511, -17.7103 )
+stream = ExtResource( 33 )
+stream_paused = true
+
+[node name="NorasVater_animated" parent="MainAnimationPlayer/StageRound" instance=ExtResource( 15 )]
+transform = Transform( 0.0524928, 0, 0.998621, 0, 1, 0, -0.998621, 0, 0.0524928, 1.18384, 0.70307, 0.565689 )
+
+[node name="AudioStreamPlayer3DVater" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/NorasVater_animated"]
+transform = Transform( 0.998621, 0, 0.0524928, 0, 1, 0, -0.0524928, 0, 0.998621, 1.68855, -0.703073, 10.57 )
+stream = ExtResource( 34 )
 
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
 [connection signal="dropped" from="LichtpultPickable" to="FPController/PlayerBody/BeltSnapZone" method="_on_LichtpultPickable_dropped"]

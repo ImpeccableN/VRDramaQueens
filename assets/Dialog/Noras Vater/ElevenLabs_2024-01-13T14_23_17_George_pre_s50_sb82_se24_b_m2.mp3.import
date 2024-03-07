@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ElevenLabs_2024-01-13T14_23_17_George_pre_s50_sb82_se24_b_m2.mp3-ba85881e227034ad4df384202e2cb11e.mp3str"
+
+[deps]
+
+source_file="res://assets/Dialog/Noras Vater/ElevenLabs_2024-01-13T14_23_17_George_pre_s50_sb82_se24_b_m2.mp3"
+dest_files=[ "res://.import/ElevenLabs_2024-01-13T14_23_17_George_pre_s50_sb82_se24_b_m2.mp3-ba85881e227034ad4df384202e2cb11e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

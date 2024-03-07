@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Frau Linde_9b.mp3-ace5c143accd427c6e272e60d5d13fbb.mp3str"
+
+[deps]
+
+source_file="res://assets/Dialog/Frau Linde/Frau Linde_9b.mp3"
+dest_files=[ "res://.import/Frau Linde_9b.mp3-ace5c143accd427c6e272e60d5d13fbb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

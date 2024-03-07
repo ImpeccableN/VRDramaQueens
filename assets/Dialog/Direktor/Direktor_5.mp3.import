@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Direktor_5.mp3-36e22d603bd062da2ef8cc2a353a54fa.mp3str"
+
+[deps]
+
+source_file="res://assets/Dialog/Direktor/Direktor_5.mp3"
+dest_files=[ "res://.import/Direktor_5.mp3-36e22d603bd062da2ef8cc2a353a54fa.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
