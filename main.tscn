@@ -844,6 +844,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [ Vector3( 0, 33.974, 0 ), Vector3( 0, 68.514, 0 ), Vector3( 0, 80.698, 0 ), Vector3( 0, 108.641, 0 ), Vector3( 0, 151.228, 0 ), Vector3( 0, 178.182, 0 ), Vector3( 0, 218, 0 ) ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath("MainAnimationPlayer/StageRound/WohnzimmerSzene3/PinetreeSzene3:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=56]
 resource_name = "Drehbuehne4Auf5"
