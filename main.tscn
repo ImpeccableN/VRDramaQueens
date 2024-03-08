@@ -855,10 +855,58 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MainAnimationPlayer/StageRound/WohnzimmerSzene4/PinetreeSzene4:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -2.20624, 0.511209, -2.51112 ), Vector3( -2.20624, 0.825241, -2.51112 ), Vector3( -2.06368, 0.825241, 0.411287 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MainAnimationPlayer/StageRound:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 270, 0 ), Vector3( 0, 90, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MainAnimationPlayer/Krogstad_animated:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.992443, 0.673185, -11.2518 ), Vector3( 0.395717, 0.673185, -10.4973 ), Vector3( -0.316393, 0.673185, -10.241 ), Vector3( -1.22495, 0.673185, -10.334 ), Vector3( -1.81648, 0.673185, -11.0044 ), Vector3( -2.08124, 0.673185, -11.7947 ), Vector3( -2.09583, 0.673185, -12.5705 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MainAnimationPlayer/StageRound/WohnzimmerSzene4/PinetreeSzene4:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=42]
@@ -1240,6 +1288,18 @@ tracks/31/loop_wrap = true
 tracks/31/imported = false
 tracks/31/enabled = true
 tracks/31/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/32/type = "value"
+tracks/32/path = NodePath("MainAnimationPlayer/StageRound/WohnzimmerSzene4/PinetreeSzene4:visible")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -1727,7 +1787,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=55]
 resource_name = "Szene4"
-length = 180.0
+length = 69.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("MainAnimationPlayer/Krogstad_animated:visible")
 tracks/0/interp = 1
@@ -3145,11 +3205,11 @@ transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 1.49012e-
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.176, 0.493935, -12.4181 )
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/Krogstad_animated/Figure Armature Cylinder/Skeleton" index="0"]
-transform = Transform( 1, 3.84865e-08, 2.47902e-07, -1.14096e-08, 0.994117, -0.108311, -2.50612e-07, 0.108311, 0.994117, -2.05942e-09, 1.38617, 0.333325 )
+transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08, -2.38418e-07, -6.70552e-08, 1, -1.37395e-08, 1.39374, 0.303519 )
 
 [node name="AudioStreamPlayer3DKrogstad" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Krogstad_animated"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.114035, 1.30703, 0 )
-stream = ExtResource( 77 )
+stream = ExtResource( 74 )
 unit_db = 80.0
 
 [node name="KristineLinde_animated" parent="MainAnimationPlayer" instance=ExtResource( 30 )]
@@ -3160,7 +3220,7 @@ visible = false
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/KristineLinde_animated/Figure Armature Blue Hair/Skeleton" index="0"]
-transform = Transform( 0.821495, 0.020665, -0.569841, 4.44466e-08, 0.999343, 0.0362407, 0.570216, -0.0297716, 0.820955, -0.00644558, 1.39554, 0.291385 )
+transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08, -2.38418e-07, -6.70552e-08, 1, -1.37395e-08, 1.39374, 0.303519 )
 
 [node name="AudioStreamPlayer3DLinde" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/KristineLinde_animated"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.208157, 1.27794, -0.0807323 )
@@ -3175,7 +3235,7 @@ visible = false
 bones/1/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/Maid_animated/Figure Armature Bonnet/Skeleton" index="0"]
-transform = Transform( 1, 1.56376e-09, 2.38164e-07, 1.61188e-08, 0.997241, -0.0742274, -2.37623e-07, 0.0742274, 0.997241, -1.30871e-08, 1.24368, 0.282099 )
+transform = Transform( 1, 7.10543e-15, 2.38419e-07, 2.63021e-08, 0.993896, -0.110319, -2.36963e-07, 0.110319, 0.993896, -1.36464e-08, 1.24238, 0.286719 )
 
 [node name="AudioStreamPlayer3DMaid" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Maid_animated"]
 transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0.181506, 1.29402, -9.53674e-07 )
@@ -3251,7 +3311,7 @@ transform = Transform( -0.697228, 0, 0.716849, 0, 1, 0, -0.716849, 0, -0.697228,
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene3/Nora_animatedSzene3/Figure Armature Pink Hair/Skeleton" index="0"]
-transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 0.972073, 0.293402 )
+transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08, -2.38418e-07, -6.70552e-08, 1, -1.37395e-08, 1.39374, 0.303519 )
 
 [node name="AudioStreamPlayer3DNora" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene3/Nora_animatedSzene3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148294, 1.21808, -0.0675476 )
@@ -3262,7 +3322,7 @@ unit_db = 80.0
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -5.96046e-08 )
 
 [node name="PinetreeSzene4" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene4" instance=ExtResource( 45 )]
-transform = Transform( 0.1, 0, -7.45058e-09, 0, 0.1, 0, 7.45058e-09, 0, 0.1, -1.83836, 0.696251, 0.345243 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.83836, 0.696251, 0.345243 )
 
 [node name="SofaSzene4" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene4" instance=ExtResource( 47 )]
 transform = Transform( 0.01048, 0, -0.49989, 0, 0.5, 0, 0.49989, 0, 0.01048, -0.76179, 1.04447, -0.248269 )
