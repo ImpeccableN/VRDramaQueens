@@ -1447,7 +1447,7 @@ visible = false
 bones/1/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/Maid_animated/Figure Armature Bonnet/Skeleton" index="0"]
-transform = Transform( 1, 1.56376e-09, 2.38164e-07, 1.61188e-08, 0.997241, -0.0742274, -2.37623e-07, 0.0742274, 0.997241, -8.13716e-08, 1.24368, 1.84426 )
+transform = Transform( 1, 7.10543e-15, 2.38419e-07, 2.63021e-08, 0.993896, -0.110319, -2.36963e-07, 0.110319, 0.993896, -1.36464e-08, 1.24238, 0.286719 )
 
 [node name="AudioStreamPlayer3DMaid" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Maid_animated"]
 transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0.181506, 1.29402, -9.53674e-07 )
@@ -1472,6 +1472,12 @@ shape = SubResource( 19 )
 
 [node name="Nora_animated" parent="MainAnimationPlayer/StageRound" instance=ExtResource( 32 )]
 transform = Transform( -0.910041, 0, 0.414519, 0, 1, 0, -0.414519, 0, -0.910041, -0.724476, 0.695126, 1.90358 )
+
+[node name="Skeleton" parent="MainAnimationPlayer/StageRound/Nora_animated/Figure Armature Pink Hair" index="0"]
+bones/2/bound_children = [ NodePath("BoneAttachment") ]
+
+[node name="BoneAttachment" parent="MainAnimationPlayer/StageRound/Nora_animated/Figure Armature Pink Hair/Skeleton" index="0"]
+transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 1.39554, 0.293402 )
 
 [node name="AudioStreamPlayer3DNora" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/Nora_animated"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148294, 1.21808, -0.0675476 )
@@ -1534,7 +1540,7 @@ transform = Transform( -0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 0
 bones/152/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/director/VRDramaQueens_director/Skeleton" index="0"]
-transform = Transform( -0.185342, -0.764979, 0.616811, 0.0427595, 0.620808, 0.782786, -0.981743, 0.17146, -0.0823505, 0.0303158, 0.696638, 0.263175 )
+transform = Transform( -0.735575, 0.33208, -0.590468, -0.673573, -0.451474, 0.585195, -0.0722518, 0.828184, 0.555779, 0.45781, 1.07111, 0.195288 )
 
 [node name="AudioStreamPlayer3DDirector" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/director"]
 transform = Transform( 1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 1.17169, 0 )
@@ -1565,4 +1571,5 @@ unit_db = 25.397
 [editable path="LichtpultPickable/OnButton/RedButton"]
 [editable path="dressingRoom"]
 [editable path="MainAnimationPlayer/Maid_animated"]
+[editable path="MainAnimationPlayer/StageRound/Nora_animated"]
 [editable path="MainAnimationPlayer/director"]
