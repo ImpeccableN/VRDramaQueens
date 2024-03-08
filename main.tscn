@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=2]
+[gd_scene load_steps=124 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -1220,6 +1220,21 @@ tracks/31/keys = {
 "update": 0,
 "values": [ true ]
 }
+
+[sub_resource type="Animation" id=56]
+resource_name = "Szene 5 - Noras Zimmer"
+
+[sub_resource type="Animation" id=57]
+resource_name = "Szene 6 - Ankleidezimmer"
+
+[sub_resource type="Animation" id=58]
+resource_name = "Szene 7 - Bühne"
+
+[sub_resource type="Animation" id=59]
+resource_name = "Szene 8.1"
+
+[sub_resource type="Animation" id=60]
+resource_name = "Szene 8.2"
 
 [sub_resource type="Animation" id=39]
 resource_name = "Szene1"
@@ -3036,6 +3051,11 @@ anims/Drehbuehne1Auf2 = SubResource( 41 )
 anims/Drehbuehne2Auf3 = SubResource( 43 )
 anims/Drehbuehne3Auf4 = SubResource( 46 )
 anims/RESET = SubResource( 42 )
+"anims/Szene 5 - Noras Zimmer" = SubResource( 56 )
+"anims/Szene 6 - Ankleidezimmer" = SubResource( 57 )
+"anims/Szene 7 - Bühne" = SubResource( 58 )
+"anims/Szene 8.1" = SubResource( 59 )
+"anims/Szene 8.2" = SubResource( 60 )
 anims/Szene1 = SubResource( 39 )
 anims/Szene2 = SubResource( 40 )
 anims/Szene3_Rest = SubResource( 44 )
@@ -3056,9 +3076,10 @@ transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 1.49012e-
 
 [node name="Krogstad_animated" parent="MainAnimationPlayer" instance=ExtResource( 62 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.176, 0.493935, -12.4181 )
+visible = false
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/Krogstad_animated/Figure Armature Cylinder/Skeleton" index="0"]
-transform = Transform( 1, 3.7921e-08, 2.47779e-07, -1.08287e-08, 0.994103, -0.108438, -2.5043e-07, 0.108438, 0.994103, -2.22346e-09, 1.38616, 0.33336 )
+transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08, -2.38418e-07, -6.70552e-08, 1, -1.37395e-08, 1.39374, 0.303519 )
 
 [node name="AudioStreamPlayer3DKrogstad" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Krogstad_animated"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.114035, 1.30703, 0 )
@@ -3073,7 +3094,7 @@ visible = false
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/KristineLinde_animated/Figure Armature Blue Hair/Skeleton" index="0"]
-transform = Transform( 0.821495, 0.020665, -0.569841, 4.44466e-08, 0.999343, 0.0362407, 0.570216, -0.0297716, 0.820955, -0.00644558, 1.39554, 0.291385 )
+transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08, -2.38418e-07, -6.70552e-08, 1, -1.37395e-08, 1.39374, 0.303519 )
 
 [node name="AudioStreamPlayer3DLinde" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/KristineLinde_animated"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.208157, 1.27794, -0.0807323 )
@@ -3081,14 +3102,14 @@ stream = ExtResource( 66 )
 unit_db = 80.0
 
 [node name="Maid_animated" parent="MainAnimationPlayer" instance=ExtResource( 29 )]
-transform = Transform( 0.588562, 0, -0.808452, 0, 1, 0, 0.808452, 0, 0.588562, 0.506124, 0.694135, -13.1626 )
+transform = Transform( 0.588561, 0, -0.808452, 0, 1, 0, 0.808452, 0, 0.588561, 0.506124, 0.694135, -13.1626 )
 visible = false
 
 [node name="Skeleton" parent="MainAnimationPlayer/Maid_animated/Figure Armature Bonnet" index="0"]
 bones/1/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/Maid_animated/Figure Armature Bonnet/Skeleton" index="0"]
-transform = Transform( 1, 1.56376e-09, 2.38164e-07, 1.61188e-08, 0.997241, -0.0742274, -2.37623e-07, 0.0742274, 0.997241, -1.30871e-08, 1.24368, 0.282099 )
+transform = Transform( 1, 7.10543e-15, 2.38419e-07, 2.63021e-08, 0.993896, -0.110319, -2.36963e-07, 0.110319, 0.993896, -1.36464e-08, 1.24238, 0.286719 )
 
 [node name="AudioStreamPlayer3DMaid" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Maid_animated"]
 transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0.181506, 1.29402, -9.53674e-07 )
@@ -3157,13 +3178,13 @@ visible = false
 transform = Transform( 0.01048, 0, -0.49989, 0, 0.5, 0, 0.49989, 0, 0.01048, -0.76179, 1.04447, -0.248269 )
 
 [node name="Nora_animatedSzene3" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene3" instance=ExtResource( 32 )]
-transform = Transform( -0.697227, 0, 0.71685, 0, 1, 0, -0.71685, 0, -0.697227, -0.724476, 0.695126, 1.90358 )
+transform = Transform( -0.697228, 0, 0.716849, 0, 1, 0, -0.716849, 0, -0.697228, -0.724476, 0.695126, 1.90358 )
 
 [node name="Skeleton" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene3/Nora_animatedSzene3/Figure Armature Pink Hair" index="0"]
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene3/Nora_animatedSzene3/Figure Armature Pink Hair/Skeleton" index="0"]
-transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 0.972073, 0.293402 )
+transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08, -2.38418e-07, -6.70552e-08, 1, -1.37395e-08, 1.39374, 0.303519 )
 
 [node name="AudioStreamPlayer3DNora" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene3/Nora_animatedSzene3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148294, 1.21808, -0.0675476 )
@@ -3172,6 +3193,7 @@ unit_db = 80.0
 
 [node name="WohnzimmerSzene4" type="Spatial" parent="MainAnimationPlayer/StageRound"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -5.96046e-08 )
+visible = false
 
 [node name="PinetreeSzene4" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene4" instance=ExtResource( 45 )]
 transform = Transform( 0.1, 0, -7.45058e-09, 0, 0.1, 0, 7.45058e-09, 0, 0.1, -1.83836, 0.696251, 0.345243 )
