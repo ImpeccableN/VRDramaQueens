@@ -97,12 +97,11 @@ func move_hinge(position: float) -> void:
 
 	# Emit the moved signal
 	emit_signal("hinge_moved", hinge_position)
+	print(hinge_position)
 
 
-# Override der vorhandenen _on_hinge_released Funktion
+# Handle release of hinge
 func _on_hinge_released(_interactable: XRToolsInteractableHinge):
-	var angle = hinge_position  # Verwenden Sie hier die tatsächliche Winkelposition des Scharniers
-	emit_signal("hinge_moved", angle)
 	if default_on_release:
 		move_hinge(_default_position_rad)
 
@@ -154,5 +153,3 @@ func _do_move_hinge(position: float) -> float:
 
 	# Return the updated position
 	return position
-	
-

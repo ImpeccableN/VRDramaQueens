@@ -386,7 +386,8 @@ func _do_snap_grab() -> void:
 			transform = snap_transform
 
 	# Emit the picked up signal
-	emit_signal("picked_up", self)
+	if picked_up_by == ARVRController:
+		emit_signal("picked_up", self)
 
 
 func _do_precise_grab() -> void:

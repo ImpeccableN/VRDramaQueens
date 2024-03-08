@@ -36,9 +36,12 @@ var _trigger_items := {}
 # Tween for animating button
 var _tween: Tween
 
+# var determining if timer has run out
+var timer_out : bool = true
 
 # Node references
 onready var _button: Spatial = get_node(button)
+onready var _timer := $Timer
 
 # Button positions
 onready var _button_up := _button.transform.origin
@@ -90,7 +93,10 @@ func _on_button_entered(item: Spatial) -> void:
 		_tween.start()
 
 		# Emit the pressed signal
-		emit_signal("button_pressed",self)
+		if timer_out:
+			emit_signal("button_pressed",self)
+			_timer.start()
+			timer_out = false
 
 
 # Called when an area or body exits the button area
@@ -129,3 +135,7 @@ func _get_configuration_warning() -> String:
 		return "Duration must be a positive number"
 
 	return ""
+
+
+func _on_Timer_timeout():
+	timer_out = true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/NoraVater_1.mp3-7f8fa50ef86609b5c841b3b1db17e6b6.mp3str"
+
+[deps]
+
+source_file="res://assets/Dialog/Noras Vater/NoraVater_1.mp3"
+dest_files=[ "res://.import/NoraVater_1.mp3-7f8fa50ef86609b5c841b3b1db17e6b6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
