@@ -512,7 +512,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated/papiertuete:translation")
+tracks/4/path = NodePath("MainAnimationPlayer/StageRound/papiertuete:translation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -524,7 +524,7 @@ tracks/4/keys = {
 "values": [ Vector3( 0.47335, 0.847367, 0.0110242 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated/papiertuete:visible")
+tracks/5/path = NodePath("MainAnimationPlayer/StageRound/papiertuete:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -765,7 +765,7 @@ tracks/14/keys = {
 "values": [ false ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated/papiertuete:visible")
+tracks/15/path = NodePath("MainAnimationPlayer/StageRound/papiertuete:visible")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -825,7 +825,7 @@ tracks/19/keys = {
 "values": [ false ]
 }
 tracks/20/type = "value"
-tracks/20/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated/papiertuete:translation")
+tracks/20/path = NodePath("MainAnimationPlayer/StageRound/papiertuete:translation")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
@@ -859,6 +859,30 @@ tracks/22/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( -1.68617, 0.676263, 0.160998 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("MainAnimationPlayer/Maid_animated:rotation_degrees")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -53.945, 0 ) ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated:rotation_degrees")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 134.205, 0 ) ]
 }
 
 [sub_resource type="Animation" id=39]
@@ -998,7 +1022,7 @@ tracks/4/keys = {
 "values": [ false ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated/papiertuete:translation")
+tracks/5/path = NodePath("MainAnimationPlayer/StageRound/papiertuete:translation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1040,10 +1064,10 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 44, 46, 48.9, 49.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 44, 46, 48.9, 49.7, 50.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0.506124, 0.694135, -13.1626 ), Vector3( 0.506124, 0.694135, -13.1626 ), Vector3( 1.99308, 0.550438, -13.298 ), Vector3( 2.09968, 0.510798, -13.3353 ) ]
+"values": [ Vector3( 0.506124, 0.694135, -13.1626 ), Vector3( 0.506124, 0.694135, -13.1626 ), Vector3( 1.99308, 0.550438, -12.5632 ), Vector3( 2.2802, 0.510798, -11.8181 ), Vector3( 2.2802, 0.510798, -11.4805 ) ]
 }
 tracks/9/type = "animation"
 tracks/9/path = NodePath("MainAnimationPlayer/Maid_animated/AnimationPlayer")
@@ -1052,8 +1076,54 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"clips": PoolStringArray( "walking", "walking" ),
-"times": PoolRealArray( 46, 49.7 )
+"clips": PoolStringArray( "walking", "walking", "[stop]" ),
+"times": PoolRealArray( 46, 49.7, 50.6 )
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("MainAnimationPlayer/Maid_animated:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 46, 48.9, 49.7, 50.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -19.608, 0 ), Vector3( 0, -53.945, 0 ), Vector3( 0, -94.485, 0 ), Vector3( 0, -110.368, 0 ) ]
+}
+tracks/11/type = "animation"
+tracks/11/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated/AnimationPlayer")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"clips": PoolStringArray( "walking", "sittingDown" ),
+"times": PoolRealArray( 46.5, 49.2 )
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated:translation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 46.5, 47.2, 48.2, 48.9, 49.2, 50.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.724476, 0.695126, 1.90358 ), Vector3( -1.2641, 0.695126, 1.45713 ), Vector3( -1.54559, 0.695126, 0.371727 ), Vector3( -1.59559, 0.695126, -0.534559 ), Vector3( -1.41867, 0.695126, -0.534559 ), Vector3( -0.911887, 0.695126, -0.534559 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 46.5, 46.6, 47.2, 48.9, 49.2, 50.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 155.511, 0 ), Vector3( 0, 134.205, 0 ), Vector3( 0, 113.476, 0 ), Vector3( 0, 113.476, 0 ), Vector3( 0, 166.16, 0 ), Vector3( 0, 190, 0 ) ]
 }
 
 [sub_resource type="Animation" id=45]
@@ -1440,14 +1510,14 @@ visible = false
 transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 1.49012e-08, 5.96046e-08, -9.53674e-07 )
 
 [node name="Maid_animated" parent="MainAnimationPlayer" instance=ExtResource( 29 )]
-transform = Transform( 0.232529, 0, -0.972589, 0, 1, 0, 0.972589, 0, 0.232529, 0.506124, 0.694135, -13.1626 )
+transform = Transform( 0.588562, 0, -0.808452, 0, 1, 0, 0.808452, 0, 0.588562, 0.506124, 0.694135, -13.1626 )
 visible = false
 
 [node name="Skeleton" parent="MainAnimationPlayer/Maid_animated/Figure Armature Bonnet" index="0"]
 bones/1/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/Maid_animated/Figure Armature Bonnet/Skeleton" index="0"]
-transform = Transform( 1, 7.10543e-15, 2.38419e-07, 2.63021e-08, 0.993896, -0.110319, -2.36963e-07, 0.110319, 0.993896, -1.36464e-08, 1.24238, 0.286719 )
+transform = Transform( 1, -1.02199e-09, 2.38434e-07, 3.28156e-08, 0.991065, -0.133382, -2.36167e-07, 0.133382, 0.991065, -1.34175e-08, 1.24147, 0.289656 )
 
 [node name="AudioStreamPlayer3DMaid" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Maid_animated"]
 transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0.181506, 1.29402, -9.53674e-07 )
@@ -1471,22 +1541,18 @@ shape = SubResource( 18 )
 shape = SubResource( 19 )
 
 [node name="Nora_animated" parent="MainAnimationPlayer/StageRound" instance=ExtResource( 32 )]
-transform = Transform( -0.910041, 0, 0.414519, 0, 1, 0, -0.414519, 0, -0.910041, -0.724476, 0.695126, 1.90358 )
+transform = Transform( -0.697227, 0, 0.71685, 0, 1, 0, -0.71685, 0, -0.697227, -0.724476, 0.695126, 1.90358 )
 
 [node name="Skeleton" parent="MainAnimationPlayer/StageRound/Nora_animated/Figure Armature Pink Hair" index="0"]
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/StageRound/Nora_animated/Figure Armature Pink Hair/Skeleton" index="0"]
-transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 1.39554, 0.293402 )
+transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 0.972073, 0.293402 )
 
 [node name="AudioStreamPlayer3DNora" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/Nora_animated"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148294, 1.21808, -0.0675476 )
 stream = ExtResource( 44 )
 unit_db = 80.0
-
-[node name="papiertuete" parent="MainAnimationPlayer/StageRound/Nora_animated" instance=ExtResource( 46 )]
-transform = Transform( -7.45058e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -7.45058e-09, 0.47335, 0.847367, 0.0110242 )
-visible = false
 
 [node name="Kinderzimmer" type="Spatial" parent="MainAnimationPlayer/StageRound"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0470953, 0.00105172, -2.38419e-07 )
@@ -1533,6 +1599,10 @@ visible = false
 [node name="Sofa" parent="MainAnimationPlayer/StageRound" instance=ExtResource( 47 )]
 transform = Transform( 0.01048, 0, -0.49989, 0, 0.5, 0, 0.49989, 0, 0.01048, -0.76179, 1.04447, -0.248269 )
 
+[node name="papiertuete" parent="MainAnimationPlayer/StageRound" instance=ExtResource( 46 )]
+transform = Transform( -0.0829038, 0, -0.182008, 0, 0.2, 0, 0.182008, 0, -0.0829038, 0.47335, 0.847367, 0.0110242 )
+visible = false
+
 [node name="director" parent="MainAnimationPlayer" instance=ExtResource( 41 )]
 transform = Transform( -0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 0.519824, 0.0154364, -4.89898 )
 
@@ -1540,7 +1610,7 @@ transform = Transform( -0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 0
 bones/152/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/director/VRDramaQueens_director/Skeleton" index="0"]
-transform = Transform( -0.735575, 0.33208, -0.590468, -0.673573, -0.451474, 0.585195, -0.0722518, 0.828184, 0.555779, 0.45781, 1.07111, 0.195288 )
+transform = Transform( -0.185342, -0.764979, 0.616811, 0.0427595, 0.620808, 0.782786, -0.981743, 0.17146, -0.0823505, 0.0303158, 0.696638, 0.263175 )
 
 [node name="AudioStreamPlayer3DDirector" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/director"]
 transform = Transform( 1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 1.17169, 0 )
