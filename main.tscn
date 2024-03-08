@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=2]
+[gd_scene load_steps=109 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -61,6 +61,14 @@
 [ext_resource path="res://assets/Dialog/Nora/Nora_11.mp3" type="AudioStream" id=59]
 [ext_resource path="res://assets/Dialog/Frau Linde/FrauLinde_6.mp3" type="AudioStream" id=60]
 [ext_resource path="res://assets/Dialog/Nora/Nora_12.mp3" type="AudioStream" id=61]
+[ext_resource path="res://Objects/FiguresAnimated/Krogstad_animated.tscn" type="PackedScene" id=62]
+[ext_resource path="res://assets/Dialog/Krogstad/Krogstad_2.mp3" type="AudioStream" id=63]
+[ext_resource path="res://assets/Dialog/Nora/Nora_13.mp3" type="AudioStream" id=64]
+[ext_resource path="res://assets/Dialog/Krogstad/Krogstad_1.mp3" type="AudioStream" id=65]
+[ext_resource path="res://assets/Dialog/Frau Linde/FrauLinde_8.mp3" type="AudioStream" id=66]
+[ext_resource path="res://assets/Dialog/Frau Linde/FrauLinde_7.mp3" type="AudioStream" id=67]
+[ext_resource path="res://assets/Dialog/Nora/Nora_15.mp3" type="AudioStream" id=68]
+[ext_resource path="res://assets/Dialog/Nora/Nora_14.mp3" type="AudioStream" id=69]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 25, 25, 1 )
@@ -922,6 +930,30 @@ tracks/26/keys = {
 "update": 0,
 "values": [ Vector3( 0, -10.009, 0 ) ]
 }
+tracks/27/type = "value"
+tracks/27/path = NodePath("MainAnimationPlayer/Krogstad_animated:translation")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 2.176, 0.493935, -12.4181 ) ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("MainAnimationPlayer/Krogstad_animated:rotation_degrees")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=39]
 resource_name = "Szene1"
@@ -996,7 +1028,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id=44]
 resource_name = "Szene3_Rest"
-length = 180.0
+length = 250.0
 tracks/0/type = "audio"
 tracks/0/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated/AudioStreamPlayer3DNora")
 tracks/0/interp = 1
@@ -1036,8 +1068,20 @@ tracks/0/keys = {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource( 61 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 64 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 69 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 68 )
 } ],
-"times": PoolRealArray( 0.9, 50.5, 54.2, 68.7, 98, 144.6, 148.6, 152.1 )
+"times": PoolRealArray( 0.9, 50.5, 54.2, 68.7, 98, 144.6, 148.6, 152.1, 162.6, 176.9, 185.9 )
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("MainAnimationPlayer/StageRound/Nora_animated/AudioStreamPlayer3DNora:playing")
@@ -1046,10 +1090,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 22.2, 52.4, 62.3, 88.5, 117.1, 146.9, 151.4, 157.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 22.2, 52.4, 62.3, 88.5, 117.1, 146.9, 151.4, 157.3, 166.4, 178.5, 194.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false, false, false, false, false, false, false, false ]
+"values": [ false, false, false, false, false, false, false, false, false, false, false ]
 }
 tracks/2/type = "audio"
 tracks/2/path = NodePath("MainAnimationPlayer/director/AudioStreamPlayer3DDirector")
@@ -1098,10 +1142,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 129.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0.47335, 0.847367, 0.0110242 ), Vector3( 1.67913, 0.00154757, 2.35416 ) ]
+"values": [ Vector3( 0.47335, 0.847367, 0.0110242 ), Vector3( 1.67913, 0.00154757, 2.35416 ), Vector3( 1.67913, 0.00154757, 2.35416 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("MainAnimationPlayer/Torvald_animated:visible")
@@ -1122,10 +1166,10 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 44 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 44, 57.7 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ true, false ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("MainAnimationPlayer/Maid_animated:translation")
@@ -1238,8 +1282,8 @@ tracks/17/loop_wrap = true
 tracks/17/imported = false
 tracks/17/enabled = true
 tracks/17/keys = {
-"clips": PoolStringArray( "walking" ),
-"times": PoolRealArray( 46 )
+"clips": PoolStringArray( "walking", "lookLeft", "lookRight" ),
+"times": PoolRealArray( 46, 159.6, 174.8 )
 }
 tracks/18/type = "audio"
 tracks/18/path = NodePath("MainAnimationPlayer/KristineLinde_animated/AudioStreamPlayer3DLinde")
@@ -1272,8 +1316,16 @@ tracks/18/keys = {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource( 60 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 67 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 66 )
 } ],
-"times": PoolRealArray( 52.6, 62.3, 88.6, 117.2, 147.3, 151.5 )
+"times": PoolRealArray( 52.6, 62.3, 88.6, 117.2, 147.3, 151.5, 179.1, 194.6 )
 }
 tracks/19/type = "value"
 tracks/19/path = NodePath("MainAnimationPlayer/KristineLinde_animated/AudioStreamPlayer3DLinde:playing")
@@ -1282,10 +1334,86 @@ tracks/19/loop_wrap = true
 tracks/19/imported = false
 tracks/19/enabled = true
 tracks/19/keys = {
-"times": PoolRealArray( 54.1, 68.7, 97.6, 137.2, 148.6, 152.1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 54.1, 68.7, 97.6, 137.2, 148.6, 152.1, 185.7, 196.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false, false, false, false, false, false ]
+"values": [ false, false, false, false, false, false, false, false ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("MainAnimationPlayer/Krogstad_animated:visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 156.6, 178.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("MainAnimationPlayer/Krogstad_animated:translation")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 156.6, 157.6, 157.8, 159.5, 160.3, 173.83, 174.2, 175.5, 176.5, 177, 177.2, 177.4, 177.8, 178.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.929898, 0.737634, -12.4181 ), Vector3( 2.176, 0.493935, -12.4181 ), Vector3( 2.176, 0.493935, -12.4181 ), Vector3( 2.24779, 0.493935, -10.0992 ), Vector3( 1.21891, 0.493935, -9.74979 ), Vector3( 1.21891, 0.493935, -9.74979 ), Vector3( 0.605323, 0.705032, -9.85695 ), Vector3( -1.1237, 0.705032, -9.65808 ), Vector3( -2.4229, 0.705032, -10.8306 ), Vector3( -3.34206, 0.484796, -11.3606 ), Vector3( -3.34206, 0.484796, -11.3606 ), Vector3( -3.48718, 0.484796, -12.4172 ), Vector3( -3.48718, 0.484796, -12.4172 ), Vector3( -1.54864, 0.484796, -12.3772 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("MainAnimationPlayer/Krogstad_animated:rotation_degrees")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 156.6, 157.6, 157.8, 160.3, 173.83, 173.9, 177, 177.2, 177.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, -81.279, 0 ), Vector3( 0, -205, 0 ), Vector3( 0, -205, 0 ), Vector3( 0, -208, 0 ), Vector3( 0, -218, 0 ), Vector3( 0, -258, 0 ), Vector3( 0, -320, 0 ) ]
+}
+tracks/23/type = "animation"
+tracks/23/path = NodePath("MainAnimationPlayer/Krogstad_animated/AnimationPlayer")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"clips": PoolStringArray( "walking", "walking", "walking", "[stop]" ),
+"times": PoolRealArray( 156.6, 173.7, 177.4, 178.4 )
+}
+tracks/24/type = "audio"
+tracks/24/path = NodePath("MainAnimationPlayer/Krogstad_animated/AudioStreamPlayer3DKrogstad")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 65 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 63 )
+} ],
+"times": PoolRealArray( 159.9, 166.4 )
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("MainAnimationPlayer/Krogstad_animated/AudioStreamPlayer3DKrogstad:playing")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 162.2, 173.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, false ]
 }
 
 [sub_resource type="Animation" id=45]
@@ -1671,6 +1799,18 @@ transform = Transform( 1, 7.10543e-15, 2.38419e-07, 2.63021e-08, 0.993896, -0.11
 [node name="AudioStreamPlayer3DRank" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/DrRank_animated"]
 transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 1.49012e-08, 5.96046e-08, -9.53674e-07 )
 
+[node name="Krogstad_animated" parent="MainAnimationPlayer" instance=ExtResource( 62 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.176, 0.493935, -12.4181 )
+visible = false
+
+[node name="BoneAttachment" parent="MainAnimationPlayer/Krogstad_animated/Figure Armature Cylinder/Skeleton" index="0"]
+transform = Transform( 1, 3.7921e-08, 2.47779e-07, -1.08287e-08, 0.994103, -0.108438, -2.5043e-07, 0.108438, 0.994103, -2.22346e-09, 1.38616, 0.33336 )
+
+[node name="AudioStreamPlayer3DKrogstad" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Krogstad_animated"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.114035, 1.30703, 0 )
+stream = ExtResource( 63 )
+unit_db = 80.0
+
 [node name="KristineLinde_animated" parent="MainAnimationPlayer" instance=ExtResource( 30 )]
 transform = Transform( 0.98478, 0, -0.173803, 0, 1, 0, 0.173803, 0, 0.98478, 2.08833, 0.505076, -12.61 )
 visible = false
@@ -1679,11 +1819,11 @@ visible = false
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/KristineLinde_animated/Figure Armature Blue Hair/Skeleton" index="0"]
-transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 1.39554, 0.293402 )
+transform = Transform( 0.821495, 0.020665, -0.569841, 4.44466e-08, 0.999343, 0.0362407, 0.570216, -0.0297716, 0.820955, -0.00644558, 1.39554, 0.291385 )
 
 [node name="AudioStreamPlayer3DLinde" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/KristineLinde_animated"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.208157, 1.27794, -0.0807323 )
-stream = ExtResource( 52 )
+stream = ExtResource( 66 )
 unit_db = 80.0
 
 [node name="Maid_animated" parent="MainAnimationPlayer" instance=ExtResource( 29 )]
@@ -1728,7 +1868,7 @@ transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.03
 
 [node name="AudioStreamPlayer3DNora" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/Nora_animated"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148294, 1.21808, -0.0675476 )
-stream = ExtResource( 53 )
+stream = ExtResource( 68 )
 unit_db = 80.0
 
 [node name="Kinderzimmer" type="Spatial" parent="MainAnimationPlayer/StageRound"]
@@ -1818,6 +1958,7 @@ unit_db = 25.397
 [editable path="LichtpultPickable/OnButton/RedButton"]
 [editable path="dressingRoom"]
 [editable path="MainAnimationPlayer/DrRank_animated"]
+[editable path="MainAnimationPlayer/Krogstad_animated"]
 [editable path="MainAnimationPlayer/KristineLinde_animated"]
 [editable path="MainAnimationPlayer/Maid_animated"]
 [editable path="MainAnimationPlayer/StageRound/Nora_animated"]
