@@ -173,12 +173,6 @@ func _ready():
 	# Set as toplevel means our PlayerBody is positioned in global space.
 	# It is not moved when its parent moves.
 	set_as_toplevel(true)
-	
-	var area = $Area
-	area.connect("body_entered", self, "_on_Area_body_entered")
-	
-	
-	
 
 	# Create our collision shape, height will be updated later
 	var capsule = CapsuleShape.new()
@@ -675,28 +669,3 @@ static func find_instance(node: Node) -> XRToolsPlayerBody:
 		ARVRHelpers.get_arvr_origin(node),
 		"*",
 		"XRToolsPlayerBody") as XRToolsPlayerBody
-
-
-func update_interaction():
-	if $interact_area/CollisionShape.disabled == false:
-		$interact_area/CollisionShape.disabled == true
-	   
-	if Input.is_action_just_pressed("interact"):
-		$interact_area/CollisionShape.disabled = false
-
-	  
-		
-		
-		
-		
-		
-		
-		
-func _on_Area_body_entered(body):
-	if body.is_in_group("Player"):  
-		# Überprüfe, ob der eingetretene Körper der Spieler ist
-		var figure = body.get_parent()  # Erhalte das Figur-Objekt, das den Bereich ausgelöst hat
-		figure.start_dialog()  # Rufe die start_dialog-Methode der Figur auf
-
-
-
