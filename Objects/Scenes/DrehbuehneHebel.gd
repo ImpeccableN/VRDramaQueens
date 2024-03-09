@@ -36,7 +36,7 @@ func _on_InteractableHinge_hinge_moved(angle):
 			2:
 				if animation_player.is_playing():
 					animation_player.stop(false)
-				animation_player.animation_set_next("Drehbuehne2Auf3", "Szene3")
+				animation_player.animation_set_next("Drehbuehne2Auf3", "Szene3_Rest")
 				animation_player.play("Drehbuehne2Auf3")
 				_progress.addProgress()
 				
@@ -61,3 +61,4 @@ func _on_AnimationPlayerVorhangRechts_animation_finished(anim_name):
 		scene_paused = true
 	elif not animation_player.is_playing() and scene_paused == true:
 		animation_player.play()
+		scene_paused = false

@@ -15,7 +15,7 @@ height = 0.335839
 radius = 0.474413
 
 [sub_resource type="SphereShape" id=3]
-radius = 0.382643
+radius = 0.31886
 
 [node name="Button" type="Spatial"]
 
