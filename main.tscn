@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=2]
+[gd_scene load_steps=133 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -78,6 +78,9 @@
 [ext_resource path="res://assets/Dialog/Nora/Nora_18.mp3" type="AudioStream" id=76]
 [ext_resource path="res://assets/Dialog/Krogstad/Krogstad_7.mp3" type="AudioStream" id=77]
 [ext_resource path="res://assets/Dialog/Direktor/Direktor_4a.mp3" type="AudioStream" id=78]
+[ext_resource path="res://Objects/Interactables/Lever.tscn" type="PackedScene" id=79]
+[ext_resource path="res://Objects/Scenes/DrehbuehneHebel.gd" type="Script" id=80]
+[ext_resource path="res://MainAnimationPlayer.gd" type="Script" id=81]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 25, 25, 1 )
@@ -1329,9 +1332,45 @@ tracks/32/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/33/type = "value"
+tracks/33/path = NodePath("MainAnimationPlayer/Torvald_animated:translation")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.203776, 0.702454, -10.8797 ) ]
+}
 
 [sub_resource type="Animation" id=39]
 resource_name = "Szene1"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MainAnimationPlayer/Torvald_animated:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.85433, 0.702454, -10.7795 ), Vector3( -0.203776, 0.702454, -10.8797 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MainAnimationPlayer/Torvald_animated:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=40]
 resource_name = "Szene2"
@@ -3076,7 +3115,7 @@ tracks/14/keys = PoolRealArray( 0, 1, 1.27677e-10, 0, 1.49012e-08, -0.0181233, -
 
 [node name="Main" type="Spatial"]
 
-[node name="Global Variables" type="Node" parent="."]
+[node name="GlobalVariables" type="Node" parent="."]
 script = ExtResource( 17 )
 
 [node name="FPController" parent="." instance=ExtResource( 1 )]
@@ -3215,8 +3254,18 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.70
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0451013, 0.0602967, -1.97144e-09 )
 visible = false
 
+[node name="DrehbuehneHebel" parent="." instance=ExtResource( 79 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.647463, 0.02351, -0.9787 )
+script = ExtResource( 80 )
+
 [node name="LichtpultPickable" parent="." instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.799538, -0.976337 )
+
+[node name="Lichtpult" parent="LichtpultPickable/LichtpultSpawnPoint" index="0"]
+connectedLight1 = NodePath("../../../Stage/Spotlight1")
+connectedLight2 = NodePath("../../../Stage/Spotlight2")
+connectedLightGroupLeft = NodePath("../../../TheatreRoom/WandleuchtenLinks")
+connectedLightGroupRight = NodePath("../../../TheatreRoom/WandleuchtenRechts")
 
 [node name="dressingRoom" parent="." instance=ExtResource( 19 )]
 transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 1.43905, 0.00865102, -19.9557 )
@@ -3411,6 +3460,7 @@ anims/Szene3_Rest = SubResource( 44 )
 anims/Szene3_tuete = SubResource( 45 )
 anims/Szene4 = SubResource( 55 )
 anims/Szene7 = SubResource( 57 )
+script = ExtResource( 81 )
 
 [node name="DrRank_animated" parent="MainAnimationPlayer" instance=ExtResource( 28 )]
 visible = false
@@ -3465,7 +3515,8 @@ transform = Transform( 1, 7.10543e-15, 2.38419e-07, 2.63021e-08, 0.993896, -0.11
 transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0.181506, 1.29402, -9.53674e-07 )
 
 [node name="Torvald_animated" parent="MainAnimationPlayer" instance=ExtResource( 31 )]
-transform = Transform( 0.972088, 0, -0.234616, 0, 1, 0, 0.234616, 0, 0.972088, -1.85433, 0.702454, -10.7795 )
+transform = Transform( 0.972088, 0, -0.234616, 0, 1, 0, 0.234616, 0, 0.972088, -0.203776, 0.702454, -10.8797 )
+visible = false
 
 [node name="Skeleton" parent="MainAnimationPlayer/Torvald_animated/Figure Armature Cylinder" index="0"]
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
@@ -3602,6 +3653,7 @@ stream = ExtResource( 78 )
 unit_db = 25.397
 
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
+[connection signal="hinge_moved" from="DrehbuehneHebel/LeverOrigin/InteractableHinge" to="DrehbuehneHebel" method="_on_InteractableHinge_hinge_moved"]
 [connection signal="dropped" from="LichtpultPickable" to="FPController/PlayerBody/BeltSnapZone" method="_on_LichtpultPickable_dropped"]
 [connection signal="picked_up" from="LichtpultPickable" to="FPController/PlayerBody/BeltSnapZone" method="_on_LichtpultPickable_picked_up"]
 
@@ -3615,6 +3667,8 @@ unit_db = 25.397
 [editable path="Stage/VorhangVorneLinks"]
 [editable path="Stage/VorhangVorneRechts"]
 [editable path="Stage/FunctionalCord"]
+[editable path="DrehbuehneHebel"]
+[editable path="DrehbuehneHebel/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
 [editable path="LichtpultPickable"]
 [editable path="LichtpultPickable/LichtpultSpawnPoint/Lichtpult"]
 [editable path="LichtpultPickable/LichtpultSpawnPoint/Lichtpult/OffButton"]
