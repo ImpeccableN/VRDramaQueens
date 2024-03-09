@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=2]
+[gd_scene load_steps=132 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://Objects/vorhang.glb" type="PackedScene" id=11]
 [ext_resource path="res://Objects/StageRound.glb" type="PackedScene" id=12]
 [ext_resource path="res://addons/godot-xr-tools/functions/function_pickup.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Objects/cord.glb" type="PackedScene" id=14]
 [ext_resource path="res://Objects/FiguresAnimated/NorasVater_animated.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Objects/Stage.gd" type="Script" id=16]
 [ext_resource path="res://Global Variables.gd" type="Script" id=17]
@@ -3294,10 +3293,6 @@ anims/RESET = SubResource( 14 )
 anims/Vorhang_links = SubResource( 15 )
 anims/Vorhang_rechts = SubResource( 16 )
 
-[node name="cord" parent="Stage" instance=ExtResource( 14 )]
-transform = Transform( 1.2, 0, 0, 0, 2, 0, 0, 0, 1.2, 3.81474, 1.61032, 2.59771 )
-visible = false
-
 [node name="FunctionalCord" parent="Stage" instance=ExtResource( 6 )]
 transform = Transform( 1.2, 0, 0, 0, 2, 0, 0, 0, 1.2, 3.801, 1.60861, 3.062 )
 
@@ -3712,6 +3707,8 @@ transform = Transform( 1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 1.17169, 
 stream = ExtResource( 78 )
 unit_db = 25.397
 
+[connection signal="animation_finished" from="Stage/AnimationPlayerVorhangRechts" to="DrehbuehneHebel" method="_on_AnimationPlayerVorhangRechts_animation_finished"]
+[connection signal="animation_started" from="Stage/AnimationPlayerVorhangRechts" to="DrehbuehneHebel" method="_on_AnimationPlayerVorhangRechts_animation_started"]
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
 [connection signal="hinge_moved" from="DrehbuehneHebel/LeverOrigin/InteractableHinge" to="DrehbuehneHebel" method="_on_InteractableHinge_hinge_moved"]
 [connection signal="dropped" from="LichtpultPickable" to="FPController/PlayerBody/BeltSnapZone" method="_on_LichtpultPickable_dropped"]

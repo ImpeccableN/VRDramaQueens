@@ -11,6 +11,7 @@ const MIN_ANGLE = -40
 
 #Speicher der vorherigen Hebelposition. "True" ist vorne, "False" ist hinten.
 var former_lever_position = true
+var scene_paused = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,10 +26,6 @@ func _on_InteractableHinge_hinge_moved(angle):
 		
 		# überprüfe den Global Progress und spiele die entsprechende Szene/Animation
 		match scene_progress:
-			0:
-				animation_player.play("Szene1")
-				_progress.addProgress()
-				
 			1:
 				if animation_player.is_playing():
 					animation_player.stop(false)
@@ -53,3 +50,14 @@ func _on_InteractableHinge_hinge_moved(angle):
 		
 		
 		former_lever_position = not former_lever_position
+
+
+func _on_AnimationPlayerVorhangRechts_animation_finished(anim_name):
+	if _progress.getProgress() == 0:
+		animation_player.play("Szene1")
+		_progress.addProgress()
+	elif animation_player.is_playing() and scene_paused == false:
+		animation_player.stop(false)
+		scene_paused = true
+	elif not animation_player.is_playing() and scene_paused == true:
+		animation_player.play()
