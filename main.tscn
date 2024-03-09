@@ -3429,7 +3429,7 @@ transform = Transform( -0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 0
 bones/152/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/director/VRDramaQueens_director/Skeleton" index="0"]
-transform = Transform( -0.185342, -0.764979, 0.616811, 0.0427595, 0.620808, 0.782786, -0.981743, 0.17146, -0.0823505, 0.0303158, 0.969457, 0.263175 )
+transform = Transform( -0.735575, 0.33208, -0.590468, -0.673573, -0.451474, 0.585195, -0.0722518, 0.828184, 0.555779, 0.45781, 1.07111, 0.195288 )
 
 [node name="AudioStreamPlayer3DDirector" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/director"]
 transform = Transform( 1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 1.17169, 0 )
