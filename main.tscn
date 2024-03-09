@@ -1344,6 +1344,18 @@ tracks/33/keys = {
 "update": 0,
 "values": [ Vector3( -0.203776, 0.702454, -10.8797 ) ]
 }
+tracks/34/type = "value"
+tracks/34/path = NodePath("MainAnimationPlayer/Torvald_animated:visible")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=39]
 resource_name = "Szene1"
@@ -1366,7 +1378,19 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
@@ -1423,6 +1447,42 @@ tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
 "times": PoolRealArray( 8.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("MainAnimationPlayer/Torvald_animated:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("MainAnimationPlayer/StageRound/Kinderzimmer/Nora_klein_animated/AudioStreamPlayer3DNoraKlein:stream_paused")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
@@ -3516,7 +3576,6 @@ transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0.181506,
 
 [node name="Torvald_animated" parent="MainAnimationPlayer" instance=ExtResource( 31 )]
 transform = Transform( 0.972088, 0, -0.234616, 0, 1, 0, 0.234616, 0, 0.972088, -0.203776, 0.702454, -10.8797 )
-visible = false
 
 [node name="Skeleton" parent="MainAnimationPlayer/Torvald_animated/Figure Armature Cylinder" index="0"]
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
@@ -3557,6 +3616,7 @@ transform = Transform( 0.0524928, 0, 0.998621, 0, 1, 0, -0.998621, 0, 0.0524928,
 [node name="AudioStreamPlayer3DVater" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/Kinderzimmer/NorasVater_animated"]
 transform = Transform( 0.998622, 0, 0.0524928, 0, 1, 0, -0.0524928, 0, 0.998622, 0.141232, 1.2643, 0.0419054 )
 stream = ExtResource( 34 )
+unit_db = 80.0
 
 [node name="AchterbahnWagen" parent="MainAnimationPlayer/StageRound/Kinderzimmer" instance=ExtResource( 37 )]
 transform = Transform( -8.74228e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.74228e-10, 1.01154, 0.714464, -1.20207 )
