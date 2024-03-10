@@ -1,4 +1,4 @@
-[gd_scene load_steps=148 format=2]
+[gd_scene load_steps=158 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -85,6 +85,16 @@
 [ext_resource path="res://Objects/SceneAssets/NorasZimmer/Bett.glb" type="PackedScene" id=83]
 [ext_resource path="res://Objects/SceneAssets/NorasZimmer/Schminktisch.glb" type="PackedScene" id=84]
 [ext_resource path="res://Objects/SceneAssets/NorasZimmer/gardrobe.glb" type="PackedScene" id=85]
+[ext_resource path="res://assets/Dialog/Frau Linde/FrauLinde_9a.mp3" type="AudioStream" id=86]
+[ext_resource path="res://assets/Dialog/Frau Linde/Frau Linde_9b.mp3" type="AudioStream" id=87]
+[ext_resource path="res://assets/Dialog/Direktor/Direktor_7.mp3" type="AudioStream" id=88]
+[ext_resource path="res://assets/Dialog/Direktor/Direktor_6b.mp3" type="AudioStream" id=89]
+[ext_resource path="res://assets/Dialog/Nora/Nora_20.mp3" type="AudioStream" id=90]
+[ext_resource path="res://assets/Dialog/Direktor/Direktor_8.mp3" type="AudioStream" id=91]
+[ext_resource path="res://assets/Dialog/Frau Linde/FrauLinde_10.mp3" type="AudioStream" id=92]
+[ext_resource path="res://assets/music/dancemusic_nora.mp3" type="AudioStream" id=93]
+[ext_resource path="res://assets/Dialog/Nora/Nora_22.mp3" type="AudioStream" id=94]
+[ext_resource path="res://assets/Dialog/Nora/Nora_21.mp3" type="AudioStream" id=95]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 25, 25, 1 )
@@ -2336,8 +2346,24 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"clips": [  ],
-"times": PoolRealArray(  )
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 86 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 87 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 92 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 93 )
+} ],
+"times": PoolRealArray( 29.3, 33.5, 52.2, 73 )
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5:translation")
@@ -2392,8 +2418,20 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"clips": [  ],
-"times": PoolRealArray(  )
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 90 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 95 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 94 )
+} ],
+"times": PoolRealArray( 39.2, 48.3, 58.7 )
 }
 tracks/10/type = "animation"
 tracks/10/path = NodePath("MainAnimationPlayer/director/AnimationPlayer")
@@ -2412,8 +2450,56 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"clips": [  ],
-"times": PoolRealArray(  )
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 89 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 88 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 91 )
+} ],
+"times": PoolRealArray( 0.7, 12, 42.7 )
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("MainAnimationPlayer/director/AudioStreamPlayer3DDirector:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 11.1, 29.1, 48 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, false ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("MainAnimationPlayer/KristineLinde_animated/AudioStreamPlayer3DLinde:playing")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 39.3, 58.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, false ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5/AudioStreamPlayer3DNora:playing")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 43.6, 52.1, 78.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, false ]
 }
 
 [sub_resource type="Animation" id=57]
@@ -4754,7 +4840,7 @@ transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08
 
 [node name="AudioStreamPlayer3DLinde" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/KristineLinde_animated"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.208157, 1.27794, -0.0807323 )
-stream = ExtResource( 66 )
+stream = ExtResource( 93 )
 unit_db = 80.0
 
 [node name="Maid_animated" parent="MainAnimationPlayer" instance=ExtResource( 29 )]
@@ -4923,7 +5009,7 @@ anims/walking = SubResource( 68 )
 
 [node name="AudioStreamPlayer3DNora" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148294, 1.21808, -0.0675476 )
-stream = ExtResource( 75 )
+stream = ExtResource( 94 )
 unit_db = 80.0
 
 [node name="gardrobe" parent="MainAnimationPlayer/StageRound/NorasZimmer" instance=ExtResource( 85 )]
@@ -4936,11 +5022,11 @@ transform = Transform( -0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 0
 bones/152/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/director/VRDramaQueens_director/Skeleton" index="0"]
-transform = Transform( -0.185342, -0.764979, 0.616811, 0.0427595, 0.620808, 0.782786, -0.981743, 0.17146, -0.0823505, 0.0303158, 0.696638, 0.263175 )
+transform = Transform( -0.185342, -0.764979, 0.616811, 0.0427595, 0.620808, 0.782786, -0.981743, 0.17146, -0.0823505, 0.0303158, 0.969457, 0.263175 )
 
 [node name="AudioStreamPlayer3DDirector" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/director"]
 transform = Transform( 1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 1.17169, 0 )
-stream = ExtResource( 14 )
+stream = ExtResource( 91 )
 unit_db = 25.397
 
 [connection signal="animation_finished" from="Stage/AnimationPlayerVorhangRechts" to="LichtpultPickable/DrehbuehneHebel" method="_on_AnimationPlayerVorhangRechts_animation_finished"]
