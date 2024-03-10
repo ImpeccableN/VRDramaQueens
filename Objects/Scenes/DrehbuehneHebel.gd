@@ -3,6 +3,9 @@ extends Spatial
 # Zugriff auf Nodes
 onready var animation_player = get_node("/root/Main/MainAnimationPlayer")
 onready var _progress = get_node("/root/Main/GlobalVariables")
+onready var briefPreload = preload("res://Objects/Scenes/BriefPickable.tscn")
+onready var briefspawn = get_node("/root/Main/BriefSpawn")
+onready var brief_detector = get_node("/root/Main/MainAnimationPlayer/Torvald_animated/BriefDetectorArea")
 
 
 # Winkelbegrenzungen für das Scharnier
@@ -19,7 +22,6 @@ func _ready():
 
 # Handler für das hinge_moved-Signal des Scharniers
 func _on_InteractableHinge_hinge_moved(angle):
-	print(angle)
 	var scene_progress = _progress.getProgress()
 	# Prüfen, ob der Hebel ans andere Ende bewegt wurde
 	if (angle <= MIN_ANGLE and former_lever_position != true) or (angle >= MAX_ANGLE and former_lever_position != false):
@@ -31,30 +33,36 @@ func _on_InteractableHinge_hinge_moved(angle):
 					animation_player.stop(false)
 				animation_player.animation_set_next("Drehbuehne1Auf2", "Szene2")
 				animation_player.play("Drehbuehne1Auf2")
+				#setz Progress auf 2
 				_progress.addProgress()
-				
 			2:
 				if animation_player.is_playing():
 					animation_player.stop(false)
 				animation_player.animation_set_next("Drehbuehne2Auf3", "Szene3_Rest")
 				animation_player.play("Drehbuehne2Auf3")
+				#setz Progress auf 3
 				_progress.addProgress()
-				
 			3:
 				if animation_player.is_playing():
 					animation_player.stop(false)
 				animation_player.animation_set_next("Drehbuehne3Auf4", "Szene4")
 				animation_player.play("Drehbuehne3Auf4")
+				#setz Progress auf 4
 				_progress.addProgress()
+				var briefInstance = briefPreload.instance()
+				add_child(briefInstance)
+				briefInstance.global_transform.origin = briefspawn.global_transform.origin
+#				brief_detector.monitoring = true
 		
 		
 		
 		former_lever_position = not former_lever_position
 
 
-func _on_AnimationPlayerVorhangRechts_animation_finished(anim_name):
+func _on_AnimationPlayerVorhangRechts_animation_finished(_anim_name):
 	if _progress.getProgress() == 0:
 		animation_player.play("Szene1")
+		#setz Progress auf 1
 		_progress.addProgress()
 	elif animation_player.is_playing() and scene_paused == false:
 		animation_player.stop(false)
@@ -62,3 +70,25 @@ func _on_AnimationPlayerVorhangRechts_animation_finished(anim_name):
 	elif not animation_player.is_playing() and scene_paused == true:
 		animation_player.play()
 		scene_paused = false
+
+#wenn der Brief in den Mülleimer geworfen wird
+func _on_Eimer_body_entered(_body):
+	#setz Progress auf 5
+	_progress.addProgress()
+	var eimer_area = get_node("/root/Main/dressingRoom/Eimer")
+	eimer_area.monitoring = false
+
+#wenn der Brief an Torvald gegeben wird
+func _on_BriefDetectorArea_body_entered(_body):
+	if animation_player.is_playing():
+		animation_player.stop(false)
+#	animation_player.animation_set_next("Drehbuehne3Auf4", "Szene4")
+	animation_player.play("Szene7_2")
+
+#triggert die letzte szene, wenn der brief weggeschmissen wurde
+func _on_LastSceneTriggerArea_body_entered(_body):
+	if _progress.getProgress() == 5:
+		if animation_player.is_playing():
+			animation_player.stop(false)
+		animation_player.play("Szene7_1")
+	

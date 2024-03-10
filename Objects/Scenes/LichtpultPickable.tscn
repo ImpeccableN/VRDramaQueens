@@ -25,6 +25,7 @@ script = ExtResource( 7 )
 
 [node name="OffButton" parent="LichtpultSpawnPoint/Lichtpult" index="1"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.212961, 0.0296709, 0.0650511 )
+visible = false
 script = ExtResource( 8 )
 
 [node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource( 5 )]
@@ -37,6 +38,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.350082, 0.058853, -0.0317636
 
 [node name="OnButton" parent="." index="5" instance=ExtResource( 6 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.315599, 0.0296709, 0.0650511 )
+visible = false
 script = ExtResource( 9 )
 
 [connection signal="button_pressed" from="OnButton/RedButton/InteractableAreaButton" to="LichtpultSpawnPoint" method="_on_InteractableAreaButton_button_pressed"]
@@ -45,5 +47,7 @@ script = ExtResource( 9 )
 [editable path="LichtpultSpawnPoint/Lichtpult"]
 [editable path="LichtpultSpawnPoint/Lichtpult/OffButton"]
 [editable path="LichtpultSpawnPoint/Lichtpult/OffButton/RedButton"]
+[editable path="LichtpultSpawnPoint/Lichtpult/Lever1"]
+[editable path="LichtpultSpawnPoint/Lichtpult/Lever1/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB"]
 [editable path="OnButton"]
 [editable path="OnButton/RedButton"]

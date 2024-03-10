@@ -10,3 +10,10 @@ func getProgress():
 func addProgress():
 	progress += 1
 
+func setProgress(numb):
+	progress = numb
+
+
+func _on_MainAnimationPlayer_animation_finished(anim_name):
+	if anim_name == "Szene7_1" or anim_name == "Szene7_2":
+		get_tree().change_scene("res://Objects/Scenes/Ende.tscn")
