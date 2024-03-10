@@ -889,7 +889,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.5, 0.7, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( -2.20624, 0.511209, -2.51112 ), Vector3( -2.20624, 0.825241, -2.51112 ), Vector3( -2.06368, 0.825241, 0.411287 ) ]
@@ -901,10 +901,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.5, 3.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 270, 0 ), Vector3( 0, 90, 0 ) ]
+"values": [ Vector3( 0, 270, 0 ), Vector3( 0, 270, 0 ), Vector3( 0, 90, 0 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("MainAnimationPlayer/Krogstad_animated:translation")
@@ -1019,6 +1019,62 @@ tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("MainAnimationPlayer/KristineLinde_animated:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("MainAnimationPlayer/KristineLinde_animated:translation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.297597, 0.705181, -13.0767 ), Vector3( 0.297597, 0.705181, -13.0767 ), Vector3( 0.777032, 0.705181, -12.4601 ), Vector3( 0.971766, 0.705181, -11.6299 ), Vector3( 0.500762, 0.705181, -10.9658 ), Vector3( -0.144451, 0.705181, -10.4752 ), Vector3( -0.899918, 0.705181, -10.4386 ), Vector3( -1.5956, 0.705181, -10.7266 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("MainAnimationPlayer/KristineLinde_animated:rotation_degrees")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 133.286, 0 ), Vector3( 0, 133.286, 0 ), Vector3( 0, 109.209, 0 ), Vector3( 0, 82.945, 0 ), Vector3( 0, 38.919, 0 ), Vector3( 0, 9.97997, 0 ), Vector3( 0, -13.837, 0 ), Vector3( 0, -41.995, 0 ) ]
+}
+tracks/16/type = "animation"
+tracks/16/path = NodePath("MainAnimationPlayer/KristineLinde_animated/AnimationPlayer")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"clips": PoolStringArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/17/type = "audio"
+tracks/17/path = NodePath("MainAnimationPlayer/KristineLinde_animated/AudioStreamPlayer3DLinde")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
 "clips": [  ],
 "times": PoolRealArray(  )
 }
@@ -4620,6 +4676,7 @@ unit_db = 80.0
 
 [node name="WohnzimmerSzene4" type="Spatial" parent="MainAnimationPlayer/StageRound"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -5.96046e-08 )
+visible = false
 
 [node name="PinetreeSzene4" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene4" instance=ExtResource( 45 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.83836, 0.696251, 0.345243 )
@@ -4665,7 +4722,7 @@ transform = Transform( -0.428669, 0, 0.615421, 0, 1, 0, -0.615421, 0, -0.428669,
 transform = Transform( -0.17213, 0, 0.72998, 0, 0.75, 0, -0.72998, 0, -0.17213, 0.746285, -1.19209e-07, -1.19929 )
 
 [node name="Nora_animatedSzene5" parent="MainAnimationPlayer/StageRound/NorasZimmer" instance=ExtResource( 32 )]
-transform = Transform( -0.552155, 0, 0.833742, 0, 1, 0, -0.833742, 0, -0.552155, -0.320946, -0.0163905, 0.803032 )
+transform = Transform( -0.552155, 0, 0.833741, 0, 1, 0, -0.833741, 0, -0.552155, -0.320946, -0.0163905, 0.803032 )
 
 [node name="Skeleton" parent="MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5/Figure Armature Pink Hair" index="0"]
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
