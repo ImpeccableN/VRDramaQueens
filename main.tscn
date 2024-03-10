@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=2]
+[gd_scene load_steps=148 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -84,6 +84,7 @@
 [ext_resource path="res://Objects/stage fundament.material" type="Material" id=82]
 [ext_resource path="res://Objects/SceneAssets/NorasZimmer/Bett.glb" type="PackedScene" id=83]
 [ext_resource path="res://Objects/SceneAssets/NorasZimmer/Schminktisch.glb" type="PackedScene" id=84]
+[ext_resource path="res://Objects/SceneAssets/NorasZimmer/gardrobe.glb" type="PackedScene" id=85]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 25, 25, 1 )
@@ -1078,6 +1079,30 @@ tracks/17/keys = {
 "clips": [  ],
 "times": PoolRealArray(  )
 }
+tracks/18/type = "value"
+tracks/18/path = NodePath("MainAnimationPlayer/StageRound/NorasZimmer/gardrobe:translation")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0.5, 3.5, 3.7, 3.9, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.666254, -0.0135043, 0.119193 ), Vector3( -0.666254, -0.0135043, 0.119193 ), Vector3( -1.70282, -0.0135043, 0.0480254 ), Vector3( -1.43281, -0.0135043, 2.72682 ), Vector3( -1.43281, -0.213667, 2.72682 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("MainAnimationPlayer/StageRound/NorasZimmer/gardrobe:rotation_degrees")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0.5, 3.5, 3.9, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -87.385, 0 ), Vector3( 0, -87.385, 0 ), Vector3( 0, -87.385, 0 ), Vector3( 0, 31.137, 0 ) ]
+}
 
 [sub_resource type="Animation" id=42]
 length = 0.001
@@ -1522,6 +1547,30 @@ tracks/36/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ true ]
+}
+tracks/37/type = "value"
+tracks/37/path = NodePath("MainAnimationPlayer/StageRound/NorasZimmer/gardrobe:translation")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.666254, -0.0135043, 0.119193 ) ]
+}
+tracks/38/type = "value"
+tracks/38/path = NodePath("MainAnimationPlayer/StageRound/NorasZimmer/gardrobe:rotation_degrees")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -87.385, 0 ) ]
 }
 
 [sub_resource type="Animation" id=39]
@@ -2234,6 +2283,138 @@ tracks/12/keys = {
 [sub_resource type="Animation" id=58]
 resource_name = "Szene5"
 length = 180.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("MainAnimationPlayer/KristineLinde_animated:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -1.5956, 0.705181, -10.7266 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MainAnimationPlayer/KristineLinde_animated:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -41.995, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MainAnimationPlayer/KristineLinde_animated:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "animation"
+tracks/3/path = NodePath("MainAnimationPlayer/KristineLinde_animated/AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": PoolStringArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("MainAnimationPlayer/KristineLinde_animated/AudioStreamPlayer3DLinde")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5:translation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.320946, -0.0163905, 0.803032 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 123.515, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "animation"
+tracks/8/path = NodePath("MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5/AnimationPlayer")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"clips": PoolStringArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/9/type = "audio"
+tracks/9/path = NodePath("MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5/AudioStreamPlayer3DNora")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+tracks/10/type = "animation"
+tracks/10/path = NodePath("MainAnimationPlayer/director/AnimationPlayer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"clips": PoolStringArray( "directorHandMegaphoneUp" ),
+"times": PoolRealArray( 0 )
+}
+tracks/11/type = "audio"
+tracks/11/path = NodePath("MainAnimationPlayer/director/AudioStreamPlayer3DDirector")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
 
 [sub_resource type="Animation" id=57]
 resource_name = "Szene7"
@@ -4667,7 +4848,7 @@ transform = Transform( -0.697228, 0, 0.716849, 0, 1, 0, -0.716849, 0, -0.697228,
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene3/Nora_animatedSzene3/Figure Armature Pink Hair/Skeleton" index="0"]
-transform = Transform( 0.999901, -0.000509094, 0.0140387, -1.14261e-08, 0.999343, 0.0362407, -0.0140479, -0.0362371, 0.999245, 0.000158778, 1.39554, 0.293401 )
+transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08, -2.38418e-07, -6.70552e-08, 1, -1.37395e-08, 1.39374, 0.303519 )
 
 [node name="AudioStreamPlayer3DNora" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene3/Nora_animatedSzene3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148294, 1.21808, -0.0675476 )
@@ -4745,6 +4926,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148294, 1.21808, -0.0675476 
 stream = ExtResource( 75 )
 unit_db = 80.0
 
+[node name="gardrobe" parent="MainAnimationPlayer/StageRound/NorasZimmer" instance=ExtResource( 85 )]
+transform = Transform( 0.0456244, 0, -0.998958, 0, 1, 0, 0.998958, 0, 0.0456244, -0.666254, -0.0135043, 0.119193 )
+
 [node name="director" parent="MainAnimationPlayer" instance=ExtResource( 41 )]
 transform = Transform( -0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 0.519824, 0.0154364, -4.89898 )
 
@@ -4752,7 +4936,7 @@ transform = Transform( -0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 0
 bones/152/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/director/VRDramaQueens_director/Skeleton" index="0"]
-transform = Transform( -0.185342, -0.764979, 0.616811, 0.0427595, 0.620808, 0.782786, -0.981743, 0.17146, -0.0823505, 0.0303158, 0.969457, 0.263175 )
+transform = Transform( -0.185342, -0.764979, 0.616811, 0.0427595, 0.620808, 0.782786, -0.981743, 0.17146, -0.0823505, 0.0303158, 0.696638, 0.263175 )
 
 [node name="AudioStreamPlayer3DDirector" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/director"]
 transform = Transform( 1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 1.17169, 0 )

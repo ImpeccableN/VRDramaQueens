@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/dancemusic_nora.mp3-f24f16c2e30d9352ac535ca1d30b0434.mp3str"
+
+[deps]
+
+source_file="res://assets/music/dancemusic_nora.mp3"
+dest_files=[ "res://.import/dancemusic_nora.mp3-f24f16c2e30d9352ac535ca1d30b0434.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
