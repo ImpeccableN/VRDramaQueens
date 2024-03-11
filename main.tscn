@@ -646,7 +646,7 @@ transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 1
 transform = Transform( -0.2, 0, -1.74846e-08, 0, 0.2, 0, 1.74846e-08, 0, -0.2, 0.7, 0, -4 )
 
 [node name="Viewport" type="Viewport" parent="."]
-size = Vector2( 1080, 1080 )
+size = Vector2( 1920, 1080 )
 
 [node name="VideoPlayer" type="VideoPlayer" parent="Viewport"]
 margin_right = 40.0
