@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/papiertüte.glb-bd16c066de32aa9756339148dc97f4af.scn"
+path="res://.import/papiertüte.glb-f627b617c47db2ee9f4be8b36f84954b.scn"
 
 [deps]
 
-source_file="res://Objects/SceneAssets/Helmers Wohnzimmer/papiertüte.glb"
-dest_files=[ "res://.import/papiertüte.glb-bd16c066de32aa9756339148dc97f4af.scn" ]
+source_file="res://Objects/SceneAssets/Helmers Wohnzimmer/papiertüte.glb"
+dest_files=[ "res://.import/papiertüte.glb-f627b617c47db2ee9f4be8b36f84954b.scn" ]
 
 [params]
 

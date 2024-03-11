@@ -1,11 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://videos/Beginners_Scene.ogv" type="VideoStream" id=1]
+[ext_resource path="res://InitialScene_Video.gd" type="Script" id=2]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
 stream = ExtResource( 1 )
 autoplay = true
+
+[connection signal="finished" from="VideoPlayer" to="." method="_on_VideoPlayer_finished"]
