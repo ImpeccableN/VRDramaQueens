@@ -2874,10 +2874,10 @@ tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0, 38.5, 39.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 36.4, 38.5, 39.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 1.46562, 0.694135, -11.1912 ), Vector3( 6.044, 0.197228, -11.1912 ), Vector3( 6.044, 0.0152663, -17.5503 ) ]
+"values": [ Vector3( 1.46562, 0.694135, -11.1912 ), Vector3( 1.46562, 0.694135, -11.1912 ), Vector3( 6.044, 0.197228, -11.1912 ), Vector3( 6.044, 0.0152663, -17.5503 ) ]
 }
 tracks/15/type = "value"
 tracks/15/path = NodePath("MainAnimationPlayer/Maid_animated:rotation_degrees")
@@ -2886,10 +2886,10 @@ tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0, 37, 37.6, 38.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 36.4, 37, 37.6, 38.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, -137.095, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, -30.045, 0 ), Vector3( 0, 106.212, 0 ) ]
+"values": [ Vector3( 0, -137.095, 0 ), Vector3( 0, -137.095, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, -30.045, 0 ), Vector3( 0, 106.212, 0 ) ]
 }
 tracks/16/type = "animation"
 tracks/16/path = NodePath("MainAnimationPlayer/Maid_animated/AnimationPlayer")
@@ -8097,7 +8097,7 @@ visible = false
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/KristineLinde_animated/Figure Armature Blue Hair/Skeleton" index="0"]
-transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 1.39554, 0.293402 )
+transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08, -2.38418e-07, -6.70552e-08, 1, -1.37395e-08, 1.39374, 0.303519 )
 
 [node name="AudioStreamPlayer3DLinde" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/KristineLinde_animated"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.208157, 1.27794, -0.0807323 )
@@ -8129,7 +8129,7 @@ transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08
 
 [node name="AudioStreamPlayer3DTorvald" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Torvald_animated"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.171523, 1.29761, -0.0413971 )
-stream = ExtResource( 118 )
+stream = ExtResource( 105 )
 unit_size = 6.1
 max_db = 6.0
 
@@ -8267,7 +8267,7 @@ transform = Transform( -0.552155, 0, 0.833741, 0, 1, 0, -0.833741, 0, -0.552155,
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5undRest/Figure Armature Pink Hair/Skeleton" index="0"]
-transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 1.39554, 0.293402 )
+transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08, -2.38418e-07, -6.70552e-08, 1, -1.37395e-08, 1.39374, 0.303519 )
 
 [node name="AnimationPlayer" parent="MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5undRest" index="1"]
 "anims/Figure ArmatureAction001" = SubResource( 61 )
@@ -8281,7 +8281,7 @@ anims/walking = SubResource( 68 )
 
 [node name="AudioStreamPlayer3DNora" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5undRest"]
 transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.148294, 1.21808, -0.0675478 )
-stream = ExtResource( 96 )
+stream = ExtResource( 103 )
 unit_db = 80.0
 
 [node name="gardrobe" parent="MainAnimationPlayer/StageRound/NorasZimmer" instance=ExtResource( 85 )]
@@ -8340,7 +8340,7 @@ transform = Transform( -0.576589, 0, 0.817034, 0, 1, 0, -0.817034, 0, -0.576589,
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/StageRound/NorasZimmer_Szene7_1/Nora_animatedSzene7_1/Figure Armature Pink Hair/Skeleton" index="0"]
-transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 1.39554, 0.293402 )
+transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08, -2.38418e-07, -6.70552e-08, 1, -1.37395e-08, 1.39374, 0.303519 )
 
 [node name="AnimationPlayer" parent="MainAnimationPlayer/StageRound/NorasZimmer_Szene7_1/Nora_animatedSzene7_1" index="1"]
 "anims/Figure ArmatureAction001" = SubResource( 84 )
@@ -8354,7 +8354,7 @@ anims/walking = SubResource( 91 )
 
 [node name="AudioStreamPlayer3DNora" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/NorasZimmer_Szene7_1/Nora_animatedSzene7_1"]
 transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.148294, 1.21808, -0.0675478 )
-stream = ExtResource( 109 )
+stream = ExtResource( 113 )
 unit_db = 80.0
 
 [node name="gardrobe" parent="MainAnimationPlayer/StageRound/NorasZimmer_Szene7_1" instance=ExtResource( 85 )]
@@ -8405,7 +8405,7 @@ transform = Transform( -0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 0
 bones/152/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/director/VRDramaQueens_director/Skeleton" index="0"]
-transform = Transform( -0.185342, -0.764979, 0.616811, 0.0427595, 0.620808, 0.782786, -0.981743, 0.17146, -0.0823505, 0.0303158, 0.969457, 0.263175 )
+transform = Transform( -0.185342, -0.764979, 0.616811, 0.0427595, 0.620808, 0.782786, -0.981743, 0.17146, -0.0823505, 0.0303158, 0.696638, 0.263175 )
 
 [node name="AudioStreamPlayer3DDirector" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/director"]
 transform = Transform( 1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 1.17169, 0 )
