@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/NoraKind_1.mp3-15789bf0a242d5c964adb6f92290dfa2.mp3str"
+
+[deps]
+
+source_file="res://assets/Dialog/Nora/NoraKind_1.mp3"
+dest_files=[ "res://.import/NoraKind_1.mp3-15789bf0a242d5c964adb6f92290dfa2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

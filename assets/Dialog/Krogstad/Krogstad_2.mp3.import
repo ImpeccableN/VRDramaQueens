@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Krogstad_2.mp3-0ed24d61a4e24d6bb79e55deda3b6a3a.mp3str"
+
+[deps]
+
+source_file="res://assets/Dialog/Krogstad/Krogstad_2.mp3"
+dest_files=[ "res://.import/Krogstad_2.mp3-0ed24d61a4e24d6bb79e55deda3b6a3a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Torvald_1.mp3-ef8892477cb2bf1fd2e7313610e4e63a.mp3str"
+
+[deps]
+
+source_file="res://assets/Dialog/Torvald/Torvald_1.mp3"
+dest_files=[ "res://.import/Torvald_1.mp3-ef8892477cb2bf1fd2e7313610e4e63a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

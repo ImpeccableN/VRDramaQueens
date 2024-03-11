@@ -97,7 +97,6 @@ func move_hinge(position: float) -> void:
 
 	# Emit the moved signal
 	emit_signal("hinge_moved", hinge_position)
-	print(hinge_position)
 
 
 # Handle release of hinge

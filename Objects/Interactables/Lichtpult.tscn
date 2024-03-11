@@ -25,19 +25,19 @@ transform = Transform( 0.331052, 0, 0, 0, 0.147678, 0, 0, 0, 0.331052, 0, 0.2300
 [node name="Timer" type="Timer" parent="OffButton/RedButton/InteractableAreaButton" index="1"]
 
 [node name="Lever1" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.27, 0.03, -0.06 )
+transform = Transform( -0.15, 0, -1.31134e-08, 0, 0.15, 0, 1.31134e-08, 0, -0.15, -0.27, 0.03, -0.06 )
 
 [node name="Top" parent="Lever1/LeverOrigin/InteractableHinge/StaticBody/BlueLeverWB" index="2"]
 transform = Transform( -0.0455501, 0, 0, 0, -0.128658, 0, 0, 0, -0.064661, 0, 0.864604, 0 )
 
 [node name="Lever2" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.135, 0.03, -0.06 )
+transform = Transform( -0.15, 0, -1.31134e-08, 0, 0.15, 0, 1.31134e-08, 0, -0.15, -0.135, 0.03, -0.06 )
 
 [node name="Lever3" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.03, -0.06 )
+transform = Transform( -0.15, 0, -1.31134e-08, 0, 0.15, 0, 1.31134e-08, 0, -0.15, 0, 0.03, -0.06 )
 
 [node name="Lever4" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.135, 0.03, -0.06 )
+transform = Transform( -0.15, 0, -1.31134e-08, 0, 0.15, 0, 1.31134e-08, 0, -0.15, 0.135, 0.03, -0.06 )
 
 [node name="Button1" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.27, 0.025, 0.05 )
