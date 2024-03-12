@@ -1241,6 +1241,18 @@ tracks/21/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/22/type = "value"
+tracks/22/path = NodePath("MainAnimationPlayer/StageRound/WohnzimmerSzene1:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=101]
 resource_name = "KrogstadUndLinde"
@@ -1990,7 +2002,7 @@ tracks/50/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -0.876799, 0.676263, 1.63766 ) ]
+"values": [ Vector3( -2.14967, 0.495397, -2.50554 ) ]
 }
 
 [sub_resource type="Animation" id=39]
@@ -3272,7 +3284,7 @@ tracks/5/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 105 )
 } ],
-"times": PoolRealArray( 3.5, 8.6, 14.9, 27.6 )
+"times": PoolRealArray( 3.5, 8.6, 14.9, 27.1 )
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5undRest:visible")
@@ -3423,10 +3435,10 @@ tracks/18/loop_wrap = true
 tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = {
-"times": PoolRealArray( 0.1, 8.4, 14.7, 27.4, 36.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0.1, 8.4, 14.7, 36.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ false, false, false, false, false ]
+"values": [ false, false, false, false ]
 }
 tracks/19/type = "value"
 tracks/19/path = NodePath("MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5undRest/AudioStreamPlayer3DNora:playing")
@@ -3452,6 +3464,30 @@ tracks/20/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/21/type = "value"
+tracks/21/path = NodePath("MainAnimationPlayer/StageRound/WohnzimmerSzene1:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 33.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("MainAnimationPlayer/StageRound/NorasZimmer:visible")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 33.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=102]
 resource_name = "Szene7Prep"
@@ -3474,6 +3510,18 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MainAnimationPlayer/StageRound/NorasZimmer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -9546,7 +9594,7 @@ transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08
 
 [node name="AudioStreamPlayer3DKrogstad" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Krogstad_animated"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.114035, 1.30703, 0 )
-stream = ExtResource( 100 )
+stream = ExtResource( 74 )
 unit_db = 80.0
 
 [node name="KristineLinde_animated" parent="MainAnimationPlayer" instance=ExtResource( 30 )]
@@ -9561,7 +9609,7 @@ transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.03
 
 [node name="AudioStreamPlayer3DLinde" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/KristineLinde_animated"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.208157, 1.27794, -0.0807323 )
-stream = ExtResource( 87 )
+stream = ExtResource( 93 )
 unit_db = 80.0
 
 [node name="Maid_animated" parent="MainAnimationPlayer" instance=ExtResource( 29 )]
@@ -9572,7 +9620,7 @@ visible = false
 bones/1/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/Maid_animated/Figure Armature Bonnet/Skeleton" index="0"]
-transform = Transform( 1, 7.10543e-15, 2.38419e-07, 2.63021e-08, 0.993896, -0.110319, -2.36963e-07, 0.110319, 0.993896, -1.36464e-08, 1.24238, 0.286719 )
+transform = Transform( 1, 1.56376e-09, 2.38164e-07, 1.61188e-08, 0.997241, -0.0742274, -2.37623e-07, 0.0742274, 0.997241, -1.30871e-08, 1.24368, 0.282099 )
 
 [node name="AudioStreamPlayer3DMaid" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Maid_animated"]
 transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0.181506, 1.29402, -9.53674e-07 )
@@ -9589,7 +9637,7 @@ transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.03
 
 [node name="AudioStreamPlayer3DTorvald" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Torvald_animated"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.171523, 1.29761, -0.0413971 )
-stream = ExtResource( 134 )
+stream = ExtResource( 115 )
 unit_size = 6.1
 max_db = 6.0
 
@@ -9617,7 +9665,7 @@ shape = SubResource( 19 )
 [node name="WohnzimmerSzene1" type="Spatial" parent="MainAnimationPlayer/StageRound"]
 
 [node name="PinetreeSzene1" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene1" instance=ExtResource( 45 )]
-transform = Transform( 0.1, 0, -1.11759e-08, 0, 0.1, 0, 1.11759e-08, 0, 0.1, -0.876799, 0.676263, 1.63766 )
+transform = Transform( 0.1, 0, -1.11759e-08, 0, 0.1, 0, 1.11759e-08, 0, 0.1, -2.14967, 0.495397, -2.50554 )
 
 [node name="SofaSzene1" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene1" instance=ExtResource( 47 )]
 transform = Transform( 0.01048, 0, -0.49989, 0, 0.5, 0, 0.49989, 0, 0.01048, -0.76179, 1.04447, -0.248269 )
@@ -9701,7 +9749,7 @@ transform = Transform( -0.697228, 0, 0.716849, 0, 1, 0, -0.716849, 0, -0.697228,
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene3/Nora_animatedSzene3/Figure Armature Pink Hair/Skeleton" index="0"]
-transform = Transform( 0.999901, -0.000509094, 0.0140387, -1.14261e-08, 0.999343, 0.0362407, -0.0140479, -0.0362371, 0.999245, 0.000158778, 1.39554, 0.293401 )
+transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 0.972073, 0.293402 )
 
 [node name="AudioStreamPlayer3DNora" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene3/Nora_animatedSzene3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148294, 1.21808, -0.0675476 )
@@ -9759,7 +9807,7 @@ transform = Transform( -0.552155, 0, 0.833741, 0, 1, 0, -0.833741, 0, -0.552155,
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5undRest/Figure Armature Pink Hair/Skeleton" index="0"]
-transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.28488e-08, 0.972072, 0.293403 )
+transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 1.39554, 0.293402 )
 
 [node name="AnimationPlayer" parent="MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5undRest" index="1"]
 "anims/Figure ArmatureAction001" = SubResource( 61 )
@@ -9904,7 +9952,7 @@ transform = Transform( -0.185342, -0.764979, 0.616811, 0.0427595, 0.620808, 0.78
 
 [node name="AudioStreamPlayer3DDirector" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/director"]
 transform = Transform( 1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 1.17169, 0 )
-stream = ExtResource( 88 )
+stream = ExtResource( 89 )
 unit_db = 25.397
 
 [node name="LastSceneTriggerArea" type="Area" parent="."]

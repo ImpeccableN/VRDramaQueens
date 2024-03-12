@@ -1,6 +1,6 @@
 extends Node
 
-onready var progress := 4
+onready var progress := 0
 
 
 func getProgress():
