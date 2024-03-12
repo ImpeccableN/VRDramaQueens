@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Objects/Interactables/Lever.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Interactables/Button.tscn" type="PackedScene" id=2]
@@ -7,11 +7,16 @@
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 0.7, 0.05, 0.2 )
 
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.454902, 0.419608, 0.419608, 1 )
+metallic = 0.51
+
 [node name="Lichtpult" type="Spatial"]
 script = ExtResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
 
 [node name="OffButton" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.212961, 0.0296709, -0.0668947 )
