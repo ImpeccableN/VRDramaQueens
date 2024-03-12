@@ -18,7 +18,7 @@ var scene_paused = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	animation_player.play("RESET")
 
 # Handler für das hinge_moved-Signal des Scharniers
 func _on_InteractableHinge_hinge_moved(angle):
