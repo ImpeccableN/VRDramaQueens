@@ -49,10 +49,6 @@ func _on_InteractableHinge_hinge_moved(angle):
 				animation_player.play("Drehbuehne3Auf4")
 				#setz Progress auf 4
 				_progress.addProgress()
-				var briefInstance = briefPreload.instance()
-				add_child(briefInstance)
-				briefInstance.global_transform.origin = briefspawn.global_transform.origin
-#				brief_detector.monitoring = true
 			4:
 				if animation_player.is_playing():
 					animation_player.stop(false)
@@ -61,9 +57,6 @@ func _on_InteractableHinge_hinge_moved(angle):
 				#setz Progress auf 5
 				_progress.addProgress()
 				blinking_light.start()
-		
-		
-		
 		former_lever_position = not former_lever_position
 
 
