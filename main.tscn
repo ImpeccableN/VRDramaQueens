@@ -1,4 +1,4 @@
-[gd_scene load_steps=222 format=2]
+[gd_scene load_steps=225 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -128,6 +128,9 @@
 [ext_resource path="res://assets/Dialog/Torvald/Torvald_12.mp3" type="AudioStream" id=126]
 [ext_resource path="res://assets/Dialog/Nora/Nora_37.mp3" type="AudioStream" id=127]
 [ext_resource path="res://assets/Dialog/Torvald/Torvald_14.mp3" type="AudioStream" id=128]
+[ext_resource path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" type="PackedScene" id=129]
+[ext_resource path="res://addons/godot-xr-tools/functions/function_pointer.tscn" type="PackedScene" id=130]
+[ext_resource path="res://neuesMenu.tscn" type="PackedScene" id=131]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 25, 25, 1 )
@@ -2874,10 +2877,10 @@ tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0, 36.4, 38.5, 39.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 38.5, 39.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 1.46562, 0.694135, -11.1912 ), Vector3( 1.46562, 0.694135, -11.1912 ), Vector3( 6.044, 0.197228, -11.1912 ), Vector3( 6.044, 0.0152663, -17.5503 ) ]
+"values": [ Vector3( 1.46562, 0.694135, -11.1912 ), Vector3( 6.044, 0.197228, -11.1912 ), Vector3( 6.044, 0.0152663, -17.5503 ) ]
 }
 tracks/15/type = "value"
 tracks/15/path = NodePath("MainAnimationPlayer/Maid_animated:rotation_degrees")
@@ -2886,10 +2889,10 @@ tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0, 36.4, 37, 37.6, 38.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 37, 37.6, 38.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, -137.095, 0 ), Vector3( 0, -137.095, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, -30.045, 0 ), Vector3( 0, 106.212, 0 ) ]
+"values": [ Vector3( 0, -137.095, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, -30.045, 0 ), Vector3( 0, 106.212, 0 ) ]
 }
 tracks/16/type = "animation"
 tracks/16/path = NodePath("MainAnimationPlayer/Maid_animated/AnimationPlayer")
@@ -7724,6 +7727,9 @@ strafe = true
 
 [node name="FunctionPoseDetector" parent="FPController/LeftHandController" index="3" instance=ExtResource( 26 )]
 
+[node name="FunctionPointer" parent="FPController/LeftHandController" index="4" instance=ExtResource( 130 )]
+collision_mask = 5242880
+
 [node name="RightHandController" parent="FPController" index="3"]
 visible = true
 
@@ -7740,6 +7746,9 @@ strafe = false
 [node name="RightPhysicsHand" parent="FPController/RightHandController" index="3" instance=ExtResource( 24 )]
 
 [node name="FunctionPoseDetector" parent="FPController/RightHandController" index="4" instance=ExtResource( 26 )]
+
+[node name="FunctionPointer" parent="FPController/RightHandController" index="5" instance=ExtResource( 130 )]
+collision_mask = 5242880
 
 [node name="PlayerBody" parent="FPController" instance=ExtResource( 8 )]
 collision_mask = 1019
@@ -8112,7 +8121,7 @@ visible = false
 bones/1/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/Maid_animated/Figure Armature Bonnet/Skeleton" index="0"]
-transform = Transform( 1, 1.56376e-09, 2.38164e-07, 1.61188e-08, 0.997241, -0.0742274, -2.37623e-07, 0.0742274, 0.997241, -1.30871e-08, 1.24368, 0.282099 )
+transform = Transform( 1, 7.10543e-15, 2.38419e-07, 2.63021e-08, 0.993896, -0.110319, -2.36963e-07, 0.110319, 0.993896, -1.36464e-08, 1.24238, 0.286719 )
 
 [node name="AudioStreamPlayer3DMaid" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Maid_animated"]
 transform = Transform( 1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0.181506, 1.29402, -9.53674e-07 )
@@ -8129,7 +8138,7 @@ transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08
 
 [node name="AudioStreamPlayer3DTorvald" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Torvald_animated"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.171523, 1.29761, -0.0413971 )
-stream = ExtResource( 105 )
+stream = ExtResource( 118 )
 unit_size = 6.1
 max_db = 6.0
 
@@ -8281,7 +8290,7 @@ anims/walking = SubResource( 68 )
 
 [node name="AudioStreamPlayer3DNora" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5undRest"]
 transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.148294, 1.21808, -0.0675478 )
-stream = ExtResource( 103 )
+stream = ExtResource( 96 )
 unit_db = 80.0
 
 [node name="gardrobe" parent="MainAnimationPlayer/StageRound/NorasZimmer" instance=ExtResource( 85 )]
@@ -8354,7 +8363,7 @@ anims/walking = SubResource( 91 )
 
 [node name="AudioStreamPlayer3DNora" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/NorasZimmer_Szene7_1/Nora_animatedSzene7_1"]
 transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.148294, 1.21808, -0.0675478 )
-stream = ExtResource( 113 )
+stream = ExtResource( 109 )
 unit_db = 80.0
 
 [node name="gardrobe" parent="MainAnimationPlayer/StageRound/NorasZimmer_Szene7_1" instance=ExtResource( 85 )]
@@ -8405,7 +8414,7 @@ transform = Transform( -0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 0
 bones/152/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/director/VRDramaQueens_director/Skeleton" index="0"]
-transform = Transform( -0.185342, -0.764979, 0.616811, 0.0427595, 0.620808, 0.782786, -0.981743, 0.17146, -0.0823505, 0.0303158, 0.696638, 0.263175 )
+transform = Transform( -0.185342, -0.764979, 0.616811, 0.0427595, 0.620808, 0.782786, -0.981743, 0.17146, -0.0823505, 0.0303158, 0.969457, 0.263175 )
 
 [node name="AudioStreamPlayer3DDirector" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/director"]
 transform = Transform( 1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 1.17169, 0 )
@@ -8423,6 +8432,12 @@ shape = SubResource( 73 )
 
 [node name="BriefSpawn" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25997, 0.954824, -22.6091 )
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource( 129 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63853, 0 )
+transparent = 0
+unshaded = true
+scene = ExtResource( 131 )
 
 [connection signal="animation_finished" from="Stage/AnimationPlayerVorhangRechts" to="LichtpultPickable/DrehbuehneHebel" method="_on_AnimationPlayerVorhangRechts_animation_finished"]
 [connection signal="button_pressed" from="Stage/FunctionalCord/XRToolsInteractableAreaButton" to="Stage" method="_on_XRToolsInteractableAreaButton_button_pressed"]
