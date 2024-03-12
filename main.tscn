@@ -9584,7 +9584,7 @@ visible = false
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/Torvald_animated/Figure Armature Cylinder/Skeleton" index="0"]
-transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 1.39554, 0.293402 )
+transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08, -2.38418e-07, -6.70552e-08, 1, -1.37395e-08, 1.39374, 0.303519 )
 
 [node name="AudioStreamPlayer3DTorvald" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/Torvald_animated"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.171523, 1.29761, -0.0413971 )
@@ -9628,7 +9628,7 @@ transform = Transform( -0.296941, 0, -0.954895, 0, 1, 0, 0.954895, 0, -0.296941,
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene1/Nora_animatedSzene1/Figure Armature Pink Hair/Skeleton" index="0"]
-transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 1.39554, 0.293402 )
+transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08, -2.38418e-07, -6.70552e-08, 1, -1.37395e-08, 1.39374, 0.303519 )
 
 [node name="AnimationPlayer" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene1/Nora_animatedSzene1" index="1"]
 "anims/Figure ArmatureAction001" = SubResource( 103 )
@@ -9700,7 +9700,7 @@ transform = Transform( -0.697228, 0, 0.716849, 0, 1, 0, -0.716849, 0, -0.697228,
 bones/2/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene3/Nora_animatedSzene3/Figure Armature Pink Hair/Skeleton" index="0"]
-transform = Transform( 1, 1.58233e-09, 2.38338e-07, -1.02188e-08, 0.999343, 0.0362407, -2.38124e-07, -0.0362407, 0.999343, -1.2849e-08, 1.39554, 0.293402 )
+transform = Transform( 1, 1.59872e-14, 2.38418e-07, -3.48194e-14, 1, 3.72529e-08, -2.38418e-07, -6.70552e-08, 1, -1.37395e-08, 1.39374, 0.303519 )
 
 [node name="AudioStreamPlayer3DNora" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene3/Nora_animatedSzene3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148294, 1.21808, -0.0675476 )
@@ -9899,7 +9899,7 @@ transform = Transform( -0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 0
 bones/152/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/director/VRDramaQueens_director/Skeleton" index="0"]
-transform = Transform( -0.185342, -0.764979, 0.616811, 0.0427595, 0.620808, 0.782786, -0.981743, 0.17146, -0.0823505, 0.0303158, 0.696638, 0.263175 )
+transform = Transform( -0.185342, -0.764979, 0.616811, 0.0427595, 0.620808, 0.782786, -0.981743, 0.17146, -0.0823505, 0.0303158, 0.969457, 0.263175 )
 
 [node name="AudioStreamPlayer3DDirector" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/director"]
 transform = Transform( 1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 1.17169, 0 )
