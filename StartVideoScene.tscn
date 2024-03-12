@@ -1,6 +1,6 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://videos/Beginners_Scene.ogv" type="VideoStream" id=1]
+[ext_resource path="res://videos/Intro_mirrored.ogv" type="VideoStream" id=1]
 [ext_resource path="res://addons/godot-xr-tools/player/player_body.tscn" type="PackedScene" id=2]
 [ext_resource path="res://addons/godot-xr-tools/functions/function_pickup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_hand_low.tscn" type="PackedScene" id=4]
@@ -10,6 +10,7 @@
 [ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_physics_hand_low.tscn" type="PackedScene" id=8]
 [ext_resource path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" type="PackedScene" id=9]
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=10]
+[ext_resource path="res://StartVideoScene.gd" type="Script" id=11]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
@@ -38,6 +39,7 @@ extents = Vector3( 10.24, 0.05, 10.24 )
 
 [node name="StartVideoScene" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.9204, 0 )
+script = ExtResource( 11 )
 
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 1024, 600 )
@@ -132,6 +134,8 @@ material/0 = SubResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ceiling"]
 shape = SubResource( 6 )
+
+[connection signal="finished" from="Viewport/VideoPlayer" to="." method="_on_VideoPlayer_finished"]
 
 [editable path="FPController"]
 [editable path="FPController/PlayerBody"]
