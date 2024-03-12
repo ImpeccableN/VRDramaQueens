@@ -6,7 +6,7 @@ onready var _progress = get_node("/root/Main/GlobalVariables")
 onready var briefPreload = preload("res://Objects/Scenes/BriefPickable.tscn")
 onready var briefspawn = get_node("/root/Main/BriefSpawn")
 onready var brief_detector = get_node("/root/Main/MainAnimationPlayer/Torvald_animated/BriefDetectorArea")
-
+onready var blinking_light = get_node("/root/Main/dressingRoom/BlinkingSpot/Timer")
 
 # Winkelbegrenzungen für das Scharnier
 const MAX_ANGLE = 40
@@ -53,6 +53,14 @@ func _on_InteractableHinge_hinge_moved(angle):
 				add_child(briefInstance)
 				briefInstance.global_transform.origin = briefspawn.global_transform.origin
 #				brief_detector.monitoring = true
+			4:
+				if animation_player.is_playing():
+					animation_player.stop(false)
+				animation_player.animation_set_next("Drehbuehne4Auf5", "Szene5")
+				animation_player.play("Drehbuehne4Auf5")
+				#setz Progress auf 5
+				_progress.addProgress()
+				blinking_light.start()
 		
 		
 		
@@ -72,22 +80,43 @@ func _on_AnimationPlayerVorhangRechts_animation_finished(_anim_name):
 		scene_paused = false
 
 #wenn der Brief in den Mülleimer geworfen wird
-func _on_Eimer_body_entered(_body):
-	#setz Progress auf 5
+func _on_Eimer_body_entered(body):
+	body.queue_free()
+	#setz Progress auf 8
 	_progress.addProgress()
 	var eimer_area = get_node("/root/Main/dressingRoom/Eimer")
 	eimer_area.monitoring = false
 
 #wenn der Brief an Torvald gegeben wird
-func _on_BriefDetectorArea_body_entered(_body):
+func _on_BriefDetectorArea_body_entered(body):
+	body.queue_free()
 	if animation_player.is_playing():
 		animation_player.stop(false)
-#	animation_player.animation_set_next("Drehbuehne3Auf4", "Szene4")
 	animation_player.play("Szene7_2")
 
 #triggert die letzte szene, wenn der brief weggeschmissen wurde
 func _on_LastSceneTriggerArea_body_entered(_body):
 	if _progress.getProgress() == 5:
+		if animation_player.is_playing():
+			animation_player.stop(false)
+		animation_player.play("KrogstadUndLinde")
+		blinking_light.stop()
+		#setz Progress auf 6
+		_progress.addProgress()
+	if _progress.getProgress() == 6:
+		if animation_player.is_playing():
+			animation_player.stop(false)
+		animation_player.play("Szene6")
+		blinking_light.start()
+		#setz Progress auf 7
+		_progress.addProgress()
+		#spawn letter
+		var briefInstance = briefPreload.instance()
+		add_child(briefInstance)
+		briefInstance.global_transform.origin = briefspawn.global_transform.origin
+	if _progress.getProgress() == 7:
+		blinking_light.stop()
+	if _progress.getProgress() == 8:
 		if animation_player.is_playing():
 			animation_player.stop(false)
 		animation_player.play("Szene7_1")
