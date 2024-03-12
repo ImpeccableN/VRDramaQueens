@@ -1,6 +1,6 @@
 extends Node
 
-onready var progress := 0
+onready var progress := 4
 
 
 func getProgress():
@@ -17,4 +17,4 @@ func _on_MainAnimationPlayer_animation_finished(anim_name):
 # warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Objects/Scenes/Ende.tscn")
 	elif anim_name == "Szene7_1":
-		get_tree().change_scene("res://Objects/Scenes/EndScene_Video.tscn")
+		get_tree().change_scene("res://7_2VideoScene.tscn")

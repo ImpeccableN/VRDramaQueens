@@ -56,7 +56,6 @@ func _on_InteractableHinge_hinge_moved(angle):
 				animation_player.play("Drehbuehne4Auf5")
 				#setz Progress auf 5
 				_progress.addProgress()
-				blinking_light.start()
 		former_lever_position = not former_lever_position
 
 
@@ -85,32 +84,43 @@ func _on_BriefDetectorArea_body_entered(body):
 	body.queue_free()
 	if animation_player.is_playing():
 		animation_player.stop(false)
-	animation_player.play("Szene7_2")
+	animation_player.play("Szene7_1")
 
 #triggert die letzte szene, wenn der brief weggeschmissen wurde
 func _on_LastSceneTriggerArea_body_entered(_body):
-	if _progress.getProgress() == 5:
+	if _progress.getProgress() == 6:
 		if animation_player.is_playing():
 			animation_player.stop(false)
 		animation_player.play("KrogstadUndLinde")
 		blinking_light.stop()
-		#setz Progress auf 6
+		#setz Progress auf 7
 		_progress.addProgress()
-	if _progress.getProgress() == 6:
+	if _progress.getProgress() == 8:
 		if animation_player.is_playing():
 			animation_player.stop(false)
 		animation_player.play("Szene6")
-		blinking_light.start()
-		#setz Progress auf 7
+		#setz Progress auf 9
 		_progress.addProgress()
 		#spawn letter
 		var briefInstance = briefPreload.instance()
 		add_child(briefInstance)
 		briefInstance.global_transform.origin = briefspawn.global_transform.origin
-	if _progress.getProgress() == 7:
+	if _progress.getProgress() == 9:
 		blinking_light.stop()
-	if _progress.getProgress() == 8:
+	if _progress.getProgress() == 10:
 		if animation_player.is_playing():
 			animation_player.stop(false)
-		animation_player.play("Szene7_1")
+		animation_player.play("Szene7_2")
 	
+
+
+func _on_MainAnimationPlayer_animation_finished(anim_name):
+	if anim_name == "Szene5":
+		blinking_light.start()
+		#setz Progress auf 6
+		_progress.addProgress()
+	elif anim_name == "KrogstadUndLinde":
+		#setz Progress auf 8
+		_progress.addProgress()
+	elif anim_name == "Szene6":
+		blinking_light.start()

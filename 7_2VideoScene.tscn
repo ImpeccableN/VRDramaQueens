@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://StartVideoScene.tscn" type="PackedScene" id=1]
-[ext_resource path="res://videos/Outro_mirrored.ogv" type="VideoStream" id=2]
+[ext_resource path="res://videos/EndScene.ogv" type="VideoStream" id=2]
+[ext_resource path="res://7_2VideoScene.gd" type="Script" id=3]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
@@ -12,6 +13,7 @@ flags_unshaded = true
 albedo_texture = SubResource( 1 )
 
 [node name="7_2VideoScene" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
 
 [node name="VideoPlayer" parent="Viewport" index="0"]
 stream = ExtResource( 2 )
