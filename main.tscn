@@ -1,4 +1,4 @@
-[gd_scene load_steps=237 format=2]
+[gd_scene load_steps=238 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Stage.glb" type="PackedScene" id=2]
@@ -3961,6 +3961,9 @@ extents = Vector3( 0.106689, 1.64672, 2.49961 )
 [sub_resource type="CylinderShape" id=19]
 height = 1.41465
 radius = 2.49458
+
+[sub_resource type="SpatialMaterial" id=111]
+albedo_color = Color( 0.0509804, 0.737255, 0.12549, 1 )
 
 [sub_resource type="Animation" id=103]
 resource_name = "Figure ArmatureAction001"
@@ -9665,6 +9668,9 @@ shape = SubResource( 19 )
 [node name="PinetreeSzene1" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene1" instance=ExtResource( 45 )]
 transform = Transform( 0.1, 0, -1.11759e-08, 0, 0.1, 0, 1.11759e-08, 0, 0.1, -2.14967, 0.495397, -2.50554 )
 
+[node name="Cube005" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene1/PinetreeSzene1" index="1"]
+material/0 = SubResource( 111 )
+
 [node name="SofaSzene1" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene1" instance=ExtResource( 47 )]
 transform = Transform( 0.01048, 0, -0.49989, 0, 0.5, 0, 0.49989, 0, 0.01048, -0.76179, 1.04447, -0.248269 )
 
@@ -9737,6 +9743,9 @@ visible = false
 transform = Transform( 0.1, 0, -1.11759e-08, 0, 0.1, 0, 1.11759e-08, 0, 0.1, -1.68617, 0.676263, 0.160998 )
 visible = false
 
+[node name="Cube005" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene3/PinetreeSzene3" index="1"]
+material/0 = SubResource( 111 )
+
 [node name="SofaSzene3" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene3" instance=ExtResource( 47 )]
 transform = Transform( 0.01048, 0, -0.49989, 0, 0.5, 0, 0.49989, 0, 0.01048, -0.76179, 1.04447, -0.248269 )
 
@@ -9760,6 +9769,9 @@ visible = false
 
 [node name="PinetreeSzene4" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene4" instance=ExtResource( 45 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.83836, 0.696251, 0.345243 )
+
+[node name="Cube005" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene4/PinetreeSzene4" index="1"]
+material/0 = SubResource( 111 )
 
 [node name="SofaSzene4" parent="MainAnimationPlayer/StageRound/WohnzimmerSzene4" instance=ExtResource( 47 )]
 transform = Transform( 0.01048, 0, -0.49989, 0, 0.5, 0, 0.49989, 0, 0.01048, -0.76179, 1.04447, -0.248269 )
@@ -9946,7 +9958,7 @@ transform = Transform( -0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 0
 bones/152/bound_children = [ NodePath("BoneAttachment") ]
 
 [node name="BoneAttachment" parent="MainAnimationPlayer/director/VRDramaQueens_director/Skeleton" index="0"]
-transform = Transform( -0.735575, 0.33208, -0.590468, -0.673573, -0.451474, 0.585195, -0.0722518, 0.828184, 0.555779, 0.45781, 1.07111, 0.195288 )
+transform = Transform( -0.185342, -0.764979, 0.616811, 0.0427595, 0.620808, 0.782786, -0.981743, 0.17146, -0.0823505, 0.0303158, 0.969457, 0.263175 )
 
 [node name="AudioStreamPlayer3DDirector" type="AudioStreamPlayer3D" parent="MainAnimationPlayer/director"]
 transform = Transform( 1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, 0, 1.17169, 0 )
@@ -10004,8 +10016,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25997, 0.954824, -22.6091 )
 [editable path="MainAnimationPlayer/KristineLinde_animated"]
 [editable path="MainAnimationPlayer/Maid_animated"]
 [editable path="MainAnimationPlayer/Torvald_animated"]
+[editable path="MainAnimationPlayer/StageRound/WohnzimmerSzene1/PinetreeSzene1"]
 [editable path="MainAnimationPlayer/StageRound/WohnzimmerSzene1/Nora_animatedSzene1"]
+[editable path="MainAnimationPlayer/StageRound/WohnzimmerSzene3/PinetreeSzene3"]
 [editable path="MainAnimationPlayer/StageRound/WohnzimmerSzene3/Nora_animatedSzene3"]
+[editable path="MainAnimationPlayer/StageRound/WohnzimmerSzene4/PinetreeSzene4"]
 [editable path="MainAnimationPlayer/StageRound/WohnzimmerSzene4/Nora_animatedSzene4"]
 [editable path="MainAnimationPlayer/StageRound/NorasZimmer/Nora_animatedSzene5undRest"]
 [editable path="MainAnimationPlayer/StageRound/NorasZimmer_Szene6/Nora_animatedSzene6"]
